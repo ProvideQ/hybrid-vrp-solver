@@ -8,4 +8,4 @@ edition = "2021"
 [dependencies]
 clap = { version = "4.3.2", features = ["derive"] }
 indicatif = "0.17.5"
-tsplib = "0.1.0"
+tspf = "0.3.1"
