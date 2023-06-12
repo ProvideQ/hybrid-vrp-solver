@@ -1,11 +1,16 @@
 mod args;
 mod error_code;
 
+mod logic {
+    pub mod solver;
+}
+
 use std::process::exit;
 
 use args::{VRPCommand, VRPSolverArgs};
 use clap::Parser;
 use error_code::ExitCode;
+use logic::solver::{KNNClustering, VrpSolver};
 use tspf::{TspBuilder, TspKind};
 
 fn main() {
@@ -33,6 +38,13 @@ fn main() {
 
             println!("name: {}", vrp_instance.name());
             println!("type: {}", vrp_instance.kind());
+
+            println!("solve");
+            let solver = VrpSolver {
+                cluster_strat: Box::new(KNNClustering),
+            };
+
+            println!("result {}", solver.solve(vrp_instance));
         }
     }
 }
