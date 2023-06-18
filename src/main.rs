@@ -41,7 +41,7 @@ fn main() {
 
             println!("solve");
             let solver = VrpSolver {
-                cluster_strat: Box::new(KNNClustering),
+                cluster_strat: Box::new(KNNClustering { count: 20 }),
             };
 
             println!("result {}", solver.solve(vrp_instance));
