@@ -9,4 +9,4 @@ edition = "2021"
 clap = { version = "4.3.2", features = ["derive"] }
 indicatif = "0.17.5"
 kmeans = "0.2.0"
-tspf = "0.3.1"
+tspf = { path = "../tspf-rs" }

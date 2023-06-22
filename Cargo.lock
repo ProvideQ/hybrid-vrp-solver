@@ -632,8 +632,6 @@ dependencies = [
 [[package]]
 name = "tspf"
 version = "0.3.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "cd359e066532c6e070e598e10fcf14f4b8ae9833cf42a92b3891eb03ed37afef"
 dependencies = [
  "getset",
 ]
