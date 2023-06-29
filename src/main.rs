@@ -9,7 +9,7 @@ mod tsplib {
     pub mod serializer;
 }
 
-use std::process::exit;
+use std::{env, process::exit};
 
 use args::{VRPCommand, VRPSolverArgs};
 use clap::Parser;
@@ -23,6 +23,10 @@ fn main() {
     match args.command {
         VRPCommand::Solve(subcommandargs) => {
             let path = subcommandargs.path;
+            match env::current_dir() {
+                Ok(path) => println!("working dir: {}", path.display()),
+                Err(_) => println!("errors finding the working dir"),
+            }
             println!("path: {}", path);
 
             let vrp_instance = match TspBuilder::parse_path(path) {
@@ -48,7 +52,7 @@ fn main() {
                 cluster_strat: Box::new(KNNClustering { count: 20 }),
             };
 
-            println!("result {}", solver.solve(vrp_instance));
+            println!("result {:?}", solver.solve(vrp_instance));
         }
     }
 }

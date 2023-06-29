@@ -10,16 +10,18 @@
             "name": "Debug executable 'pipeline'",
             "cargo": {
                 "args": [
+                    "+nightly",
                     "build",
                     "--bin=pipeline",
-                    "--package=pipeline"
+                    "--package=pipeline",
+                    "--all-features"
                 ],
                 "filter": {
                     "name": "pipeline",
                     "kind": "bin"
                 }
             },
-            "args": ["solve", "src/res/att48.vrp "],
+            "args": ["solve", "src/res/gil262.vrp"],
             "cwd": "${workspaceFolder}"
         },
         {

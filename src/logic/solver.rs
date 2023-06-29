@@ -1,9 +1,21 @@
-use std::collections::HashMap;
+use std::{
+    collections::HashMap,
+    fs::{self, File},
+    io::{BufRead, BufReader},
+    process::exit,
+    sync::Arc,
+};
 
 use kmeans::{KMeans, KMeansConfig};
 use tspf::{Point, Tsp, TspSerializer};
-
-use crate::tsplib::serializer::serialize_tsp;
+use vrp_scientific::{
+    core::{
+        rosomaxa::prelude::TelemetryMode,
+        solver::{create_default_config_builder, Solver},
+        utils::Environment,
+    },
+    tsplib::*,
+};
 
 pub type ClutserOutput = Vec<Vec<usize>>;
 
@@ -54,20 +66,20 @@ pub struct VrpSolver {
     pub cluster_strat: Box<dyn ClusteringTrait>,
 }
 impl VrpSolver {
-    pub fn cluster_tsps(&self, problem: &Tsp, clusters: ClutserOutput) -> Vec<Tsp> {
+    fn cluster_tsps(&self, problem: &Tsp, clusters: ClutserOutput) -> Vec<Tsp> {
         let mut tsps: Vec<Tsp> = Vec::new();
         for (i, cluster) in clusters.iter().enumerate() {
             let node_coords = problem
                 .node_coords()
                 .iter()
-                .filter(|(u, point)| cluster.contains(*u) || problem.depots().contains(*u))
+                .filter(|(u, _point)| cluster.contains(*u) || problem.depots().contains(*u))
                 .map(|(u, p)| (*u, p.clone()))
                 .collect();
 
             let node_coords_filter: HashMap<usize, &Point> = problem
                 .node_coords()
                 .iter()
-                .filter(|(u, point)| cluster.contains(*u) || problem.depots().contains(*u))
+                .filter(|(u, _point)| cluster.contains(*u) || problem.depots().contains(*u))
                 .map(|(u, p)| (*u, p))
                 .collect();
 
@@ -87,7 +99,7 @@ impl VrpSolver {
                 problem
                     .demands()
                     .iter()
-                    .filter(|(u, point)| node_coords_filter.get(u).is_some())
+                    .filter(|(u, _p)| node_coords_filter.get(u).is_some())
                     .map(|(u, p)| (*u, *p))
                     .collect(),
                 problem
@@ -131,19 +143,86 @@ impl VrpSolver {
         tsps
     }
 
-    pub fn solve(&self, problem: Tsp) -> u32 {
+    fn partial_solve(&self, vrp_file: &File) -> Vec<Vec<usize>> {
+        let reader = BufReader::new(vrp_file);
+
+        let arc_problem = {
+            let problem = match reader.read_tsplib(false) {
+                Ok(problem) => problem,
+                Err(error) => {
+                    println!("Something went wrong parsing a sub VRP: \n{error}");
+                    exit(1);
+                }
+            };
+            Arc::new(problem)
+        };
+
+        let arc_env = Arc::new(Environment::default());
+
+        let config =
+            match create_default_config_builder(arc_problem.clone(), arc_env, TelemetryMode::None)
+                .build()
+            {
+                Ok(config) => config,
+                Err(e) => {
+                    println!("Something went wrong building the config: \n{e}");
+                    exit(1);
+                }
+            };
+
+        let solver = Solver::new(arc_problem.clone(), config);
+        let (solution, _cost) = match solver.solve() {
+            Ok((sol, cost, _)) => (sol, cost),
+            Err(e) => {
+                println!("Something went wrong solving a partial vrp: \n{e}");
+                exit(1)
+            }
+        };
+
+        solution
+            .routes
+            .iter()
+            .map(|r| r.tour.all_activities().map(|a| a.place.location).collect())
+            .collect()
+    }
+
+    pub fn solve(&self, problem: Tsp) -> Vec<Vec<usize>> {
         let clusters = self.cluster_strat.cluster(&problem);
         let vrps = self.cluster_tsps(&problem, clusters);
         println!("Length: {}", vrps.len());
+        let mut vrp_files: Vec<File> = vec![];
+
+        match fs::create_dir_all("./.vrp") {
+            Ok(_) => {}
+            Err(e) => {
+                println!("Something went wrong creating dirs: \n{e}");
+                exit(1)
+            }
+        };
         for vrp in vrps {
-            match TspSerializer::serialize_file(&vrp, String::from(format!("./{}.vrp", vrp.name())))
-            {
-                Err(err) => {
-                    println!("{}", err);
-                }
-                _ => (),
-            };
+            vrp_files.push(
+                match TspSerializer::serialize_file(
+                    &vrp,
+                    String::from(format!("./.vrp/{}.vrp", vrp.name())),
+                ) {
+                    Err(err) => {
+                        println!("{}", err);
+                        exit(1)
+                    }
+                    Ok(file) => file,
+                },
+            );
         }
-        1
+
+        let paths = vrp_files
+            .iter()
+            .map(|file| self.partial_solve(file))
+            .reduce(|paths, new_paths| [paths, new_paths].concat())
+            .unwrap_or_else(|| {
+                println!("Something went wrong reducing paths");
+                vec![]
+            });
+
+        paths
     }
 }
