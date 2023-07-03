@@ -5,10 +5,6 @@ mod logic {
     pub mod solver;
 }
 
-mod tsplib {
-    pub mod serializer;
-}
-
 use std::{env, process::exit};
 
 use args::{VRPCommand, VRPSolverArgs};
