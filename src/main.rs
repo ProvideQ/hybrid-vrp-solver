@@ -1,16 +1,14 @@
 mod args;
 mod error_code;
-
-mod logic {
-    pub mod solver;
-}
+mod logic;
 
 use std::{env, process::exit};
 
 use args::{VRPCommand, VRPSolverArgs};
 use clap::Parser;
 use error_code::ExitCode;
-use logic::solver::{KNNClustering, VrpSolver};
+use logic::clustering::KNNClustering;
+use logic::solver::VrpSolver;
 use tspf::{TspBuilder, TspKind};
 
 fn main() {
