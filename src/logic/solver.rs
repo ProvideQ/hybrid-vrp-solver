@@ -1,24 +1,19 @@
-use super::clustering::{ClusteringTrait, ClutserOutput};
+use super::{
+    super::error_code::ExitCode,
+    clustering::{ClusteringTrait, ClutserOutput},
+    solvers::{SolvingOutput, SolvingTrait},
+};
 
 use std::{
     collections::HashMap,
     fs::{self, File},
-    io::{BufRead, BufReader},
     process::exit,
-    sync::Arc,
 };
-use tspf::{Point, Tsp, TspSerializer};
-use vrp_scientific::{
-    core::{
-        rosomaxa::prelude::TelemetryMode,
-        solver::{create_default_config_builder, Solver},
-        utils::Environment,
-    },
-    tsplib::*,
-};
+use tspf::{Point, Tsp, TspBuilder, TspKind, TspSerializer};
 
 pub struct VrpSolver {
     pub cluster_strat: Box<dyn ClusteringTrait>,
+    pub solving_strat: Box<dyn SolvingTrait>,
 }
 impl VrpSolver {
     fn cluster_tsps(&self, problem: &Tsp, clusters: ClutserOutput) -> Vec<Tsp> {
@@ -97,55 +92,32 @@ impl VrpSolver {
         }
         tsps
     }
+}
 
-    fn partial_solve(&self, vrp_file: &File) -> Vec<Vec<usize>> {
-        let reader = BufReader::new(vrp_file);
-
-        let arc_problem = {
-            let problem = match reader.read_tsplib(false) {
-                Ok(problem) => problem,
-                Err(error) => {
-                    println!("Something went wrong parsing a sub VRP: \n{error}");
-                    exit(1);
-                }
-            };
-            Arc::new(problem)
-        };
-
-        let arc_env = Arc::new(Environment::default());
-
-        let config =
-            match create_default_config_builder(arc_problem.clone(), arc_env, TelemetryMode::None)
-                .build()
-            {
-                Ok(config) => config,
-                Err(e) => {
-                    println!("Something went wrong building the config: \n{e}");
-                    exit(1);
-                }
-            };
-
-        let solver = Solver::new(arc_problem.clone(), config);
-        let (solution, _cost) = match solver.solve() {
-            Ok((sol, cost, _)) => (sol, cost),
+impl SolvingTrait for VrpSolver {
+    fn solve(&self, path: &str) -> SolvingOutput {
+        let problem = match TspBuilder::parse_path(path) {
+            Ok(instance) => instance,
             Err(e) => {
-                println!("Something went wrong solving a partial vrp: \n{e}");
-                exit(1)
+                println!("Problems reading the VRP-Instance: {}", e);
+                exit(ExitCode::ReadProblems as i32);
             }
         };
+        if problem.kind() != TspKind::Cvrp {
+            println!(
+                "Invalid TSPLIB instance type {}. (supported is CVRP)",
+                problem.kind().to_string().to_uppercase()
+            );
+            exit(ExitCode::WrongTspType as i32);
+        }
 
-        solution
-            .routes
-            .iter()
-            .map(|r| r.tour.all_activities().map(|a| a.place.location).collect())
-            .collect()
-    }
+        println!("name: {}", problem.name());
+        println!("type: {}", problem.kind());
 
-    pub fn solve(&self, problem: Tsp) -> Vec<Vec<usize>> {
         let clusters = self.cluster_strat.cluster(&problem);
         let vrps = self.cluster_tsps(&problem, clusters);
-        println!("Length: {}", vrps.len());
-        let mut vrp_files: Vec<File> = vec![];
+
+        let mut vrp_files: Vec<(File, String)> = vec![];
 
         match fs::create_dir_all("./.vrp") {
             Ok(_) => {}
@@ -171,7 +143,7 @@ impl VrpSolver {
 
         let paths = vrp_files
             .iter()
-            .map(|file| self.partial_solve(file))
+            .map(|(file, path)| self.solving_strat.solve(&path[..]))
             .reduce(|paths, new_paths| [paths, new_paths].concat())
             .unwrap_or_else(|| {
                 println!("Something went wrong reducing paths");
