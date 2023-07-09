@@ -4,12 +4,51 @@ use super::{
     solvers::{SolvingOutput, SolvingTrait},
 };
 
+use bimap::BiMap;
 use std::{
     collections::HashMap,
     fs::{self, File},
     process::exit,
 };
 use tspf::{Point, Tsp, TspBuilder, TspKind, TspSerializer};
+
+fn reindex_vrp(vrp: &Tsp) -> (Tsp, BiMap<usize, usize>) {
+    let map: BiMap<usize, usize> = vrp
+        .node_coords()
+        .iter()
+        .enumerate()
+        .map(|(new_id, (id, _))| (*id, new_id))
+        .collect();
+
+    (
+        Tsp::from(
+            vrp.name().to_string(),
+            vrp.kind(),
+            vrp.comment().to_string(),
+            vrp.dim(),
+            vrp.capacity(),
+            vrp.weight_kind(),
+            vrp.weight_format(),
+            vrp.edge_format().clone(),
+            vrp.coord_kind(),
+            vrp.disp_kind(),
+            vrp.node_coords()
+                .iter()
+                .map(|(id, p)| {
+                    let new_id = map.get_by_left(id).unwrap();
+                    (*new_id, Point::new(*new_id, p.pos().to_vec()))
+                })
+                .collect(),
+            vrp.depots().clone(),
+            vrp.demands().clone(),
+            vrp.fixed_edges().to_vec(),
+            vrp.disp_coords().to_vec(),
+            vrp.edge_weights().to_vec(),
+            vec![],
+        ),
+        map,
+    )
+}
 
 pub struct VrpSolver {
     pub cluster_strat: Box<dyn ClusteringTrait>,
@@ -115,9 +154,10 @@ impl SolvingTrait for VrpSolver {
         println!("type: {}", problem.kind());
 
         let clusters = self.cluster_strat.cluster(&problem);
-        let vrps = self.cluster_tsps(&problem, clusters);
+        let vrps_raw = self.cluster_tsps(&problem, clusters);
 
-        let mut vrp_files: Vec<(File, String)> = vec![];
+        let vrps: Vec<(Tsp, BiMap<usize, usize>)> =
+            vrps_raw.iter().map(|vrp| reindex_vrp(vrp)).collect();
 
         match fs::create_dir_all("./.vrp") {
             Ok(_) => {}
@@ -126,9 +166,11 @@ impl SolvingTrait for VrpSolver {
                 exit(1)
             }
         };
-        for vrp in vrps {
-            vrp_files.push(
-                match TspSerializer::serialize_file(
+
+        let vrps: Vec<(File, String, BiMap<usize, usize>)> = vrps
+            .iter()
+            .map(|(vrp, map)| {
+                let (file, path) = match TspSerializer::serialize_file(
                     &vrp,
                     String::from(format!("./.vrp/{}.vrp", vrp.name())),
                 ) {
@@ -137,13 +179,25 @@ impl SolvingTrait for VrpSolver {
                         exit(1)
                     }
                     Ok(file) => file,
-                },
-            );
-        }
+                };
+                (file, path, map.clone())
+            })
+            .collect();
 
-        let paths = vrp_files
+        let paths = vrps
             .iter()
-            .map(|(file, path)| self.solving_strat.solve(&path[..]))
+            .map(|(_file, path, map)| {
+                let paths = self.solving_strat.solve(&path[..]);
+
+                paths
+                    .iter()
+                    .map(|path| {
+                        path.iter()
+                            .map(|id| *map.get_by_right(id).unwrap())
+                            .collect()
+                    })
+                    .collect()
+            })
             .reduce(|paths, new_paths| [paths, new_paths].concat())
             .unwrap_or_else(|| {
                 println!("Something went wrong reducing paths");

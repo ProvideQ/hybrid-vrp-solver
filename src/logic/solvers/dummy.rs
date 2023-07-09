@@ -16,7 +16,11 @@ impl SolvingTrait for DummySolver {
             }
         };
 
-        if vrp.node_coords().into_iter().any(|(id, p)| *id > vrp.dim()) {
+        if vrp
+            .node_coords()
+            .into_iter()
+            .any(|(id, _p)| *id > vrp.dim())
+        {
             println!("DummySolver: There is a point with a greater id than there are points");
             exit(1)
         }

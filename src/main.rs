@@ -8,7 +8,7 @@ use args::{VRPCommand, VRPSolverArgs};
 use clap::Parser;
 use logic::clustering::KNNClustering;
 use logic::solver::VrpSolver;
-use logic::solvers::{DummySolver, RustVrpSolver, SolvingTrait};
+use logic::solvers::{DummySolver, SolvingTrait};
 
 fn main() {
     let args = VRPSolverArgs::parse();
