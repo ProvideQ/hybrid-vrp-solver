@@ -8,7 +8,7 @@ use args::{VRPCommand, VRPSolverArgs};
 use clap::Parser;
 use logic::clustering::KNNClustering;
 use logic::solver::VrpSolver;
-use logic::solvers::{RustVrpSolver, SolvingTrait};
+use logic::solvers::{DummySolver, RustVrpSolver, SolvingTrait};
 
 fn main() {
     let args = VRPSolverArgs::parse();
@@ -25,7 +25,7 @@ fn main() {
             println!("solve");
             let solver = VrpSolver {
                 cluster_strat: Box::new(KNNClustering { count: 20 }),
-                solving_strat: Box::new(RustVrpSolver {}),
+                solving_strat: Box::new(DummySolver {}),
             };
 
             println!("result {:?}", solver.solve(&path[..]));
