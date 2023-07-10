@@ -17,7 +17,7 @@ fn reindex_vrp(vrp: &Tsp) -> (Tsp, BiMap<usize, usize>) {
         .node_coords()
         .iter()
         .enumerate()
-        .map(|(new_id, (id, _))| (*id, new_id))
+        .map(|(new_id, (id, _))| (*id, new_id + 1))
         .collect();
 
     (
@@ -39,8 +39,20 @@ fn reindex_vrp(vrp: &Tsp) -> (Tsp, BiMap<usize, usize>) {
                     (*new_id, Point::new(*new_id, p.pos().to_vec()))
                 })
                 .collect(),
-            vrp.depots().clone(),
-            vrp.demands().clone(),
+            vrp.depots()
+                .iter()
+                .map(|id| {
+                    let new_id = map.get_by_left(id).unwrap();
+                    *new_id
+                })
+                .collect(),
+            vrp.demands()
+                .iter()
+                .map(|(id, demand)| {
+                    let new_id = map.get_by_left(id).unwrap();
+                    (*new_id, *demand)
+                })
+                .collect(),
             vrp.fixed_edges().to_vec(),
             vrp.disp_coords().to_vec(),
             vrp.edge_weights().to_vec(),

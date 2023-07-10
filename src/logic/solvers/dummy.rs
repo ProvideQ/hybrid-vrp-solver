@@ -25,6 +25,6 @@ impl SolvingTrait for DummySolver {
             exit(1)
         }
 
-        vec![(0..(vrp.dim() - 1)).collect()]
+        vec![(1..vrp.dim()).collect()]
     }
 }
