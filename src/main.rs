@@ -8,7 +8,7 @@ use args::{VRPCommand, VRPSolverArgs};
 use clap::Parser;
 use logic::clustering::KNNClustering;
 use logic::solver::VrpSolver;
-use logic::solvers::{DummySolver, SolvingTrait};
+use logic::solvers::{LKHSolver, SolvingTrait};
 
 fn main() {
     let args = VRPSolverArgs::parse();
@@ -25,7 +25,9 @@ fn main() {
             println!("solve");
             let solver = VrpSolver {
                 cluster_strat: Box::new(KNNClustering { count: 20 }),
-                solving_strat: Box::new(DummySolver {}),
+                solving_strat: Box::new(LKHSolver {
+                    binary: String::from(""),
+                }),
             };
 
             println!("result {:?}", solver.solve(&path[..]));
