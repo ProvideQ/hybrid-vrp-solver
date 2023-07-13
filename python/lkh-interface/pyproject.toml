@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "lkh-interface"
+version = "0.1.0"
+description = "A interface for the lkh-3 solver"
+authors = ["Your Name <you@example.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+lkh = "^1.1.1"
+tsplib95 = "^0.7.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
