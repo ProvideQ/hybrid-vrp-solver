@@ -15,22 +15,29 @@ parser.add_argument('-t', '--max-trials', default=1000)
 parser.add_argument('-r', '--runs', default=10)
 
 args = parser.parse_args()
-
     
     
 problem = LKHProblem.load(args.tsplib_file)
 
-extra = {}
-tours = solve(args.lkh_instance, problem=problem, max_trials=args.max_trials, **extra)
+if sum(problem.demands.values()) < problem.capacity:
+    problem.type = "TSP"
 
+if len(problem.node_coords.values()) > 2:
+    extra = {}
+    tours = solve(args.lkh_instance, problem=problem, max_trials=args.max_trials, **extra)
 
-
-
-if (args.output_file is not None):
     tour = StandardProblem()
 
     tour.tours = tours
     tour.type = "TOUR"
     tour.name = problem.name + " solution"
+else:
+    tour = StandardProblem()
+    tour.tours = [filter(lambda key: key not in problem.depots, problem.node_coords.keys())]
+    tour.type = "TOUR"
+    tour.name = problem.name + " solution"
 
+
+
+if (args.output_file is not None):
     tour.save(args.output_file)
