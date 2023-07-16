@@ -2,9 +2,11 @@ use std::{
     fs,
     io::{stdout, Write},
     path::PathBuf,
-    process::Command,
+    process::{exit, Command},
     str,
 };
+
+use tspf::TspBuilder;
 
 use super::{DummySolver, SolvingTrait};
 
@@ -30,8 +32,6 @@ impl SolvingTrait for LKHSolver {
 
         let output_file_path = format!("{}{}", file_name, "tour");
 
-        println!("{}", output_file_path);
-
         let output = Command::new("poetry")
             .current_dir("./python/lkh-interface")
             .arg("run")
@@ -39,12 +39,15 @@ impl SolvingTrait for LKHSolver {
             .arg("/Users/lucas/workspace/uni/bachelor/pipeline/python/lkh-interface/src/main.py")
             .arg(abs_path)
             .arg("--output-file")
-            .arg(output_file_path)
+            .arg(&output_file_path)
             .output()
             .unwrap();
 
-        println!("status: {}", output.status);
-        stdout().write_all(&output.stdout).unwrap();
-        vec![]
+        if let Ok(tour) = TspBuilder::parse_path(&output_file_path[..]) {
+            tour.tours().clone()
+        } else {
+            println!("Failed to open tour file");
+            exit(1)
+        }
     }
 }

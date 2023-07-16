@@ -24,7 +24,7 @@ fn main() {
 
             println!("solve");
             let solver = VrpSolver {
-                cluster_strat: Box::new(KNNClustering { count: 20 }),
+                cluster_strat: Box::new(KNNClustering { count: 2 }),
                 solving_strat: Box::new(LKHSolver {
                     binary: String::from(""),
                 }),
