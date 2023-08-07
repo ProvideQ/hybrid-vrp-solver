@@ -1,4 +1,4 @@
-use super::common::{ClusteringTrait, ClutserOutput};
+use super::common::{ClusterOutput, ClusteringTrait};
 use kmeans::{KMeans, KMeansConfig};
 use tspf::{Point, Tsp};
 
@@ -6,7 +6,7 @@ pub struct KNNClustering {
     pub count: usize,
 }
 impl ClusteringTrait for KNNClustering {
-    fn cluster(&self, problem: &Tsp) -> ClutserOutput {
+    fn cluster(&self, problem: &Tsp) -> ClusterOutput {
         let points = problem
             .node_coords()
             .iter()

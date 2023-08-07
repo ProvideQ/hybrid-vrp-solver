@@ -1,6 +1,6 @@
 use super::{
     super::error_code::ExitCode,
-    clustering::{ClusteringTrait, ClutserOutput},
+    clustering::{ClusterOutput, ClusteringTrait},
     solvers::{SolvingOutput, SolvingTrait},
 };
 
@@ -67,7 +67,7 @@ pub struct VrpSolver {
     pub solving_strat: Box<dyn SolvingTrait>,
 }
 impl VrpSolver {
-    fn cluster_tsps(&self, problem: &Tsp, clusters: ClutserOutput) -> Vec<Tsp> {
+    fn cluster_tsps(&self, problem: &Tsp, clusters: ClusterOutput) -> Vec<Tsp> {
         let mut tsps: Vec<Tsp> = Vec::new();
         for (i, cluster) in clusters.iter().enumerate() {
             let node_coords = problem

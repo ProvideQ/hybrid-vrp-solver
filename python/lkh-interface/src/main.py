@@ -19,7 +19,7 @@ args = parser.parse_args()
     
 problem = LKHProblem.load(args.tsplib_file)
 
-if sum(problem.demands.values()) < problem.capacity:
+if sum(problem.demands.values()) <= problem.capacity:
     problem.type = "TSP"
 
 if len(problem.node_coords.values()) > 2:

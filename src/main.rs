@@ -10,6 +10,8 @@ use logic::clustering::KNNClustering;
 use logic::solver::VrpSolver;
 use logic::solvers::{LKHSolver, SolvingTrait};
 
+use crate::logic::clustering::ClusterTspClustering;
+
 fn main() {
     let args = VRPSolverArgs::parse();
 
@@ -24,7 +26,7 @@ fn main() {
 
             println!("solve");
             let solver = VrpSolver {
-                cluster_strat: Box::new(KNNClustering { count: 2 }),
+                cluster_strat: Box::new(ClusterTspClustering {}),
                 solving_strat: Box::new(LKHSolver {
                     binary: String::from(""),
                 }),
