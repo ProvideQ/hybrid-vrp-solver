@@ -1,6 +1,5 @@
 use std::{
     fs,
-    io::{stdout, Write},
     path::PathBuf,
     process::{exit, Command},
     str,
@@ -8,7 +7,7 @@ use std::{
 
 use tspf::TspBuilder;
 
-use super::{DummySolver, SolvingTrait};
+use super::SolvingTrait;
 
 pub struct LKHSolver {
     pub binary: String,

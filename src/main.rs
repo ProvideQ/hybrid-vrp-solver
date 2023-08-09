@@ -8,7 +8,7 @@ use args::{VRPCommand, VRPSolverArgs};
 use clap::Parser;
 use logic::clustering::KNNClustering;
 use logic::solver::VrpSolver;
-use logic::solvers::{LKHSolver, SolvingTrait};
+use logic::solvers::{LKHSolver, SolvingTrait, HybridTspSolver};
 
 use crate::logic::clustering::ClusterTspClustering;
 
@@ -27,9 +27,7 @@ fn main() {
             println!("solve");
             let solver = VrpSolver {
                 cluster_strat: Box::new(ClusterTspClustering {}),
-                solving_strat: Box::new(LKHSolver {
-                    binary: String::from(""),
-                }),
+                solving_strat: Box::new(HybridTspSolver {}),
             };
 
             println!("result {:?}", solver.solve(&path[..]));

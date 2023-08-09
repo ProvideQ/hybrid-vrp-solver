@@ -1,5 +1,4 @@
 use super::common::{ClusterOutput, ClusteringTrait};
-use kmeans::{KMeans, KMeansConfig};
 use tspf::{Point, Tsp};
 
 pub struct ClusterTspClustering {}
@@ -112,9 +111,9 @@ impl ClusteringTrait for ClusterTspClustering {
                     None => break 'inner,
                 };
 
-                if (problem.demands().get(&closest.id()).unwrap()
+                if problem.demands().get(&closest.id()).unwrap()
                     + self.cluster_demand(problem, &cluster)
-                    <= problem.capacity())
+                    <= problem.capacity()
                 {
                     cluster.push(closest.id());
                     not_assigned = not_assigned
@@ -127,7 +126,6 @@ impl ClusteringTrait for ClusterTspClustering {
                 }
             }
 
-            println!("{:?}", cluster);
             assignments.push(cluster);
         }
         assignments
