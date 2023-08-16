@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "qubo-solver"
+version = "0.1.0"
+description = "Solve QUBOs in the Matrix format with dwaves annealers"
+authors = ["Your Name <you@example.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">=3.9,<3.10"
+wheel = "^0.41.1"
+cython = "^3.0.0"
+rectangle-packer = { file = "./rectangle_packer-2.0.1-pp39-pypy39_pp73-manylinux_2_17_aarch64.manylinux2014_aarch64.whl" }
+dwave-ocean-sdk = "^6.4.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
