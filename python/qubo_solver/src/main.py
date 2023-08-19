@@ -2,6 +2,7 @@ import datetime
 from dimod import BINARY, BinaryQuadraticModel
 from dwave.system import DWaveSampler, EmbeddingComposite
 from datetime import datetime
+from hybrid import SimplifiedQbsolv, State
 
 
 def main():
@@ -12,11 +13,13 @@ def main():
         len(bqm)
         last = datetime.now().timestamp()
         print("started")
-        sampleset = EmbeddingComposite(DWaveSampler()).sample(bqm, num_reads=1000, label='DWaveSampler with embedding num_reads=1000')
+        workflow = SimplifiedQbsolv(max_time=10)
         # future.wait()
+        init_state = State.from_problem(bqm)
+        final_state = workflow.run(init_state, label="QBsolv").result()
         now = datetime.now().timestamp()
         print(f"ended after {now - last}")
-        # sampleset = future.result()['sampleset']
+        sampleset = final_state.samples
         print(sampleset.first.energy)
         print(sampleset.first.sample)
 
