@@ -1,27 +1,47 @@
-import datetime
-from dimod import BINARY, BinaryQuadraticModel
-from dwave.system import DWaveSampler, EmbeddingComposite
 from datetime import datetime
-from hybrid import SimplifiedQbsolv, State
+from typing import Literal
+import os
+from dimod import BINARY, BinaryQuadraticModel
+import argparse
+
+from solver import solve_with
 
 
 def main():
-    # Your main code logic goes here
-        
-    with open('./att48_0.coo') as problem:
+    
+    parser = argparse.ArgumentParser(
+    prog='DWave QUBO solver',
+    description='A CLI Program to initiate solving COOrdinate files with DWave Systems',
+    epilog='Made by Lucas Berger for scientific purposes')
+
+
+    parser.add_argument('coo_file')
+    parser.add_argument('type', default='sim', choices=['sim', 'hybrid', 'qbsolv', 'direct'])
+    parser.add_argument('--output-file')
+    
+    args = parser.parse_args()
+    type: Literal['sim', 'hybrid', 'qbsolv', 'direct'] = args.type
+
+    with open(args.coo_file) as problem:
         bqm = BinaryQuadraticModel.from_coo(problem, vartype=BINARY)
-        len(bqm)
+        
+        filename = os.path.basename(args.coo_file)
+        
         last = datetime.now().timestamp()
         print("started")
-        workflow = SimplifiedQbsolv(max_time=10)
-        # future.wait()
-        init_state = State.from_problem(bqm)
-        final_state = workflow.run(init_state, label="QBsolv").result()
+        
+        sampleset = solve_with(bqm, type, filename)
+        
         now = datetime.now().timestamp()
         print(f"ended after {now - last}")
-        sampleset = final_state.samples
-        print(sampleset.first.energy)
-        print(sampleset.first.sample)
+        
+        if args.output_file:
+            with open(args.output_file, "w") as out:
+                out.writelines([f"{bin}\n" for bin in sampleset.first.sample.values()])
+        else:
+            print(sampleset.first.energy)
+            print(sampleset.first.sample)
+
 
 if __name__ == "__main__":
     main()

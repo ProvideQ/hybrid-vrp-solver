@@ -5,7 +5,7 @@ from tsplib95.models import StandardProblem
 parser = argparse.ArgumentParser(
     prog='LKH-3 Interface',
     description='A CLI Program to initiate solving CVRP files with LKH-3',
-    epilog='Made from Lucas Berger for scientific purposes')
+    epilog='Made by Lucas Berger for scientific purposes')
 
 
 parser.add_argument('tsplib_file')

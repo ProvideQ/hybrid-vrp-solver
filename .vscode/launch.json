@@ -4,6 +4,14 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
+        { 
+            "name":"QUBO Solver",
+            "type":"python",
+            "request":"launch",
+            "program":"python/qubo_solver/src/main.py",
+            "args": [".vrp/att48_0.coo", "sim"],
+            "console":"integratedTerminal"
+        },
         {
             "type": "lldb",
             "request": "launch",
