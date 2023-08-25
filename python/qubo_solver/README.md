@@ -1,1 +1,1 @@
-qubo-solver
+# Python QUBO Solver

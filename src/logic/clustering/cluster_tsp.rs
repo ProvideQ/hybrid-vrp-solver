@@ -18,12 +18,12 @@ fn distance(a: &Vec<f64>, b: &Vec<f64>) -> Option<f64> {
 }
 
 impl ClusterTspClustering {
-    fn choose_core<'a>(&'a self, problem: &Tsp, rest: &'a Vec<usize>) -> Option<&usize> {
+    fn choose_core<'a>(&'a self, _problem: &Tsp, rest: &'a [usize]) -> Option<&usize> {
         rest.first()
     }
 
     fn center(&self, problem: &Tsp, cluster: &Vec<usize>) -> Vec<f64> {
-        if cluster.len() == 0 {
+        if cluster.is_empty() {
             return vec![
                 0.0f64;
                 problem
@@ -53,7 +53,7 @@ impl ClusterTspClustering {
             .collect()
     }
 
-    fn cluster_demand(&self, problem: &Tsp, cluster: &Vec<usize>) -> f64 {
+    fn cluster_demand(&self, problem: &Tsp, cluster: &[usize]) -> f64 {
         problem
             .demands()
             .iter()
@@ -84,9 +84,8 @@ impl ClusteringTrait for ClusterTspClustering {
         let mut assignments: Vec<Vec<usize>> = vec![];
 
         loop {
-            let core = match self.choose_core(problem, &not_assigned) {
-                Some(core) => core,
-                None => break,
+            if self.choose_core(problem, &not_assigned).is_none() {
+                break;
             };
 
             let mut cluster = vec![];
@@ -118,8 +117,7 @@ impl ClusteringTrait for ClusterTspClustering {
                     cluster.push(closest.id());
                     not_assigned = not_assigned
                         .iter()
-                        .filter(|id| **id != closest.id())
-                        .map(|id| *id)
+                        .filter_map(|id| if *id != closest.id() { Some(*id) } else { None })
                         .collect()
                 } else {
                     break 'inner;

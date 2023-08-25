@@ -6,9 +6,8 @@ use std::env;
 
 use args::{VRPCommand, VRPSolverArgs};
 use clap::Parser;
-use logic::clustering::KNNClustering;
 use logic::solver::VrpSolver;
-use logic::solvers::{LKHSolver, SolvingTrait, HybridTspSolver};
+use logic::solvers::{HybridTspSolver, SolvingTrait};
 
 use crate::logic::clustering::ClusterTspClustering;
 

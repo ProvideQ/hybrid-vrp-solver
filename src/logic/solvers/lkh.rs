@@ -16,7 +16,7 @@ pub struct LKHSolver {
 impl SolvingTrait for LKHSolver {
     fn solve(&self, path: &str) -> super::SolvingOutput {
         let srcdir = PathBuf::from(path);
-        let abs_path = fs::canonicalize(&srcdir).unwrap();
+        let abs_path = fs::canonicalize(srcdir).unwrap();
         let abs_path = abs_path.to_str().unwrap();
 
         let file_name = abs_path
@@ -31,7 +31,7 @@ impl SolvingTrait for LKHSolver {
 
         let output_file_path = format!("{}{}", file_name, "tour");
 
-        let output = Command::new("poetry")
+        Command::new("poetry")
             .current_dir("./python/lkh-interface")
             .arg("run")
             .arg("python")
