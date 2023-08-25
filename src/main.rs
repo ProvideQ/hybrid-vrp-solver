@@ -26,7 +26,9 @@ fn main() {
             println!("solve");
             let solver = VrpSolver {
                 cluster_strat: Box::new(ClusterTspClustering {}),
-                solving_strat: Box::new(HybridTspSolver {}),
+                solving_strat: Box::new(HybridTspSolver {
+                    quantum_type: logic::solvers::HybridTspSolverType::Simulated,
+                }),
             };
 
             println!("result {:?}", solver.solve(&path[..]));

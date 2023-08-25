@@ -1,4 +1,11 @@
-use std::{fs, io::Error, path::PathBuf, process::exit};
+use std::{
+    fmt,
+    fs::{self, File},
+    io::Error,
+    ops::Index,
+    path::PathBuf,
+    process::{exit, Command},
+};
 
 use super::SolvingTrait;
 use std::io::Write;
@@ -42,8 +49,8 @@ impl COOrdinateWriter for COOrdinate {
     }
 }
 
-impl From<Tsp> for COOrdinate {
-    fn from(tsp: Tsp) -> Self {
+impl From<&Tsp> for COOrdinate {
+    fn from(tsp: &Tsp) -> Self {
         if tsp.demands().values().sum::<f64>() > tsp.capacity() {
             println!("CVRP subproblem can't be solved with this");
             exit(1);
@@ -140,7 +147,27 @@ impl Distancing<f64> for Tsp {
     }
 }
 
-pub struct HybridTspSolver {}
+pub enum HybridTspSolverType {
+    Simulated,
+    LeapHybrid,
+    QbSolv,
+    Direct,
+}
+
+impl fmt::Display for HybridTspSolverType {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        match self {
+            HybridTspSolverType::Simulated => write!(f, "sim"),
+            HybridTspSolverType::LeapHybrid => write!(f, "hybrid"),
+            HybridTspSolverType::QbSolv => write!(f, "qbsolv"),
+            HybridTspSolverType::Direct => write!(f, "direct"),
+        }
+    }
+}
+
+pub struct HybridTspSolver {
+    pub quantum_type: HybridTspSolverType,
+}
 
 impl SolvingTrait for HybridTspSolver {
     fn solve(&self, path: &str) -> super::SolvingOutput {
@@ -152,7 +179,7 @@ impl SolvingTrait for HybridTspSolver {
             }
         };
 
-        let coo = COOrdinate::from(tsp);
+        let coo = COOrdinate::from(&tsp);
 
         let srcdir = PathBuf::from(path);
         let abs_path = fs::canonicalize(srcdir).unwrap();
@@ -167,7 +194,9 @@ impl SolvingTrait for HybridTspSolver {
             .iter()
             .fold(String::from(""), |x, y| x + y);
 
-        let mut file = match std::fs::File::create(format!("{}{}", file_name, "coo")) {
+        let abs_coo_file_name = format!("{}{}", file_name, "coo");
+
+        let mut file = match std::fs::File::create(&abs_coo_file_name) {
             Ok(file) => file,
             Err(e) => {
                 println!("Problem opening coordinate file {e}");
@@ -180,6 +209,39 @@ impl SolvingTrait for HybridTspSolver {
             exit(1)
         }
 
-        vec![]
+        let output_file_name = format!("{}{}", file_name, "bin");
+
+        Command::new("poetry")
+            .current_dir("./python/qubo_solver")
+            .arg("run")
+            .arg("python")
+            .arg("/Users/lucas/workspace/uni/bachelor/pipeline/python/qubo_solver/src/main.py")
+            .arg(abs_coo_file_name)
+            .arg(self.quantum_type.to_string())
+            .arg("--output-file")
+            .arg(&output_file_name)
+            .output()
+            .unwrap();
+
+        let result = match fs::read_to_string(&output_file_name) {
+            Ok(res) => res,
+            Err(err) => {
+                println!("Problem opening file \"{output_file_name}\": {err}");
+                exit(1)
+            }
+        };
+
+        let mut places: Vec<(usize, usize)> = result
+            .split_whitespace()
+            .collect::<Vec<&str>>()
+            .chunks(tsp.dim())
+            .map(|chunk| chunk.iter().position(|x| *x == "1").unwrap())
+            .enumerate()
+            .map(|(point, place)| (place, point + 1))
+            .collect();
+
+        places.sort_by(|(a_place, _), (b_place, _)| a_place.cmp(b_place));
+
+        vec![places.iter().map(|(_, point)| *point).collect()]
     }
 }
