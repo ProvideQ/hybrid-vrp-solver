@@ -28,12 +28,12 @@ def solve_with(bqm: BinaryQuadraticModel, type: solvertype, label: str) -> Sampl
         sampler: Sampler = LeapHybridSampler()
         print(f"sampler created took {datetime.now().timestamp() - last}")
         return sampler.sample(
-            bqm, time_limit=3, label=f"LeapHybridSampler num_reads=250: {label}"
+            bqm, time_limit=5, label=f"LeapHybridSampler num_reads=250: {label}"
         )
     elif type == "qbsolv":
         last = datetime.now().timestamp()
         init_state = State.from_problem(bqm)
-        workflow = SimplifiedQbsolv(max_iter=1, max_time=3)
+        workflow = SimplifiedQbsolv(max_iter=3, max_time=10)
         print(f"workflow created took {datetime.now().timestamp() - last}")
         final_state = workflow.run(init_state).result()
         print(workflow.timers)
