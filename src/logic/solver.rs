@@ -67,6 +67,7 @@ fn reindex_vrp(vrp: &Tsp) -> (Tsp, BiMap<usize, usize>) {
 pub struct VrpSolver {
     pub cluster_strat: Box<dyn ClusteringTrait>,
     pub solving_strat: Box<dyn SolvingTrait>,
+    pub build_dir: Option<String>,
 }
 impl VrpSolver {
     fn cluster_tsps(&self, problem: &Tsp, clusters: ClusterOutput) -> Vec<Tsp> {
@@ -98,7 +99,7 @@ impl VrpSolver {
                 problem.coord_kind(),
                 problem.disp_kind(),
                 node_coords,
-                problem.depots().iter().filter_map(|d| Some(*d)).collect(),
+                problem.depots().iter().copied().collect(),
                 problem
                     .demands()
                     .iter()
@@ -112,31 +113,24 @@ impl VrpSolver {
                         node_coords_filter.get(&edge.0).is_some()
                             && node_coords_filter.get(&edge.1).is_some()
                     })
-                    .map(|t| *t)
+                    .copied()
                     .collect(),
                 problem
                     .disp_coords()
                     .iter()
-                    .filter_map(|p| match node_coords_filter.get(&p.id()) {
-                        Some(_) => Some(p.clone()),
-                        None => None,
-                    })
+                    .filter_map(|p| node_coords_filter.get(&p.id()).map(|_| p.clone()))
                     .collect(),
                 problem
                     .edge_weights()
                     .iter()
                     .enumerate()
-                    .filter_map(|(i, vec)| match node_coords_filter.get(&i) {
-                        Some(_i) => Some(
+                    .filter_map(|(i, vec)| {
+                        node_coords_filter.get(&i).map(|_i| {
                             vec.iter()
                                 .enumerate()
-                                .filter_map(|(j, poi)| match node_coords_filter.get(&j) {
-                                    Some(_) => Some(*poi),
-                                    None => None,
-                                })
-                                .collect::<Vec<f64>>(),
-                        ),
-                        None => None,
+                                .filter_map(|(j, poi)| node_coords_filter.get(&j).map(|_| *poi))
+                                .collect::<Vec<f64>>()
+                        })
                     })
                     .collect(),
                 vec![],
@@ -162,6 +156,13 @@ impl VrpSolver {
                 length
             })
             .sum()
+    }
+    fn build_dir(&self) -> String {
+        if let Some(dir) = &self.build_dir {
+            dir.clone()
+        } else {
+            String::from("./.vrp")
+        }
     }
 }
 
@@ -199,7 +200,9 @@ impl SolvingTrait for VrpSolver {
 
         let vrps: Vec<(Tsp, BiMap<usize, usize>)> = vrps_raw.iter().map(reindex_vrp).collect();
 
-        match fs::create_dir_all("./.vrp") {
+        let build_dir = self.build_dir();
+
+        match fs::create_dir_all(&build_dir) {
             Ok(_) => {}
             Err(e) => {
                 println!("Something went wrong creating dirs: \n{e}");
@@ -211,8 +214,8 @@ impl SolvingTrait for VrpSolver {
             .iter()
             .map(|(vrp, map)| {
                 let (file, path) = match TspSerializer::serialize_file(
-                    &vrp,
-                    String::from(format!("./.vrp/{}.vrp", vrp.name())),
+                    vrp,
+                    format!("{}/{}.vrp", build_dir, vrp.name()),
                 ) {
                     Err(err) => {
                         println!("{}", err);
