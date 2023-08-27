@@ -2,6 +2,7 @@ use super::{
     super::error_code::ExitCode,
     clustering::{ClusterOutput, ClusteringTrait},
     solvers::{SolvingOutput, SolvingTrait},
+    util::tsp::Distancing,
 };
 
 use bimap::BiMap;
@@ -9,6 +10,7 @@ use std::{
     collections::HashMap,
     fs::{self, File},
     process::exit,
+    time::SystemTime,
 };
 use tspf::{Point, Tsp, TspBuilder, TspKind, TspSerializer};
 
@@ -143,6 +145,24 @@ impl VrpSolver {
         }
         tsps
     }
+    fn calculate_solution_score(&self, problem: &Tsp, paths: &SolvingOutput) -> f64 {
+        paths
+            .iter()
+            .map(|path| {
+                let mut length: f64 = 0f64;
+                let mut iter = path.iter();
+                let first = iter.next().unwrap();
+
+                let mut last = first;
+                for next in iter {
+                    length += problem.distance(*last, *next).unwrap();
+                    last = next;
+                }
+                length += problem.distance(*last, *first).unwrap();
+                length
+            })
+            .sum()
+    }
 }
 
 impl SolvingTrait for VrpSolver {
@@ -165,11 +185,19 @@ impl SolvingTrait for VrpSolver {
         println!("name: {}", problem.name());
         println!("type: {}", problem.kind());
 
+        let start_time = SystemTime::now();
+        println!("start");
+
         let clusters = self.cluster_strat.cluster(&problem);
         let vrps_raw = self.cluster_tsps(&problem, clusters);
 
-        let vrps: Vec<(Tsp, BiMap<usize, usize>)> =
-            vrps_raw.iter().map(|vrp| reindex_vrp(vrp)).collect();
+        let after_cluster_time = SystemTime::now()
+            .duration_since(start_time)
+            .unwrap()
+            .as_secs_f32();
+        println!("clustered after: {after_cluster_time}");
+
+        let vrps: Vec<(Tsp, BiMap<usize, usize>)> = vrps_raw.iter().map(reindex_vrp).collect();
 
         match fs::create_dir_all("./.vrp") {
             Ok(_) => {}
@@ -196,10 +224,25 @@ impl SolvingTrait for VrpSolver {
             })
             .collect();
 
+        let solver_start = SystemTime::now()
+            .duration_since(start_time)
+            .unwrap()
+            .as_secs_f32();
+        println!("start solving clustered vrps: {solver_start}");
+
         let paths = vrps
             .iter()
             .map(|(_file, path, map)| {
+                let before_solve_time = SystemTime::now();
+                println!("solve {path} start");
+
                 let paths = self.solving_strat.solve(&path[..]);
+
+                let after_solve_time = SystemTime::now()
+                    .duration_since(before_solve_time)
+                    .unwrap()
+                    .as_secs_f32();
+                println!("solve {path} end: {after_solve_time}");
 
                 paths
                     .iter()
@@ -215,6 +258,16 @@ impl SolvingTrait for VrpSolver {
                 println!("Something went wrong reducing paths");
                 vec![]
             });
+
+        let finished = SystemTime::now()
+            .duration_since(start_time)
+            .unwrap()
+            .as_secs_f32();
+        println!("finished: {finished}");
+
+        let sol_length = self.calculate_solution_score(&problem, &paths);
+
+        println!("length: {sol_length}");
 
         paths
     }

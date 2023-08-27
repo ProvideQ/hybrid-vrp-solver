@@ -9,7 +9,8 @@ use clap::Parser;
 use logic::solver::VrpSolver;
 use logic::solvers::{HybridTspSolver, SolvingTrait};
 
-use crate::logic::clustering::ClusterTspClustering;
+use crate::logic::clustering::{ClusterTspClustering, KNNClustering};
+use crate::logic::solvers::LKHSolver;
 
 fn main() {
     let args = VRPSolverArgs::parse();
@@ -25,9 +26,9 @@ fn main() {
 
             println!("solve");
             let solver = VrpSolver {
-                cluster_strat: Box::new(ClusterTspClustering {}),
+                cluster_strat: Box::new(KNNClustering { count: 10 }),
                 solving_strat: Box::new(HybridTspSolver {
-                    quantum_type: logic::solvers::HybridTspSolverType::Simulated,
+                    quantum_type: logic::solvers::HybridTspSolverType::Direct,
                 }),
             };
 

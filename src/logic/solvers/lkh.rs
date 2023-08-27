@@ -1,7 +1,8 @@
 use std::{
     fs,
+    io::{BufRead, BufReader},
     path::PathBuf,
-    process::{exit, Command},
+    process::{exit, Command, Stdio},
     str,
 };
 
@@ -31,7 +32,7 @@ impl SolvingTrait for LKHSolver {
 
         let output_file_path = format!("{}{}", file_name, "tour");
 
-        Command::new("poetry")
+        let mut cmd = Command::new("poetry")
             .current_dir("./python/lkh-interface")
             .arg("run")
             .arg("python")
@@ -39,8 +40,21 @@ impl SolvingTrait for LKHSolver {
             .arg(abs_path)
             .arg("--output-file")
             .arg(&output_file_path)
-            .output()
+            .stdout(Stdio::piped())
+            .spawn()
             .unwrap();
+
+        {
+            let stdout = cmd.stdout.as_mut().unwrap();
+            let stdout_reader = BufReader::new(stdout);
+            let stdout_lines = stdout_reader.lines();
+
+            for line in stdout_lines {
+                println!("LKH Solver: {}", line.unwrap());
+            }
+        }
+
+        cmd.wait().unwrap();
 
         if let Ok(tour) = TspBuilder::parse_path(&output_file_path[..]) {
             tour.tours().clone()

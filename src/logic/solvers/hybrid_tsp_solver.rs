@@ -1,11 +1,12 @@
 use std::{
-    fmt,
-    fs::{self, File},
-    io::Error,
-    ops::Index,
+    fmt, fs,
+    io::{BufRead, BufReader, Error},
     path::PathBuf,
-    process::{exit, Command},
+    process::{exit, Command, Stdio},
+    time::SystemTime,
 };
+
+use crate::logic::util::tsp::Distancing;
 
 use super::SolvingTrait;
 use std::io::Write;
@@ -115,37 +116,6 @@ impl From<&Tsp> for COOrdinate {
         COOrdinate(matrix)
     }
 }
-trait Distancing<T> {
-    fn distance(&self, a: usize, b: usize) -> Option<T>;
-}
-
-impl Distancing<f64> for Tsp {
-    fn distance(&self, a: usize, b: usize) -> Option<f64> {
-        let a = match self.node_coords().get(&a) {
-            Some(p) => p.pos(),
-            None => {
-                return None;
-            }
-        };
-        let b = match self.node_coords().get(&b) {
-            Some(p) => p.pos(),
-            None => {
-                return None;
-            }
-        };
-        if a.len() != b.len() {
-            return None;
-        }
-        Some(
-            a.iter()
-                .zip(b.iter())
-                .map(|(av, bv)| (av - bv) * (av - bv))
-                .reduce(|a, b| a + b)
-                .unwrap()
-                .sqrt(),
-        )
-    }
-}
 
 pub enum HybridTspSolverType {
     Simulated,
@@ -179,6 +149,9 @@ impl SolvingTrait for HybridTspSolver {
             }
         };
 
+        let before_transform_time = SystemTime::now();
+        println!("hybrid qubo transform {path} start");
+
         let coo = COOrdinate::from(&tsp);
 
         let srcdir = PathBuf::from(path);
@@ -209,9 +182,15 @@ impl SolvingTrait for HybridTspSolver {
             exit(1)
         }
 
+        let after_transform_time = SystemTime::now()
+            .duration_since(before_transform_time)
+            .unwrap()
+            .as_secs_f32();
+        println!("hybrid qubo transform {path} end: {after_transform_time}");
+
         let output_file_name = format!("{}{}", file_name, "bin");
 
-        Command::new("poetry")
+        let mut cmd = Command::new("poetry")
             .current_dir("./python/qubo_solver")
             .arg("run")
             .arg("python")
@@ -220,9 +199,22 @@ impl SolvingTrait for HybridTspSolver {
             .arg(self.quantum_type.to_string())
             .arg("--output-file")
             .arg(&output_file_name)
-            .output()
+            .stdout(Stdio::piped())
+            .spawn()
             .unwrap();
 
+        {
+            let stdout = cmd.stdout.as_mut().unwrap();
+            let stdout_reader = BufReader::new(stdout);
+            let stdout_lines = stdout_reader.lines();
+
+            for line in stdout_lines {
+                println!("QUBO Solver: {}", line.unwrap());
+            }
+        }
+
+        let before_post_transform_time = SystemTime::now();
+        println!("hybrid post transform {path} start");
         let result = match fs::read_to_string(&output_file_name) {
             Ok(res) => res,
             Err(err) => {
@@ -241,6 +233,12 @@ impl SolvingTrait for HybridTspSolver {
             .collect();
 
         places.sort_by(|(a_place, _), (b_place, _)| a_place.cmp(b_place));
+
+        let after_post_transform_time = SystemTime::now()
+            .duration_since(before_post_transform_time)
+            .unwrap()
+            .as_secs_f32();
+        println!("hybrid post transform {path} end: {after_post_transform_time}");
 
         vec![places.iter().map(|(_, point)| *point).collect()]
     }

@@ -21,6 +21,8 @@ args = parser.parse_args()
 
 problem = LKHProblem.load(args.tsplib_file)
 
+print(f"solving {args.tsplib_file}")
+
 if sum(problem.demands.values()) <= problem.capacity:
     problem.type = "TSP"
 
@@ -32,14 +34,12 @@ if len(problem.node_coords.values()) > 2:
 
     tour = StandardProblem()
 
-    tour.tours = tours
+    tour.tours = [[*problem.depots, *path] for path in tours]
     tour.type = "TOUR"
     tour.name = problem.name + " solution"
 else:
     tour = StandardProblem()
-    tour.tours = [
-        filter(lambda key: key not in problem.depots, problem.node_coords.keys())
-    ]
+    tour.tours = [problem.node_coords.keys()]
     tour.type = "TOUR"
     tour.name = problem.name + " solution"
 
