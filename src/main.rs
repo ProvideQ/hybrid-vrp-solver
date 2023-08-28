@@ -46,15 +46,32 @@ fn main() {
             println!("path: {}", path);
 
             println!("solve");
-            let solver = VrpSolver {
-                cluster_strat: match subcommandargs.cluster {
-                    ClusterOption::Knn => Box::new(KNNClustering {
-                        count: subcommandargs.cluster_number,
+            let solver = if let SolverOption::Direct = subcommandargs.solver {
+                VrpSolver {
+                    cluster_strat: match subcommandargs.cluster {
+                        ClusterOption::Knn => Box::new(KNNClustering {
+                            count: subcommandargs.cluster_number,
+                        }),
+                        ClusterOption::Tsp => Box::new(ClusterTspClustering {}),
+                    },
+                    solving_strat: Box::new(VrpSolver {
+                        cluster_strat: Box::new(ClusterTspClustering {}),
+                        solving_strat: Box::<dyn SolvingTrait>::from(subcommandargs.solver),
+                        build_dir: Some(subcommandargs.build_dir.clone()),
                     }),
-                    ClusterOption::Tsp => Box::new(ClusterTspClustering {}),
-                },
-                solving_strat: Box::<dyn SolvingTrait>::from(subcommandargs.solver),
-                build_dir: Some(subcommandargs.build_dir),
+                    build_dir: Some(subcommandargs.build_dir),
+                }
+            } else {
+                VrpSolver {
+                    cluster_strat: match subcommandargs.cluster {
+                        ClusterOption::Knn => Box::new(KNNClustering {
+                            count: subcommandargs.cluster_number,
+                        }),
+                        ClusterOption::Tsp => Box::new(ClusterTspClustering {}),
+                    },
+                    solving_strat: Box::<dyn SolvingTrait>::from(subcommandargs.solver),
+                    build_dir: Some(subcommandargs.build_dir),
+                }
             };
 
             println!("result {:?}", solver.solve(&path[..]));
