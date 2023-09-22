@@ -30,7 +30,7 @@ pub struct SolveCommand {
 
 #[derive(Debug, Clone, ValueEnum)]
 pub enum ClusterOption {
-    Knn,
+    Kmeans,
     Tsp,
 }
 

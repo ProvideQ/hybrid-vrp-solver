@@ -1,0 +1,154 @@
+working dir: /Users/lucas/workspace/uni/bachelor/pipeline
+path: ./src/res/CMT/CMT2.vrp
+solve
+name: CMT2
+type: Cvrp
+start
+clustered after: 0.000524
+start solving clustered vrps: 0.001263
+solve ./.vrp/CMT2/qbsolv_oneiter/CMT2_0.vrp start
+hybrid qubo transform ./.vrp/CMT2/qbsolv_oneiter/CMT2_0.vrp start
+hybrid qubo transform ./.vrp/CMT2/qbsolv_oneiter/CMT2_0.vrp end: 0.032219
+QUBO Solver: started
+QUBO Solver: connected after 0.017711162567138672. starting solver
+QUBO Solver: workflow created took 2.0651350021362305
+QUBO Solver: {"dispatch.resolve": [3.5420000004116048e-06], "dispatch.init": [1.3340000002415309e-06], "dispatch": [0.0005281669999996907], "dispatch.next": [3.500122083]}
+QUBO Solver: {}
+QUBO Solver: ended 5.58495306968689
+QUBO Solver: connection closed after 5.585896015167236
+hybrid post transform ./.vrp/CMT2/qbsolv_oneiter/CMT2_0.vrp start
+hybrid post transform ./.vrp/CMT2/qbsolv_oneiter/CMT2_0.vrp end: 0.000082
+solve ./.vrp/CMT2/qbsolv_oneiter/CMT2_0.vrp end: 6.555876
+solve ./.vrp/CMT2/qbsolv_oneiter/CMT2_1.vrp start
+hybrid qubo transform ./.vrp/CMT2/qbsolv_oneiter/CMT2_1.vrp start
+hybrid qubo transform ./.vrp/CMT2/qbsolv_oneiter/CMT2_1.vrp end: 0.023103
+QUBO Solver: started
+QUBO Solver: connected after 0.015578031539916992. starting solver
+QUBO Solver: workflow created took 3.9788780212402344
+QUBO Solver: {"dispatch.resolve": [3.958999999831292e-06], "dispatch.init": [1.666999999372365e-06], "dispatch": [0.0012527499999999137], "dispatch.next": [3.4718308330000003]}
+QUBO Solver: {}
+QUBO Solver: ended 7.469187021255493
+QUBO Solver: connection closed after 7.470968961715698
+hybrid post transform ./.vrp/CMT2/qbsolv_oneiter/CMT2_1.vrp start
+hybrid post transform ./.vrp/CMT2/qbsolv_oneiter/CMT2_1.vrp end: 0.000071
+solve ./.vrp/CMT2/qbsolv_oneiter/CMT2_1.vrp end: 8.360496
+solve ./.vrp/CMT2/qbsolv_oneiter/CMT2_2.vrp start
+hybrid qubo transform ./.vrp/CMT2/qbsolv_oneiter/CMT2_2.vrp start
+hybrid qubo transform ./.vrp/CMT2/qbsolv_oneiter/CMT2_2.vrp end: 0.010972
+QUBO Solver: started
+QUBO Solver: connected after 0.01552581787109375. starting solver
+QUBO Solver: workflow created took 3.9592409133911133
+QUBO Solver: {"dispatch.resolve": [3.4170000002831102e-06], "dispatch.init": [1.58400000049852e-06], "dispatch": [0.0006183750000001709], "dispatch.next": [4.896839208000001]}
+QUBO Solver: {}
+QUBO Solver: ended 8.873960971832275
+QUBO Solver: connection closed after 8.874884843826294
+hybrid post transform ./.vrp/CMT2/qbsolv_oneiter/CMT2_2.vrp start
+hybrid post transform ./.vrp/CMT2/qbsolv_oneiter/CMT2_2.vrp end: 0.000078
+solve ./.vrp/CMT2/qbsolv_oneiter/CMT2_2.vrp end: 9.718654
+solve ./.vrp/CMT2/qbsolv_oneiter/CMT2_3.vrp start
+hybrid qubo transform ./.vrp/CMT2/qbsolv_oneiter/CMT2_3.vrp start
+hybrid qubo transform ./.vrp/CMT2/qbsolv_oneiter/CMT2_3.vrp end: 0.010915
+QUBO Solver: started
+QUBO Solver: connected after 0.017113924026489258. starting solver
+QUBO Solver: workflow created took 3.86822509765625
+QUBO Solver: {"dispatch.resolve": [3.4580000001227518e-06], "dispatch.init": [1.3750000000811724e-06], "dispatch": [0.0005752909999996447], "dispatch.next": [4.282729625000001]}
+QUBO Solver: {}
+QUBO Solver: ended 8.169770956039429
+QUBO Solver: connection closed after 8.17055892944336
+hybrid post transform ./.vrp/CMT2/qbsolv_oneiter/CMT2_3.vrp start
+hybrid post transform ./.vrp/CMT2/qbsolv_oneiter/CMT2_3.vrp end: 0.000112
+solve ./.vrp/CMT2/qbsolv_oneiter/CMT2_3.vrp end: 9.006271
+solve ./.vrp/CMT2/qbsolv_oneiter/CMT2_4.vrp start
+hybrid qubo transform ./.vrp/CMT2/qbsolv_oneiter/CMT2_4.vrp start
+hybrid qubo transform ./.vrp/CMT2/qbsolv_oneiter/CMT2_4.vrp end: 0.016815
+QUBO Solver: started
+QUBO Solver: connected after 0.018625974655151367. starting solver
+QUBO Solver: workflow created took 4.007625102996826
+QUBO Solver: {"dispatch.resolve": [4.2499999999279225e-06], "dispatch.init": [1.708000000100185e-06], "dispatch": [0.0005705420000001737], "dispatch.next": [3.9537055420000007]}
+QUBO Solver: {}
+QUBO Solver: ended 7.981700897216797
+QUBO Solver: connection closed after 7.982661962509155
+hybrid post transform ./.vrp/CMT2/qbsolv_oneiter/CMT2_4.vrp start
+hybrid post transform ./.vrp/CMT2/qbsolv_oneiter/CMT2_4.vrp end: 0.000097
+solve ./.vrp/CMT2/qbsolv_oneiter/CMT2_4.vrp end: 8.855085
+solve ./.vrp/CMT2/qbsolv_oneiter/CMT2_5.vrp start
+hybrid qubo transform ./.vrp/CMT2/qbsolv_oneiter/CMT2_5.vrp start
+hybrid qubo transform ./.vrp/CMT2/qbsolv_oneiter/CMT2_5.vrp end: 0.05618
+QUBO Solver: started
+QUBO Solver: connected after 0.015282154083251953. starting solver
+QUBO Solver: workflow created took 4.182568073272705
+QUBO Solver: {"dispatch.resolve": [9.625000000568207e-06], "dispatch.init": [1.332999999270612e-06], "dispatch": [0.0006284579999995543], "dispatch.next": [5.697051375]}
+QUBO Solver: {}
+QUBO Solver: ended 9.89693808555603
+QUBO Solver: connection closed after 9.897725105285645
+hybrid post transform ./.vrp/CMT2/qbsolv_oneiter/CMT2_5.vrp start
+hybrid post transform ./.vrp/CMT2/qbsolv_oneiter/CMT2_5.vrp end: 0.00008
+solve ./.vrp/CMT2/qbsolv_oneiter/CMT2_5.vrp end: 10.7648945
+solve ./.vrp/CMT2/qbsolv_oneiter/CMT2_6.vrp start
+hybrid qubo transform ./.vrp/CMT2/qbsolv_oneiter/CMT2_6.vrp start
+hybrid qubo transform ./.vrp/CMT2/qbsolv_oneiter/CMT2_6.vrp end: 0.016548
+QUBO Solver: started
+QUBO Solver: connected after 0.01697707176208496. starting solver
+QUBO Solver: workflow created took 4.038748025894165
+QUBO Solver: {"dispatch.resolve": [3.250000000676323e-06], "dispatch.init": [1.3330000001587905e-06], "dispatch": [0.00043770799999975907], "dispatch.next": [3.7134652910000012]}
+QUBO Solver: {}
+QUBO Solver: ended 7.7708001136779785
+QUBO Solver: connection closed after 7.77156400680542
+hybrid post transform ./.vrp/CMT2/qbsolv_oneiter/CMT2_6.vrp start
+hybrid post transform ./.vrp/CMT2/qbsolv_oneiter/CMT2_6.vrp end: 0.000082
+solve ./.vrp/CMT2/qbsolv_oneiter/CMT2_6.vrp end: 8.649773
+solve ./.vrp/CMT2/qbsolv_oneiter/CMT2_7.vrp start
+hybrid qubo transform ./.vrp/CMT2/qbsolv_oneiter/CMT2_7.vrp start
+hybrid qubo transform ./.vrp/CMT2/qbsolv_oneiter/CMT2_7.vrp end: 0.015791
+QUBO Solver: started
+QUBO Solver: connected after 0.018232107162475586. starting solver
+QUBO Solver: workflow created took 4.077535152435303
+QUBO Solver: {"dispatch.resolve": [3.3750000003607283e-06], "dispatch.init": [1.4589999999259362e-06], "dispatch": [0.00044412499999957333], "dispatch.next": [3.7370896669999993]}
+QUBO Solver: {}
+QUBO Solver: ended 7.834681987762451
+QUBO Solver: connection closed after 7.835671901702881
+hybrid post transform ./.vrp/CMT2/qbsolv_oneiter/CMT2_7.vrp start
+hybrid post transform ./.vrp/CMT2/qbsolv_oneiter/CMT2_7.vrp end: 0.000087
+solve ./.vrp/CMT2/qbsolv_oneiter/CMT2_7.vrp end: 8.695216
+solve ./.vrp/CMT2/qbsolv_oneiter/CMT2_8.vrp start
+hybrid qubo transform ./.vrp/CMT2/qbsolv_oneiter/CMT2_8.vrp start
+hybrid qubo transform ./.vrp/CMT2/qbsolv_oneiter/CMT2_8.vrp end: 0.010449
+QUBO Solver: started
+QUBO Solver: connected after 0.017074108123779297. starting solver
+QUBO Solver: workflow created took 3.9871108531951904
+QUBO Solver: {"dispatch.resolve": [3.3750000003607283e-06], "dispatch.init": [1.415999999920814e-06], "dispatch": [0.0005690840000003305], "dispatch.next": [3.9241122090000005]}
+QUBO Solver: {}
+QUBO Solver: ended 7.930071115493774
+QUBO Solver: connection closed after 7.930836915969849
+hybrid post transform ./.vrp/CMT2/qbsolv_oneiter/CMT2_8.vrp start
+hybrid post transform ./.vrp/CMT2/qbsolv_oneiter/CMT2_8.vrp end: 0.000067
+solve ./.vrp/CMT2/qbsolv_oneiter/CMT2_8.vrp end: 8.759908
+solve ./.vrp/CMT2/qbsolv_oneiter/CMT2_9.vrp start
+hybrid qubo transform ./.vrp/CMT2/qbsolv_oneiter/CMT2_9.vrp start
+hybrid qubo transform ./.vrp/CMT2/qbsolv_oneiter/CMT2_9.vrp end: 0.006401
+QUBO Solver: started
+QUBO Solver: connected after 0.01674509048461914. starting solver
+QUBO Solver: workflow created took 4.027599096298218
+QUBO Solver: {"dispatch.resolve": [3.292000000598705e-06], "dispatch.init": [1.1249999998241833e-06], "dispatch": [0.0003908749999999017], "dispatch.next": [3.750676208999999]}
+QUBO Solver: {}
+QUBO Solver: ended 7.796674013137817
+QUBO Solver: connection closed after 7.7975029945373535
+hybrid post transform ./.vrp/CMT2/qbsolv_oneiter/CMT2_9.vrp start
+hybrid post transform ./.vrp/CMT2/qbsolv_oneiter/CMT2_9.vrp end: 0.000068
+solve ./.vrp/CMT2/qbsolv_oneiter/CMT2_9.vrp end: 8.656574
+solve ./.vrp/CMT2/qbsolv_oneiter/CMT2_10.vrp start
+hybrid qubo transform ./.vrp/CMT2/qbsolv_oneiter/CMT2_10.vrp start
+hybrid qubo transform ./.vrp/CMT2/qbsolv_oneiter/CMT2_10.vrp end: 0.001925
+QUBO Solver: started
+QUBO Solver: connected after 0.015758991241455078. starting solver
+QUBO Solver: workflow created took 3.8419270515441895
+QUBO Solver: {"dispatch.resolve": [2.8329999999243682e-06], "dispatch.init": [1.666000000177803e-06], "dispatch": [0.000332791999999138], "dispatch.next": [3.331561208]}
+QUBO Solver: {}
+QUBO Solver: ended 7.191287994384766
+QUBO Solver: connection closed after 7.1921539306640625
+hybrid post transform ./.vrp/CMT2/qbsolv_oneiter/CMT2_10.vrp start
+hybrid post transform ./.vrp/CMT2/qbsolv_oneiter/CMT2_10.vrp end: 0.000066
+solve ./.vrp/CMT2/qbsolv_oneiter/CMT2_10.vrp end: 8.019692
+finished: 96.04379
+length: 1012.7684171785243
+result [[1, 64, 2, 74, 63, 23, 44, 42, 43, 65], [1, 34, 17, 45, 4, 25, 50, 24, 57], [62, 29, 75, 22, 48, 49, 1], [5, 1, 76, 69, 7, 3, 31], [27, 68, 1, 52, 18, 41, 13, 73], [1, 30, 6, 37, 70, 72, 61, 71, 21, 38, 16, 58], [1, 40, 10, 33, 51, 19, 26, 56], [46, 28, 14, 53, 9, 47, 35, 1], [1, 8, 36, 20, 15, 54, 12], [67, 66, 39, 11, 59, 1], [60, 55, 1, 32]]

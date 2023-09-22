@@ -1,0 +1,30 @@
+working dir: /Users/lucas/workspace/uni/bachelor/pipeline
+path: src/res/CMT/CMT5.vrp
+solve
+name: CMT5
+type: Cvrp
+start
+clustered after: 0.001671
+start solving clustered vrps: 0.003887
+solve ./.vrp/CMT5/direct/CMT5_0.vrp start
+hybrid qubo transform ./.vrp/CMT5/direct/CMT5_0.vrp start
+hybrid qubo transform ./.vrp/CMT5/direct/CMT5_0.vrp end: 0.04247
+QUBO Solver: started
+QUBO Solver: connected after 0.01778411865234375. starting solver
+QUBO Solver: sampler created took 2.3047080039978027
+QUBO Solver: {'timing': {'qpu_sampling_time': 56640.0, 'qpu_anneal_time_per_sample': 20.0, 'qpu_readout_time_per_sample': 186.02, 'qpu_access_time': 72405.57, 'qpu_access_overhead_time': 1120.43, 'qpu_programming_time': 15765.57, 'qpu_delay_time_per_sample': 20.54, 'post_processing_overhead_time': 2058.0, 'total_post_processing_time': 2058.0}, 'problem_id': 'f153c5a2-d2c5-4241-8d19-29e38fec4e08', 'problem_label': 'DWaveSampler with embedding num_reads=250 CMT5_0.coo'}
+QUBO Solver: ended 56.5301558971405
+QUBO Solver: connection closed after 56.5327730178833
+hybrid post transform ./.vrp/CMT5/direct/CMT5_0.vrp start
+hybrid post transform ./.vrp/CMT5/direct/CMT5_0.vrp end: 0.000104
+solve ./.vrp/CMT5/direct/CMT5_0.vrp end: 57.555042
+solve ./.vrp/CMT5/direct/CMT5_1.vrp start
+hybrid qubo transform ./.vrp/CMT5/direct/CMT5_1.vrp start
+hybrid qubo transform ./.vrp/CMT5/direct/CMT5_1.vrp end: 0.032781
+QUBO Solver: started
+QUBO Solver: connected after 0.02464008331298828. starting solver
+QUBO Solver: sampler created took 2.7606589794158936
+QUBO Solver: {'timing': {'qpu_sampling_time': 58025.0, 'qpu_anneal_time_per_sample': 20.0, 'qpu_readout_time_per_sample': 191.56, 'qpu_access_time': 73788.97, 'qpu_access_overhead_time': 1427.03, 'qpu_programming_time': 15763.97, 'qpu_delay_time_per_sample': 20.54, 'post_processing_overhead_time': 840.0, 'total_post_processing_time': 840.0}, 'problem_id': '48fb0baa-0749-4ead-8425-bc46d7131f7a', 'problem_label': 'DWaveSampler with embedding num_reads=250 CMT5_1.coo'}
+QUBO Solver: ended 32.36613392829895
+QUBO Solver: connection closed after 32.367161989212036
+hybrid post transform ./.vrp/CMT5/direct/CMT5_1.vrp start

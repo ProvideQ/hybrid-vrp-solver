@@ -1,0 +1,139 @@
+working dir: /Users/lucas/workspace/uni/bachelor/pipeline
+path: ./src/res/CMT/CMT3.vrp
+solve
+name: CMT3
+type: Cvrp
+start
+clustered after: 0.000942
+start solving clustered vrps: 0.0016
+solve ./.vrp/CMT3/qbsolv_new/CMT3_0.vrp start
+hybrid qubo transform ./.vrp/CMT3/qbsolv_new/CMT3_0.vrp start
+hybrid qubo transform ./.vrp/CMT3/qbsolv_new/CMT3_0.vrp end: 0.071727
+QUBO Solver: started
+QUBO Solver: connected after 0.017971038818359375. starting solver
+QUBO Solver: workflow created took 2.57668399810791
+QUBO Solver: {'qpu_sampling_time': 9194.0, 'qpu_anneal_time_per_sample': 20.0, 'qpu_readout_time_per_sample': 51.4, 'qpu_access_time': 24956.37, 'qpu_access_overhead_time': 1342.63, 'qpu_programming_time': 15762.37, 'qpu_delay_time_per_sample': 20.54, 'total_post_processing_time': 222.0, 'post_processing_overhead_time': 222.0}
+QUBO Solver: {'qpu_sampling_time': 8792.0, 'qpu_anneal_time_per_sample': 20.0, 'qpu_readout_time_per_sample': 47.38, 'qpu_access_time': 24555.97, 'qpu_access_overhead_time': 2500.03, 'qpu_programming_time': 15763.97, 'qpu_delay_time_per_sample': 20.54, 'total_post_processing_time': 177.0, 'post_processing_overhead_time': 177.0}
+QUBO Solver: {'qpu_sampling_time': 19542.0, 'qpu_anneal_time_per_sample': 20.0, 'qpu_readout_time_per_sample': 154.88, 'qpu_access_time': 35303.57, 'qpu_access_overhead_time': 1837.43, 'qpu_programming_time': 15761.57, 'qpu_delay_time_per_sample': 20.54, 'total_post_processing_time': 427.0, 'post_processing_overhead_time': 427.0}
+QUBO Solver: {"dispatch.resolve": [3.2499999997881446e-06], "dispatch.init": [1.3750000000811724e-06], "dispatch": [0.0006815829999999856], "dispatch.next": [10.241734209]}
+QUBO Solver: {}
+QUBO Solver: ended 12.838261127471924
+QUBO Solver: connection closed after 12.839138984680176
+hybrid post transform ./.vrp/CMT3/qbsolv_new/CMT3_0.vrp start
+hybrid post transform ./.vrp/CMT3/qbsolv_new/CMT3_0.vrp end: 0.00007
+solve ./.vrp/CMT3/qbsolv_new/CMT3_0.vrp end: 13.800162
+solve ./.vrp/CMT3/qbsolv_new/CMT3_1.vrp start
+hybrid qubo transform ./.vrp/CMT3/qbsolv_new/CMT3_1.vrp start
+hybrid qubo transform ./.vrp/CMT3/qbsolv_new/CMT3_1.vrp end: 0.091954
+QUBO Solver: started
+QUBO Solver: connected after 0.014552116394042969. starting solver
+QUBO Solver: workflow created took 2.6766929626464844
+QUBO Solver: {'qpu_sampling_time': 13078.0, 'qpu_anneal_time_per_sample': 20.0, 'qpu_readout_time_per_sample': 90.24, 'qpu_access_time': 28838.77, 'qpu_access_overhead_time': 1810.23, 'qpu_programming_time': 15760.77, 'qpu_delay_time_per_sample': 20.54, 'total_post_processing_time': 237.0, 'post_processing_overhead_time': 237.0}
+QUBO Solver: {'qpu_sampling_time': 10072.0, 'qpu_anneal_time_per_sample': 20.0, 'qpu_readout_time_per_sample': 60.18, 'qpu_access_time': 25833.57, 'qpu_access_overhead_time': 1208.43, 'qpu_programming_time': 15761.57, 'qpu_delay_time_per_sample': 20.54, 'total_post_processing_time': 200.0, 'post_processing_overhead_time': 200.0}
+QUBO Solver: {'qpu_sampling_time': 18328.0, 'qpu_anneal_time_per_sample': 20.0, 'qpu_readout_time_per_sample': 142.74, 'qpu_access_time': 34089.97, 'qpu_access_overhead_time': 1599.03, 'qpu_programming_time': 15761.97, 'qpu_delay_time_per_sample': 20.54, 'total_post_processing_time': 3217.0, 'post_processing_overhead_time': 3217.0}
+QUBO Solver: {"dispatch.resolve": [3.624999999729539e-06], "dispatch.init": [1.3750000000811724e-06], "dispatch": [0.0007684170000001878], "dispatch.next": [12.090171666]}
+QUBO Solver: {}
+QUBO Solver: ended 14.78302812576294
+QUBO Solver: connection closed after 14.783888101577759
+hybrid post transform ./.vrp/CMT3/qbsolv_new/CMT3_1.vrp start
+hybrid post transform ./.vrp/CMT3/qbsolv_new/CMT3_1.vrp end: 0.000072
+solve ./.vrp/CMT3/qbsolv_new/CMT3_1.vrp end: 15.783126
+solve ./.vrp/CMT3/qbsolv_new/CMT3_2.vrp start
+hybrid qubo transform ./.vrp/CMT3/qbsolv_new/CMT3_2.vrp start
+hybrid qubo transform ./.vrp/CMT3/qbsolv_new/CMT3_2.vrp end: 0.172975
+QUBO Solver: started
+QUBO Solver: connected after 0.016891956329345703. starting solver
+QUBO Solver: workflow created took 2.2727038860321045
+QUBO Solver: {'qpu_sampling_time': 11714.0, 'qpu_anneal_time_per_sample': 20.0, 'qpu_readout_time_per_sample': 76.6, 'qpu_access_time': 27476.77, 'qpu_access_overhead_time': 1145.23, 'qpu_programming_time': 15762.77, 'qpu_delay_time_per_sample': 20.54, 'total_post_processing_time': 2147.0, 'post_processing_overhead_time': 2147.0}
+QUBO Solver: {'qpu_sampling_time': 10408.0, 'qpu_anneal_time_per_sample': 20.0, 'qpu_readout_time_per_sample': 63.54, 'qpu_access_time': 26169.57, 'qpu_access_overhead_time': 1046.43, 'qpu_programming_time': 15761.57, 'qpu_delay_time_per_sample': 20.54, 'total_post_processing_time': 1946.0, 'post_processing_overhead_time': 1946.0}
+QUBO Solver: {'qpu_sampling_time': 15088.0, 'qpu_anneal_time_per_sample': 20.0, 'qpu_readout_time_per_sample': 110.34, 'qpu_access_time': 30850.37, 'qpu_access_overhead_time': 2453.63, 'qpu_programming_time': 15762.37, 'qpu_delay_time_per_sample': 20.54, 'total_post_processing_time': 639.0, 'post_processing_overhead_time': 639.0}
+QUBO Solver: {"dispatch.resolve": [3.2499999997881446e-06], "dispatch.init": [1.4170000000035543e-06], "dispatch": [0.0009949589999997954], "dispatch.next": [10.934371875]}
+QUBO Solver: {}
+QUBO Solver: ended 13.225430965423584
+QUBO Solver: connection closed after 13.226372957229614
+hybrid post transform ./.vrp/CMT3/qbsolv_new/CMT3_2.vrp start
+hybrid post transform ./.vrp/CMT3/qbsolv_new/CMT3_2.vrp end: 0.000077
+solve ./.vrp/CMT3/qbsolv_new/CMT3_2.vrp end: 14.412898
+solve ./.vrp/CMT3/qbsolv_new/CMT3_3.vrp start
+hybrid qubo transform ./.vrp/CMT3/qbsolv_new/CMT3_3.vrp start
+hybrid qubo transform ./.vrp/CMT3/qbsolv_new/CMT3_3.vrp end: 0.09129
+QUBO Solver: started
+QUBO Solver: connected after 0.017379045486450195. starting solver
+QUBO Solver: workflow created took 2.2490758895874023
+QUBO Solver: {'qpu_sampling_time': 12056.0, 'qpu_anneal_time_per_sample': 20.0, 'qpu_readout_time_per_sample': 80.02, 'qpu_access_time': 27818.37, 'qpu_access_overhead_time': 1903.63, 'qpu_programming_time': 15762.37, 'qpu_delay_time_per_sample': 20.54, 'total_post_processing_time': 366.0, 'post_processing_overhead_time': 366.0}
+QUBO Solver: {'qpu_sampling_time': 19408.0, 'qpu_anneal_time_per_sample': 20.0, 'qpu_readout_time_per_sample': 153.54, 'qpu_access_time': 35170.37, 'qpu_access_overhead_time': 658.63, 'qpu_programming_time': 15762.37, 'qpu_delay_time_per_sample': 20.54, 'total_post_processing_time': 1818.0, 'post_processing_overhead_time': 1818.0}
+QUBO Solver: {'qpu_sampling_time': 11994.0, 'qpu_anneal_time_per_sample': 20.0, 'qpu_readout_time_per_sample': 79.4, 'qpu_access_time': 27755.57, 'qpu_access_overhead_time': 2338.43, 'qpu_programming_time': 15761.57, 'qpu_delay_time_per_sample': 20.54, 'total_post_processing_time': 538.0, 'post_processing_overhead_time': 538.0}
+QUBO Solver: {"dispatch.resolve": [2.8750000002908394e-06], "dispatch.init": [1.3329999997147013e-06], "dispatch": [0.0007577919999999239], "dispatch.next": [10.380944417]}
+QUBO Solver: {}
+QUBO Solver: ended 12.64896011352539
+QUBO Solver: connection closed after 12.649898052215576
+hybrid post transform ./.vrp/CMT3/qbsolv_new/CMT3_3.vrp start
+hybrid post transform ./.vrp/CMT3/qbsolv_new/CMT3_3.vrp end: 0.00007
+solve ./.vrp/CMT3/qbsolv_new/CMT3_3.vrp end: 13.650309
+solve ./.vrp/CMT3/qbsolv_new/CMT3_4.vrp start
+hybrid qubo transform ./.vrp/CMT3/qbsolv_new/CMT3_4.vrp start
+hybrid qubo transform ./.vrp/CMT3/qbsolv_new/CMT3_4.vrp end: 0.074246
+QUBO Solver: started
+QUBO Solver: connected after 0.01700305938720703. starting solver
+QUBO Solver: workflow created took 2.222026824951172
+QUBO Solver: {'qpu_sampling_time': 16100.0, 'qpu_anneal_time_per_sample': 20.0, 'qpu_readout_time_per_sample': 120.46, 'qpu_access_time': 31863.57, 'qpu_access_overhead_time': 821.43, 'qpu_programming_time': 15763.57, 'qpu_delay_time_per_sample': 20.54, 'total_post_processing_time': 3963.0, 'post_processing_overhead_time': 3963.0}
+QUBO Solver: {'qpu_sampling_time': 11298.0, 'qpu_anneal_time_per_sample': 20.0, 'qpu_readout_time_per_sample': 72.44, 'qpu_access_time': 27059.97, 'qpu_access_overhead_time': 2255.03, 'qpu_programming_time': 15761.97, 'qpu_delay_time_per_sample': 20.54, 'total_post_processing_time': 1899.0, 'post_processing_overhead_time': 1899.0}
+QUBO Solver: {'qpu_sampling_time': 15474.0, 'qpu_anneal_time_per_sample': 20.0, 'qpu_readout_time_per_sample': 114.2, 'qpu_access_time': 31236.77, 'qpu_access_overhead_time': 1044.23, 'qpu_programming_time': 15762.77, 'qpu_delay_time_per_sample': 20.54, 'total_post_processing_time': 3704.0, 'post_processing_overhead_time': 3704.0}
+QUBO Solver: {"dispatch.resolve": [2.8340000000071086e-06], "dispatch.init": [1.2499999999526779e-06], "dispatch": [0.0007259170000000204], "dispatch.next": [9.999725458]}
+QUBO Solver: {}
+QUBO Solver: ended 12.240433931350708
+QUBO Solver: connection closed after 12.241297960281372
+hybrid post transform ./.vrp/CMT3/qbsolv_new/CMT3_4.vrp start
+hybrid post transform ./.vrp/CMT3/qbsolv_new/CMT3_4.vrp end: 0.000074
+solve ./.vrp/CMT3/qbsolv_new/CMT3_4.vrp end: 13.256119
+solve ./.vrp/CMT3/qbsolv_new/CMT3_5.vrp start
+hybrid qubo transform ./.vrp/CMT3/qbsolv_new/CMT3_5.vrp start
+hybrid qubo transform ./.vrp/CMT3/qbsolv_new/CMT3_5.vrp end: 0.059046
+QUBO Solver: started
+QUBO Solver: connected after 0.01822209358215332. starting solver
+QUBO Solver: workflow created took 2.371649980545044
+QUBO Solver: {'qpu_sampling_time': 9466.0, 'qpu_anneal_time_per_sample': 20.0, 'qpu_readout_time_per_sample': 54.12, 'qpu_access_time': 25227.97, 'qpu_access_overhead_time': 2317.03, 'qpu_programming_time': 15761.97, 'qpu_delay_time_per_sample': 20.54, 'total_post_processing_time': 1939.0, 'post_processing_overhead_time': 1939.0}
+QUBO Solver: {'qpu_sampling_time': 11028.0, 'qpu_anneal_time_per_sample': 20.0, 'qpu_readout_time_per_sample': 69.74, 'qpu_access_time': 26789.57, 'qpu_access_overhead_time': 679.43, 'qpu_programming_time': 15761.57, 'qpu_delay_time_per_sample': 20.54, 'total_post_processing_time': 1933.0, 'post_processing_overhead_time': 1933.0}
+QUBO Solver: {'qpu_sampling_time': 16168.0, 'qpu_anneal_time_per_sample': 20.0, 'qpu_readout_time_per_sample': 121.14, 'qpu_access_time': 31928.77, 'qpu_access_overhead_time': 2628.23, 'qpu_programming_time': 15760.77, 'qpu_delay_time_per_sample': 20.54, 'total_post_processing_time': 1927.0, 'post_processing_overhead_time': 1927.0}
+QUBO Solver: {"dispatch.resolve": [4.208000000005541e-06], "dispatch.init": [1.3749999996370832e-06], "dispatch": [0.0006454169999998705], "dispatch.next": [12.840717375]}
+QUBO Solver: {}
+QUBO Solver: ended 15.23219609260559
+QUBO Solver: connection closed after 15.232995986938477
+hybrid post transform ./.vrp/CMT3/qbsolv_new/CMT3_5.vrp start
+hybrid post transform ./.vrp/CMT3/qbsolv_new/CMT3_5.vrp end: 0.000075
+solve ./.vrp/CMT3/qbsolv_new/CMT3_5.vrp end: 16.231041
+solve ./.vrp/CMT3/qbsolv_new/CMT3_6.vrp start
+hybrid qubo transform ./.vrp/CMT3/qbsolv_new/CMT3_6.vrp start
+hybrid qubo transform ./.vrp/CMT3/qbsolv_new/CMT3_6.vrp end: 0.097865
+QUBO Solver: started
+QUBO Solver: connected after 0.016098976135253906. starting solver
+QUBO Solver: workflow created took 2.4502100944519043
+QUBO Solver: {'qpu_sampling_time': 9644.0, 'qpu_anneal_time_per_sample': 20.0, 'qpu_readout_time_per_sample': 55.9, 'qpu_access_time': 25404.77, 'qpu_access_overhead_time': 5346.23, 'qpu_programming_time': 15760.77, 'qpu_delay_time_per_sample': 20.54, 'total_post_processing_time': 1921.0, 'post_processing_overhead_time': 1921.0}
+QUBO Solver: {'qpu_sampling_time': 11756.0, 'qpu_anneal_time_per_sample': 20.0, 'qpu_readout_time_per_sample': 77.02, 'qpu_access_time': 27516.77, 'qpu_access_overhead_time': 855.23, 'qpu_programming_time': 15760.77, 'qpu_delay_time_per_sample': 20.54, 'total_post_processing_time': 1858.0, 'post_processing_overhead_time': 1858.0}
+QUBO Solver: {'qpu_sampling_time': 11284.0, 'qpu_anneal_time_per_sample': 20.0, 'qpu_readout_time_per_sample': 72.3, 'qpu_access_time': 27046.37, 'qpu_access_overhead_time': 4900.63, 'qpu_programming_time': 15762.37, 'qpu_delay_time_per_sample': 20.54, 'total_post_processing_time': 1925.0, 'post_processing_overhead_time': 1925.0}
+QUBO Solver: {"dispatch.resolve": [2.8329999999243682e-06], "dispatch.init": [1.3339999997974417e-06], "dispatch": [0.0007363749999997893], "dispatch.next": [10.076756208]}
+QUBO Solver: {}
+QUBO Solver: ended 12.544672966003418
+QUBO Solver: connection closed after 12.545506954193115
+hybrid post transform ./.vrp/CMT3/qbsolv_new/CMT3_6.vrp start
+hybrid post transform ./.vrp/CMT3/qbsolv_new/CMT3_6.vrp end: 0.000075
+solve ./.vrp/CMT3/qbsolv_new/CMT3_6.vrp end: 13.601885
+solve ./.vrp/CMT3/qbsolv_new/CMT3_7.vrp start
+hybrid qubo transform ./.vrp/CMT3/qbsolv_new/CMT3_7.vrp start
+hybrid qubo transform ./.vrp/CMT3/qbsolv_new/CMT3_7.vrp end: 0.043891
+QUBO Solver: started
+QUBO Solver: connected after 0.01688098907470703. starting solver
+QUBO Solver: workflow created took 2.1478488445281982
+QUBO Solver: {'qpu_sampling_time': 12232.0, 'qpu_anneal_time_per_sample': 20.0, 'qpu_readout_time_per_sample': 81.78, 'qpu_access_time': 27995.17, 'qpu_access_overhead_time': 3764.83, 'qpu_programming_time': 15763.17, 'qpu_delay_time_per_sample': 20.54, 'total_post_processing_time': 1912.0, 'post_processing_overhead_time': 1912.0}
+QUBO Solver: {'qpu_sampling_time': 11264.0, 'qpu_anneal_time_per_sample': 20.0, 'qpu_readout_time_per_sample': 72.1, 'qpu_access_time': 27027.17, 'qpu_access_overhead_time': 6567.83, 'qpu_programming_time': 15763.17, 'qpu_delay_time_per_sample': 20.54, 'total_post_processing_time': 1916.0, 'post_processing_overhead_time': 1916.0}
+QUBO Solver: {'qpu_sampling_time': 14552.0, 'qpu_anneal_time_per_sample': 20.0, 'qpu_readout_time_per_sample': 104.98, 'qpu_access_time': 30313.17, 'qpu_access_overhead_time': 1793.83, 'qpu_programming_time': 15761.17, 'qpu_delay_time_per_sample': 20.54, 'total_post_processing_time': 1860.0, 'post_processing_overhead_time': 1860.0}
+QUBO Solver: {"dispatch.resolve": [2.750000000162345e-06], "dispatch.init": [1.2090000001130363e-06], "dispatch": [0.0005815830000002187], "dispatch.next": [10.811775084]}
+QUBO Solver: {}
+QUBO Solver: ended 12.978309869766235
+QUBO Solver: connection closed after 12.979212045669556
+hybrid post transform ./.vrp/CMT3/qbsolv_new/CMT3_7.vrp start
+hybrid post transform ./.vrp/CMT3/qbsolv_new/CMT3_7.vrp end: 0.00008
+solve ./.vrp/CMT3/qbsolv_new/CMT3_7.vrp end: 13.954868
+finished: 114.69206
+length: 986.2497119230034
+result [[1, 93, 38, 99, 101, 92, 86, 94, 62, 17, 45, 15, 39], [87, 18, 46, 85, 84, 61, 6, 100, 97, 60, 96, 95, 7, 1], [42, 23, 75, 73, 74, 22, 41, 59, 1, 14, 98, 88, 43, 44, 16, 58, 3], [1, 28, 70, 2, 71, 32, 11, 63, 89, 8, 83, 19, 53, 90], [33, 91, 64, 12, 20, 65, 50, 37, 48, 49, 47, 9, 1], [51, 77, 78, 4, 80, 69, 81, 13, 27, 29, 1, 54], [68, 24, 76, 57, 5, 40, 26, 56, 55, 25, 30, 79, 34, 1], [66, 67, 72, 36, 35, 82, 10, 52, 21, 31, 1]]

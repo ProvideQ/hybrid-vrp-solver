@@ -2,10 +2,10 @@ use super::common::{ClusterOutput, ClusteringTrait};
 use kmeans::{KMeans, KMeansConfig};
 use tspf::{Point, Tsp};
 
-pub struct KNNClustering {
+pub struct KMeansClustering {
     pub count: usize,
 }
-impl ClusteringTrait for KNNClustering {
+impl ClusteringTrait for KMeansClustering {
     fn cluster(&self, problem: &Tsp) -> ClusterOutput {
         let points = problem
             .node_coords()

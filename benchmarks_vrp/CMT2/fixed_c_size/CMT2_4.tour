@@ -1,0 +1,7 @@
+NAME: CMT2_4 solution
+TYPE: TOUR
+TOUR_SECTION:
+10 4 5 -1
+10 6 3 7 2 9 12 11 1 8 -1
+-1
+EOF

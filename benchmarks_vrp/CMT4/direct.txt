@@ -1,0 +1,54 @@
+working dir: /Users/lucas/workspace/uni/bachelor/pipeline
+path: src/res/CMT/CMT4.vrp
+solve
+name: CMT4
+type: Cvrp
+start
+clustered after: 0.000886
+start solving clustered vrps: 0.002161
+solve ./.vrp/CMT4/direct/CMT4_0.vrp start
+hybrid qubo transform ./.vrp/CMT4/direct/CMT4_0.vrp start
+hybrid qubo transform ./.vrp/CMT4/direct/CMT4_0.vrp end: 0.01696
+QUBO Solver: started
+QUBO Solver: connected after 0.019843101501464844. starting solver
+QUBO Solver: sampler created took 2.345707893371582
+QUBO Solver: {'timing': {'qpu_sampling_time': 40060.0, 'qpu_anneal_time_per_sample': 20.0, 'qpu_readout_time_per_sample': 119.7, 'qpu_access_time': 55821.97, 'qpu_access_overhead_time': 1285.03, 'qpu_programming_time': 15761.97, 'qpu_delay_time_per_sample': 20.54, 'post_processing_overhead_time': 773.0, 'total_post_processing_time': 773.0}, 'problem_id': 'af3d8935-245f-4b8f-8a57-142ac49bd7dd', 'problem_label': 'DWaveSampler with embedding num_reads=250 CMT4_0.coo'}
+QUBO Solver: ended 16.675453186035156
+QUBO Solver: connection closed after 16.677513122558594
+hybrid post transform ./.vrp/CMT4/direct/CMT4_0.vrp start
+hybrid post transform ./.vrp/CMT4/direct/CMT4_0.vrp end: 0.000141
+solve ./.vrp/CMT4/direct/CMT4_0.vrp end: 17.77767
+solve ./.vrp/CMT4/direct/CMT4_1.vrp start
+hybrid qubo transform ./.vrp/CMT4/direct/CMT4_1.vrp start
+hybrid qubo transform ./.vrp/CMT4/direct/CMT4_1.vrp end: 0.017547
+QUBO Solver: started
+QUBO Solver: connected after 0.0523679256439209. starting solver
+QUBO Solver: sampler created took 2.292984962463379
+QUBO Solver: {'timing': {'qpu_sampling_time': 48780.0, 'qpu_anneal_time_per_sample': 20.0, 'qpu_readout_time_per_sample': 154.58, 'qpu_access_time': 64542.77, 'qpu_access_overhead_time': 1554.23, 'qpu_programming_time': 15762.77, 'qpu_delay_time_per_sample': 20.54, 'post_processing_overhead_time': 1059.0, 'total_post_processing_time': 1059.0}, 'problem_id': '2b576ffb-787c-436a-af1c-0889efb733e6', 'problem_label': 'DWaveSampler with embedding num_reads=250 CMT4_1.coo'}
+QUBO Solver: ended 18.296292066574097
+QUBO Solver: connection closed after 18.29894208908081
+hybrid post transform ./.vrp/CMT4/direct/CMT4_1.vrp start
+hybrid post transform ./.vrp/CMT4/direct/CMT4_1.vrp end: 0.000077
+solve ./.vrp/CMT4/direct/CMT4_1.vrp end: 19.65277
+solve ./.vrp/CMT4/direct/CMT4_2.vrp start
+hybrid qubo transform ./.vrp/CMT4/direct/CMT4_2.vrp start
+hybrid qubo transform ./.vrp/CMT4/direct/CMT4_2.vrp end: 0.006649
+QUBO Solver: started
+QUBO Solver: connected after 0.0177919864654541. starting solver
+QUBO Solver: sampler created took 2.1011271476745605
+QUBO Solver: {'timing': {'qpu_sampling_time': 32165.0, 'qpu_anneal_time_per_sample': 20.0, 'qpu_readout_time_per_sample': 88.12, 'qpu_access_time': 47926.17, 'qpu_access_overhead_time': 1082.83, 'qpu_programming_time': 15761.17, 'qpu_delay_time_per_sample': 20.54, 'post_processing_overhead_time': 390.0, 'total_post_processing_time': 390.0}, 'problem_id': '5af68fd1-e1b6-41e7-b447-02da95c5bd8a', 'problem_label': 'DWaveSampler with embedding num_reads=250 CMT4_2.coo'}
+QUBO Solver: ended 6.644495964050293
+QUBO Solver: connection closed after 6.645959854125977
+hybrid post transform ./.vrp/CMT4/direct/CMT4_2.vrp start
+hybrid post transform ./.vrp/CMT4/direct/CMT4_2.vrp end: 0.000075
+solve ./.vrp/CMT4/direct/CMT4_2.vrp end: 7.639788
+solve ./.vrp/CMT4/direct/CMT4_3.vrp start
+hybrid qubo transform ./.vrp/CMT4/direct/CMT4_3.vrp start
+hybrid qubo transform ./.vrp/CMT4/direct/CMT4_3.vrp end: 0.032302
+QUBO Solver: started
+QUBO Solver: connected after 0.015059947967529297. starting solver
+QUBO Solver: sampler created took 2.1217799186706543
+QUBO Solver: {'timing': {'qpu_sampling_time': 64410.0, 'qpu_anneal_time_per_sample': 20.0, 'qpu_readout_time_per_sample': 217.1, 'qpu_access_time': 80175.17, 'qpu_access_overhead_time': 2557.83, 'qpu_programming_time': 15765.17, 'qpu_delay_time_per_sample': 20.54, 'post_processing_overhead_time': 1238.0, 'total_post_processing_time': 1238.0}, 'problem_id': 'b814ebdd-0a04-453f-a048-4dd1af6d28cc', 'problem_label': 'DWaveSampler with embedding num_reads=250 CMT4_3.coo'}
+QUBO Solver: ended 40.45537805557251
+QUBO Solver: connection closed after 40.45891714096069
+hybrid post transform ./.vrp/CMT4/direct/CMT4_3.vrp start

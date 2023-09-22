@@ -1,0 +1,18 @@
+working dir: /Users/lucas/workspace/uni/bachelor/pipeline
+path: src/res/CMT/CMT3.vrp
+solve
+name: CMT3
+type: Cvrp
+start
+clustered after: 0.000905
+start solving clustered vrps: 0.002167
+solve ./.vrp/CMT3/direct/CMT3_0.vrp start
+hybrid qubo transform ./.vrp/CMT3/direct/CMT3_0.vrp start
+hybrid qubo transform ./.vrp/CMT3/direct/CMT3_0.vrp end: 0.011891
+QUBO Solver: started
+QUBO Solver: connected after 0.017474889755249023. starting solver
+QUBO Solver: sampler created took 2.0739309787750244
+QUBO Solver: {'timing': {'qpu_sampling_time': 47730.0, 'qpu_anneal_time_per_sample': 20.0, 'qpu_readout_time_per_sample': 150.38, 'qpu_access_time': 63494.37, 'qpu_access_overhead_time': 917.63, 'qpu_programming_time': 15764.37, 'qpu_delay_time_per_sample': 20.54, 'post_processing_overhead_time': 1216.0, 'total_post_processing_time': 1216.0}, 'problem_id': '3c95328c-f522-4f03-8230-ce37261a9ba1', 'problem_label': 'DWaveSampler with embedding num_reads=250 CMT3_0.coo'}
+QUBO Solver: ended 8.497660875320435
+QUBO Solver: connection closed after 8.500478029251099
+hybrid post transform ./.vrp/CMT3/direct/CMT3_0.vrp start

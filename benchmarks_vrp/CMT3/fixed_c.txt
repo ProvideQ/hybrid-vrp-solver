@@ -1,0 +1,41 @@
+working dir: /Users/lucas/workspace/uni/bachelor/pipeline
+path: src/res/CMT/CMT3.vrp
+solve
+name: CMT3
+type: Cvrp
+start
+clustered after: 0.000715
+start solving clustered vrps: 0.001547
+solve ./.vrp/CMT3/fixed_c/CMT3_0.vrp start
+LKH Solver: solving /Users/lucas/workspace/uni/bachelor/pipeline/.vrp/CMT3/fixed_c/CMT3_0.vrp
+solve ./.vrp/CMT3/fixed_c/CMT3_0.vrp end: 1.230526
+solve ./.vrp/CMT3/fixed_c/CMT3_1.vrp start
+LKH Solver: solving /Users/lucas/workspace/uni/bachelor/pipeline/.vrp/CMT3/fixed_c/CMT3_1.vrp
+solve ./.vrp/CMT3/fixed_c/CMT3_1.vrp end: 0.394575
+solve ./.vrp/CMT3/fixed_c/CMT3_2.vrp start
+LKH Solver: solving /Users/lucas/workspace/uni/bachelor/pipeline/.vrp/CMT3/fixed_c/CMT3_2.vrp
+solve ./.vrp/CMT3/fixed_c/CMT3_2.vrp end: 0.38959002
+solve ./.vrp/CMT3/fixed_c/CMT3_3.vrp start
+LKH Solver: solving /Users/lucas/workspace/uni/bachelor/pipeline/.vrp/CMT3/fixed_c/CMT3_3.vrp
+solve ./.vrp/CMT3/fixed_c/CMT3_3.vrp end: 0.466547
+solve ./.vrp/CMT3/fixed_c/CMT3_4.vrp start
+LKH Solver: solving /Users/lucas/workspace/uni/bachelor/pipeline/.vrp/CMT3/fixed_c/CMT3_4.vrp
+solve ./.vrp/CMT3/fixed_c/CMT3_4.vrp end: 0.59089994
+solve ./.vrp/CMT3/fixed_c/CMT3_5.vrp start
+LKH Solver: solving /Users/lucas/workspace/uni/bachelor/pipeline/.vrp/CMT3/fixed_c/CMT3_5.vrp
+solve ./.vrp/CMT3/fixed_c/CMT3_5.vrp end: 0.41976
+solve ./.vrp/CMT3/fixed_c/CMT3_6.vrp start
+LKH Solver: solving /Users/lucas/workspace/uni/bachelor/pipeline/.vrp/CMT3/fixed_c/CMT3_6.vrp
+solve ./.vrp/CMT3/fixed_c/CMT3_6.vrp end: 0.44366202
+solve ./.vrp/CMT3/fixed_c/CMT3_7.vrp start
+LKH Solver: solving /Users/lucas/workspace/uni/bachelor/pipeline/.vrp/CMT3/fixed_c/CMT3_7.vrp
+solve ./.vrp/CMT3/fixed_c/CMT3_7.vrp end: 0.421098
+solve ./.vrp/CMT3/fixed_c/CMT3_8.vrp start
+LKH Solver: solving /Users/lucas/workspace/uni/bachelor/pipeline/.vrp/CMT3/fixed_c/CMT3_8.vrp
+solve ./.vrp/CMT3/fixed_c/CMT3_8.vrp end: 0.57545495
+solve ./.vrp/CMT3/fixed_c/CMT3_9.vrp start
+LKH Solver: solving /Users/lucas/workspace/uni/bachelor/pipeline/.vrp/CMT3/fixed_c/CMT3_9.vrp
+solve ./.vrp/CMT3/fixed_c/CMT3_9.vrp end: 0.41826302
+finished: 5.352223
+length: 1044.8656697901577
+result [[1, 90, 61, 6, 94, 93, 60, 100, 97, 7], [1, 95, 96, 98, 88, 14, 59, 54], [1, 43, 44, 16, 58], [1, 11, 33, 91, 64, 65, 50, 20, 12, 63], [1, 5, 56, 26, 40, 68, 24, 57], [1, 29, 77, 51, 34, 79, 80, 4, 78, 69, 81, 30, 25, 55, 13], [1, 8, 83, 49, 48, 37, 47, 9, 46, 84, 19], [1, 52, 21, 67, 66, 72, 36, 35, 10, 82], [1, 28, 70, 2, 31, 71, 32, 89, 53], [1, 99], [1, 38, 101, 92, 86, 62, 17, 45, 15, 39, 87, 18, 85], [1, 27, 22, 74, 73, 75, 76, 23, 42, 3, 41]]

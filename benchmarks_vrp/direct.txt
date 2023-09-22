@@ -1,0 +1,4 @@
+working dir: /Users/lucas/workspace/uni/bachelor/pipeline
+path: 
+solve
+Problems reading the VRP-Instance: IO error: No such file or directory (os error 2)

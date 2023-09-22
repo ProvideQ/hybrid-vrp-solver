@@ -1,0 +1,107 @@
+working dir: /Users/lucas/workspace/uni/bachelor/pipeline
+path: src/res/CMT/CMT11.vrp
+solve
+name: CMT11
+type: Cvrp
+start
+clustered after: 0.001342
+start solving clustered vrps: 0.001987
+solve ./.vrp/CMT11/simulated/CMT11_0.vrp start
+hybrid qubo transform ./.vrp/CMT11/simulated/CMT11_0.vrp start
+hybrid qubo transform ./.vrp/CMT11/simulated/CMT11_0.vrp end: 0.134256
+QUBO Solver: started
+QUBO Solver: connected after 0.016000032424926758. starting solver
+QUBO Solver: sampler created took 1.0013580322265625e-05
+QUBO Solver: {}
+QUBO Solver: ended 35.09369516372681
+QUBO Solver: connection closed after 35.09481906890869
+hybrid post transform ./.vrp/CMT11/simulated/CMT11_0.vrp start
+hybrid post transform ./.vrp/CMT11/simulated/CMT11_0.vrp end: 0.000097
+solve ./.vrp/CMT11/simulated/CMT11_0.vrp end: 36.04892
+solve ./.vrp/CMT11/simulated/CMT11_1.vrp start
+hybrid qubo transform ./.vrp/CMT11/simulated/CMT11_1.vrp start
+hybrid qubo transform ./.vrp/CMT11/simulated/CMT11_1.vrp end: 0.249624
+QUBO Solver: started
+QUBO Solver: connected after 0.020624160766601562. starting solver
+QUBO Solver: sampler created took 7.867813110351562e-06
+QUBO Solver: {}
+QUBO Solver: ended 68.8171911239624
+QUBO Solver: connection closed after 68.81904006004333
+hybrid post transform ./.vrp/CMT11/simulated/CMT11_1.vrp start
+hybrid post transform ./.vrp/CMT11/simulated/CMT11_1.vrp end: 0.000058
+solve ./.vrp/CMT11/simulated/CMT11_1.vrp end: 70.03394
+solve ./.vrp/CMT11/simulated/CMT11_2.vrp start
+hybrid qubo transform ./.vrp/CMT11/simulated/CMT11_2.vrp start
+hybrid qubo transform ./.vrp/CMT11/simulated/CMT11_2.vrp end: 0.234402
+QUBO Solver: started
+QUBO Solver: connected after 0.02012491226196289. starting solver
+QUBO Solver: sampler created took 1.0967254638671875e-05
+QUBO Solver: {}
+QUBO Solver: ended 58.19998598098755
+QUBO Solver: connection closed after 58.201231956481934
+hybrid post transform ./.vrp/CMT11/simulated/CMT11_2.vrp start
+hybrid post transform ./.vrp/CMT11/simulated/CMT11_2.vrp end: 0.000099
+solve ./.vrp/CMT11/simulated/CMT11_2.vrp end: 59.382088
+solve ./.vrp/CMT11/simulated/CMT11_3.vrp start
+hybrid qubo transform ./.vrp/CMT11/simulated/CMT11_3.vrp start
+hybrid qubo transform ./.vrp/CMT11/simulated/CMT11_3.vrp end: 0.113467
+QUBO Solver: started
+QUBO Solver: connected after 0.022340059280395508. starting solver
+QUBO Solver: sampler created took 5.9604644775390625e-06
+QUBO Solver: {}
+QUBO Solver: ended 28.00617790222168
+QUBO Solver: connection closed after 28.007161855697632
+hybrid post transform ./.vrp/CMT11/simulated/CMT11_3.vrp start
+hybrid post transform ./.vrp/CMT11/simulated/CMT11_3.vrp end: 0.000092
+solve ./.vrp/CMT11/simulated/CMT11_3.vrp end: 29.078169
+solve ./.vrp/CMT11/simulated/CMT11_4.vrp start
+hybrid qubo transform ./.vrp/CMT11/simulated/CMT11_4.vrp start
+hybrid qubo transform ./.vrp/CMT11/simulated/CMT11_4.vrp end: 0.320391
+QUBO Solver: started
+QUBO Solver: connected after 0.01717996597290039. starting solver
+QUBO Solver: sampler created took 8.106231689453125e-06
+QUBO Solver: {}
+QUBO Solver: ended 81.8701651096344
+QUBO Solver: connection closed after 81.87193989753723
+hybrid post transform ./.vrp/CMT11/simulated/CMT11_4.vrp start
+hybrid post transform ./.vrp/CMT11/simulated/CMT11_4.vrp end: 0.000102
+solve ./.vrp/CMT11/simulated/CMT11_4.vrp end: 83.1012
+solve ./.vrp/CMT11/simulated/CMT11_5.vrp start
+hybrid qubo transform ./.vrp/CMT11/simulated/CMT11_5.vrp start
+hybrid qubo transform ./.vrp/CMT11/simulated/CMT11_5.vrp end: 0.13562301
+QUBO Solver: started
+QUBO Solver: connected after 0.018620967864990234. starting solver
+QUBO Solver: sampler created took 9.059906005859375e-06
+QUBO Solver: {}
+QUBO Solver: ended 35.439526081085205
+QUBO Solver: connection closed after 35.44058799743652
+hybrid post transform ./.vrp/CMT11/simulated/CMT11_5.vrp start
+hybrid post transform ./.vrp/CMT11/simulated/CMT11_5.vrp end: 0.000083
+solve ./.vrp/CMT11/simulated/CMT11_5.vrp end: 36.568924
+solve ./.vrp/CMT11/simulated/CMT11_6.vrp start
+hybrid qubo transform ./.vrp/CMT11/simulated/CMT11_6.vrp start
+hybrid qubo transform ./.vrp/CMT11/simulated/CMT11_6.vrp end: 0.194774
+QUBO Solver: started
+QUBO Solver: connected after 0.017225027084350586. starting solver
+QUBO Solver: sampler created took 8.106231689453125e-06
+QUBO Solver: {}
+QUBO Solver: ended 51.73134088516235
+QUBO Solver: connection closed after 51.73353695869446
+hybrid post transform ./.vrp/CMT11/simulated/CMT11_6.vrp start
+hybrid post transform ./.vrp/CMT11/simulated/CMT11_6.vrp end: 0.000085
+solve ./.vrp/CMT11/simulated/CMT11_6.vrp end: 52.88871
+solve ./.vrp/CMT11/simulated/CMT11_7.vrp start
+hybrid qubo transform ./.vrp/CMT11/simulated/CMT11_7.vrp start
+hybrid qubo transform ./.vrp/CMT11/simulated/CMT11_7.vrp end: 0.000968
+QUBO Solver: started
+QUBO Solver: connected after 0.018151044845581055. starting solver
+QUBO Solver: sampler created took 5.9604644775390625e-06
+QUBO Solver: {}
+QUBO Solver: ended 0.2104790210723877
+QUBO Solver: connection closed after 0.212860107421875
+hybrid post transform ./.vrp/CMT11/simulated/CMT11_7.vrp start
+hybrid post transform ./.vrp/CMT11/simulated/CMT11_7.vrp end: 0.000074
+solve ./.vrp/CMT11/simulated/CMT11_7.vrp end: 1.164577
+finished: 368.2686
+length: 1905.7933729381014
+result [[2, 11, 9, 13, 10, 1, 5, 6, 4, 16, 14, 15, 7, 12, 8, 3], [97, 113, 1, 96, 86, 89, 88, 112, 118, 82, 84, 93, 90, 85, 114, 91, 83, 87, 92, 94], [98, 99, 117, 103, 100, 111, 108, 106, 101, 116, 95, 1, 105, 107, 104, 102, 115, 120, 121], [68, 69, 74, 110, 70, 76, 75, 78, 71, 72, 19, 119, 1, 109, 77], [32, 35, 30, 33, 37, 23, 22, 17, 28, 34, 25, 20, 26, 31, 36, 29, 27, 1, 21, 18, 24], [39, 43, 41, 42, 47, 50, 46, 51, 52, 48, 38, 40, 49, 45, 1, 44], [65, 63, 79, 81, 56, 58, 53, 62, 54, 64, 61, 55, 57, 60, 59, 73, 80, 1], [67, 66, 1]]

@@ -1,0 +1,30 @@
+working dir: /Users/lucas/workspace/uni/bachelor/pipeline
+path: src/res/CMT/CMT12.vrp
+solve
+name: CMT12
+type: Cvrp
+start
+clustered after: 0.00173
+start solving clustered vrps: 0.004224
+solve ./.vrp/CMT12/direct/CMT12_0.vrp start
+hybrid qubo transform ./.vrp/CMT12/direct/CMT12_0.vrp start
+hybrid qubo transform ./.vrp/CMT12/direct/CMT12_0.vrp end: 0.098127
+QUBO Solver: started
+QUBO Solver: connected after 0.019402027130126953. starting solver
+QUBO Solver: sampler created took 4.018680095672607
+QUBO Solver: {'timing': {'qpu_sampling_time': 249280.0, 'qpu_anneal_time_per_sample': 20.0, 'qpu_readout_time_per_sample': 208.74, 'qpu_access_time': 265048.77, 'qpu_access_overhead_time': 6949.23, 'qpu_programming_time': 15768.77, 'qpu_delay_time_per_sample': 20.54, 'post_processing_overhead_time': 1335.0, 'total_post_processing_time': 10944.0}, 'problem_id': '598b3d7c-b4cc-4e7d-88f9-93f295528031', 'problem_label': 'DWaveSampler with embedding num_reads=250 CMT12_0.coo'}
+QUBO Solver: ended 91.43060088157654
+QUBO Solver: connection closed after 91.4322280883789
+hybrid post transform ./.vrp/CMT12/direct/CMT12_0.vrp start
+hybrid post transform ./.vrp/CMT12/direct/CMT12_0.vrp end: 0.000094
+solve ./.vrp/CMT12/direct/CMT12_0.vrp end: 92.62248
+solve ./.vrp/CMT12/direct/CMT12_1.vrp start
+hybrid qubo transform ./.vrp/CMT12/direct/CMT12_1.vrp start
+hybrid qubo transform ./.vrp/CMT12/direct/CMT12_1.vrp end: 0.056318
+QUBO Solver: started
+QUBO Solver: connected after 0.01910996437072754. starting solver
+QUBO Solver: sampler created took 3.9468181133270264
+QUBO Solver: {'timing': {'qpu_sampling_time': 241380.0, 'qpu_anneal_time_per_sample': 20.0, 'qpu_readout_time_per_sample': 200.84, 'qpu_access_time': 257148.77, 'qpu_access_overhead_time': 5327.23, 'qpu_programming_time': 15768.77, 'qpu_delay_time_per_sample': 20.54, 'post_processing_overhead_time': 1057.0, 'total_post_processing_time': 6750.0}, 'problem_id': '3bd8e129-3318-4a62-b440-c9495b767245', 'problem_label': 'DWaveSampler with embedding num_reads=250 CMT12_1.coo'}
+QUBO Solver: ended 89.68954205513
+QUBO Solver: connection closed after 89.69156193733215
+hybrid post transform ./.vrp/CMT12/direct/CMT12_1.vrp start

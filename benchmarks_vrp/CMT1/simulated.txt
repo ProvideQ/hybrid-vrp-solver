@@ -1,0 +1,83 @@
+working dir: /Users/lucas/workspace/uni/bachelor/pipeline
+path: src/res/CMT/CMT1.vrp
+solve
+name: CMT1
+type: Cvrp
+start
+clustered after: 0.000257
+start solving clustered vrps: 0.000695
+solve ./.vrp/CMT1/simulated/CMT1_0.vrp start
+hybrid qubo transform ./.vrp/CMT1/simulated/CMT1_0.vrp start
+hybrid qubo transform ./.vrp/CMT1/simulated/CMT1_0.vrp end: 0.033644
+QUBO Solver: started
+QUBO Solver: connected after 0.019857168197631836. starting solver
+QUBO Solver: sampler created took 6.9141387939453125e-06
+QUBO Solver: {}
+QUBO Solver: ended 8.268235206604004
+QUBO Solver: connection closed after 8.269050121307373
+hybrid post transform ./.vrp/CMT1/simulated/CMT1_0.vrp start
+hybrid post transform ./.vrp/CMT1/simulated/CMT1_0.vrp end: 0.000096
+solve ./.vrp/CMT1/simulated/CMT1_0.vrp end: 9.363488
+solve ./.vrp/CMT1/simulated/CMT1_1.vrp start
+hybrid qubo transform ./.vrp/CMT1/simulated/CMT1_1.vrp start
+hybrid qubo transform ./.vrp/CMT1/simulated/CMT1_1.vrp end: 0.033091
+QUBO Solver: started
+QUBO Solver: connected after 0.018284082412719727. starting solver
+QUBO Solver: sampler created took 1.3113021850585938e-05
+QUBO Solver: {}
+QUBO Solver: ended 8.272032022476196
+QUBO Solver: connection closed after 8.273810148239136
+hybrid post transform ./.vrp/CMT1/simulated/CMT1_1.vrp start
+hybrid post transform ./.vrp/CMT1/simulated/CMT1_1.vrp end: 0.000084
+solve ./.vrp/CMT1/simulated/CMT1_1.vrp end: 9.204781
+solve ./.vrp/CMT1/simulated/CMT1_2.vrp start
+hybrid qubo transform ./.vrp/CMT1/simulated/CMT1_2.vrp start
+hybrid qubo transform ./.vrp/CMT1/simulated/CMT1_2.vrp end: 0.037465
+QUBO Solver: started
+QUBO Solver: connected after 0.01671886444091797. starting solver
+QUBO Solver: sampler created took 6.198883056640625e-06
+QUBO Solver: {}
+QUBO Solver: ended 11.540320873260498
+QUBO Solver: connection closed after 11.541759014129639
+hybrid post transform ./.vrp/CMT1/simulated/CMT1_2.vrp start
+hybrid post transform ./.vrp/CMT1/simulated/CMT1_2.vrp end: 0.000082
+solve ./.vrp/CMT1/simulated/CMT1_2.vrp end: 12.41301
+solve ./.vrp/CMT1/simulated/CMT1_3.vrp start
+hybrid qubo transform ./.vrp/CMT1/simulated/CMT1_3.vrp start
+hybrid qubo transform ./.vrp/CMT1/simulated/CMT1_3.vrp end: 0.056525
+QUBO Solver: started
+QUBO Solver: connected after 0.016245126724243164. starting solver
+QUBO Solver: sampler created took 5.9604644775390625e-06
+QUBO Solver: {}
+QUBO Solver: ended 14.055953025817871
+QUBO Solver: connection closed after 14.057058095932007
+hybrid post transform ./.vrp/CMT1/simulated/CMT1_3.vrp start
+hybrid post transform ./.vrp/CMT1/simulated/CMT1_3.vrp end: 0.000083
+solve ./.vrp/CMT1/simulated/CMT1_3.vrp end: 15.031177
+solve ./.vrp/CMT1/simulated/CMT1_4.vrp start
+hybrid qubo transform ./.vrp/CMT1/simulated/CMT1_4.vrp start
+hybrid qubo transform ./.vrp/CMT1/simulated/CMT1_4.vrp end: 0.032801
+QUBO Solver: started
+QUBO Solver: connected after 0.017910003662109375. starting solver
+QUBO Solver: sampler created took 7.867813110351562e-06
+QUBO Solver: {}
+QUBO Solver: ended 8.400760173797607
+QUBO Solver: connection closed after 8.401665210723877
+hybrid post transform ./.vrp/CMT1/simulated/CMT1_4.vrp start
+hybrid post transform ./.vrp/CMT1/simulated/CMT1_4.vrp end: 0.000096
+solve ./.vrp/CMT1/simulated/CMT1_4.vrp end: 9.38282
+solve ./.vrp/CMT1/simulated/CMT1_5.vrp start
+hybrid qubo transform ./.vrp/CMT1/simulated/CMT1_5.vrp start
+hybrid qubo transform ./.vrp/CMT1/simulated/CMT1_5.vrp end: 0.000861
+QUBO Solver: started
+QUBO Solver: connected after 0.01998591423034668. starting solver
+QUBO Solver: sampler created took 1.0013580322265625e-05
+QUBO Solver: {}
+QUBO Solver: ended 0.2136228084564209
+QUBO Solver: connection closed after 0.214432954788208
+hybrid post transform ./.vrp/CMT1/simulated/CMT1_5.vrp start
+hybrid post transform ./.vrp/CMT1/simulated/CMT1_5.vrp end: 0.000076
+solve ./.vrp/CMT1/simulated/CMT1_5.vrp end: 1.121136
+finished: 56.51716
+length: 945.1816667174284
+result [[18, 5, 19, 45, 43, 1, 14, 42, 20, 41], [24, 7, 26, 1, 15, 28, 49, 8, 44, 25], [1, 39, 34, 11, 46, 16, 10, 50, 13, 38, 6], [3, 22, 51, 1, 47, 33, 12, 30, 23, 2, 17, 48], [35, 36, 21, 40, 31, 1, 29, 4, 32, 37], [1, 27, 9]]

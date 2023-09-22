@@ -1,0 +1,23 @@
+working dir: /Users/lucas/workspace/uni/bachelor/pipeline
+path: src/res/CMT/CMT1.vrp
+solve
+name: CMT1
+type: Cvrp
+start
+clustered after: 0.000567
+start solving clustered vrps: 0.000939
+solve ./.vrp/CMT1/fixed_c_size/CMT1_0.vrp start
+LKH Solver: solving /Users/lucas/workspace/uni/bachelor/pipeline/.vrp/CMT1/fixed_c_size/CMT1_0.vrp
+solve ./.vrp/CMT1/fixed_c_size/CMT1_0.vrp end: 0.660066
+solve ./.vrp/CMT1/fixed_c_size/CMT1_1.vrp start
+LKH Solver: solving /Users/lucas/workspace/uni/bachelor/pipeline/.vrp/CMT1/fixed_c_size/CMT1_1.vrp
+solve ./.vrp/CMT1/fixed_c_size/CMT1_1.vrp end: 0.608288
+solve ./.vrp/CMT1/fixed_c_size/CMT1_2.vrp start
+LKH Solver: solving /Users/lucas/workspace/uni/bachelor/pipeline/.vrp/CMT1/fixed_c_size/CMT1_2.vrp
+solve ./.vrp/CMT1/fixed_c_size/CMT1_2.vrp end: 1.024358
+solve ./.vrp/CMT1/fixed_c_size/CMT1_3.vrp start
+LKH Solver: solving /Users/lucas/workspace/uni/bachelor/pipeline/.vrp/CMT1/fixed_c_size/CMT1_3.vrp
+solve ./.vrp/CMT1/fixed_c_size/CMT1_3.vrp end: 0.514185
+finished: 2.807939
+length: 613.3423541632155
+result [[1, 2, 32, 27, 9, 49, 24, 8, 44, 25, 15, 7], [1, 47, 28], [1, 50, 10, 51, 35, 31, 11, 40, 34, 46, 16], [1, 6, 39], [1, 19, 5, 48, 13], [1, 26, 14, 42, 20, 41, 43, 45, 38, 18], [1, 12], [1, 33, 3, 17, 22, 30, 21, 36, 37, 4, 29, 23]]

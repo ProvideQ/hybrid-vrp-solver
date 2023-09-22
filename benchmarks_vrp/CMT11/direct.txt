@@ -1,0 +1,18 @@
+working dir: /Users/lucas/workspace/uni/bachelor/pipeline
+path: src/res/CMT/CMT11.vrp
+solve
+name: CMT11
+type: Cvrp
+start
+clustered after: 0.000796
+start solving clustered vrps: 0.002092
+solve ./.vrp/CMT11/direct/CMT11_0.vrp start
+hybrid qubo transform ./.vrp/CMT11/direct/CMT11_0.vrp start
+hybrid qubo transform ./.vrp/CMT11/direct/CMT11_0.vrp end: 0.011127
+QUBO Solver: started
+QUBO Solver: connected after 0.01776409149169922. starting solver
+QUBO Solver: sampler created took 2.165482997894287
+QUBO Solver: {'timing': {'qpu_sampling_time': 35170.0, 'qpu_anneal_time_per_sample': 20.0, 'qpu_readout_time_per_sample': 100.14, 'qpu_access_time': 50930.37, 'qpu_access_overhead_time': 2370.63, 'qpu_programming_time': 15760.37, 'qpu_delay_time_per_sample': 20.54, 'post_processing_overhead_time': 904.0, 'total_post_processing_time': 904.0}, 'problem_id': '8300db76-1e16-4bea-b2be-0dc8589df785', 'problem_label': 'DWaveSampler with embedding num_reads=250 CMT11_0.coo'}
+QUBO Solver: ended 8.16388201713562
+QUBO Solver: connection closed after 8.16727900505066
+hybrid post transform ./.vrp/CMT11/direct/CMT11_0.vrp start

@@ -1,0 +1,167 @@
+working dir: /Users/lucas/workspace/uni/bachelor/pipeline
+path: src/res/CMT/CMT4.vrp
+solve
+name: CMT4
+type: Cvrp
+start
+clustered after: 0.002194
+start solving clustered vrps: 0.003153
+solve ./.vrp/CMT4/qbsolv/CMT4_0.vrp start
+hybrid qubo transform ./.vrp/CMT4/qbsolv/CMT4_0.vrp start
+hybrid qubo transform ./.vrp/CMT4/qbsolv/CMT4_0.vrp end: 0.043069
+QUBO Solver: started
+QUBO Solver: connected after 0.02003002166748047. starting solver
+QUBO Solver: workflow created took 2.325230121612549
+QUBO Solver: defaultdict(<class 'list'>, {'dispatch.resolve': [3.4170000002831102e-06], 'dispatch.init': [1.500000000209667e-06], 'dispatch': [0.0007023339999996381], 'dispatch.next': [11.593029416]})
+QUBO Solver: {}
+QUBO Solver: ended 13.940362930297852
+QUBO Solver: connection closed after 13.941191911697388
+hybrid post transform ./.vrp/CMT4/qbsolv/CMT4_0.vrp start
+hybrid post transform ./.vrp/CMT4/qbsolv/CMT4_0.vrp end: 0.000098
+solve ./.vrp/CMT4/qbsolv/CMT4_0.vrp end: 15.187897
+solve ./.vrp/CMT4/qbsolv/CMT4_1.vrp start
+hybrid qubo transform ./.vrp/CMT4/qbsolv/CMT4_1.vrp start
+hybrid qubo transform ./.vrp/CMT4/qbsolv/CMT4_1.vrp end: 0.19528
+QUBO Solver: started
+QUBO Solver: connected after 0.016601085662841797. starting solver
+QUBO Solver: workflow created took 2.9013869762420654
+QUBO Solver: defaultdict(<class 'list'>, {'dispatch.resolve': [3.624999999729539e-06], 'dispatch.init': [1.500000000209667e-06], 'dispatch': [0.0013328750000001222], 'dispatch.next': [11.2544305]})
+QUBO Solver: {}
+QUBO Solver: ended 14.174690008163452
+QUBO Solver: connection closed after 14.17569899559021
+hybrid post transform ./.vrp/CMT4/qbsolv/CMT4_1.vrp start
+hybrid post transform ./.vrp/CMT4/qbsolv/CMT4_1.vrp end: 0.000078
+solve ./.vrp/CMT4/qbsolv/CMT4_1.vrp end: 15.320401
+solve ./.vrp/CMT4/qbsolv/CMT4_2.vrp start
+hybrid qubo transform ./.vrp/CMT4/qbsolv/CMT4_2.vrp start
+hybrid qubo transform ./.vrp/CMT4/qbsolv/CMT4_2.vrp end: 0.056289
+QUBO Solver: started
+QUBO Solver: connected after 0.018488168716430664. starting solver
+QUBO Solver: workflow created took 2.408909797668457
+QUBO Solver: defaultdict(<class 'list'>, {'dispatch.resolve': [3.582999999807157e-06], 'dispatch.init': [1.3330000001587905e-06], 'dispatch': [0.0006317909999999927], 'dispatch.next': [10.311272542000001]})
+QUBO Solver: {}
+QUBO Solver: ended 12.740875005722046
+QUBO Solver: connection closed after 12.741833209991455
+hybrid post transform ./.vrp/CMT4/qbsolv/CMT4_2.vrp start
+hybrid post transform ./.vrp/CMT4/qbsolv/CMT4_2.vrp end: 0.000077
+solve ./.vrp/CMT4/qbsolv/CMT4_2.vrp end: 13.833589
+solve ./.vrp/CMT4/qbsolv/CMT4_3.vrp start
+hybrid qubo transform ./.vrp/CMT4/qbsolv/CMT4_3.vrp start
+hybrid qubo transform ./.vrp/CMT4/qbsolv/CMT4_3.vrp end: 0.054478
+QUBO Solver: started
+QUBO Solver: connected after 0.017200946807861328. starting solver
+QUBO Solver: workflow created took 2.1877551078796387
+QUBO Solver: defaultdict(<class 'list'>, {'dispatch.resolve': [2.9580000000528628e-06], 'dispatch.init': [1.5420000001320489e-06], 'dispatch': [0.0006159159999996611], 'dispatch.next': [10.434146792]})
+QUBO Solver: {}
+QUBO Solver: ended 12.64095687866211
+QUBO Solver: connection closed after 12.641752004623413
+hybrid post transform ./.vrp/CMT4/qbsolv/CMT4_3.vrp start
+hybrid post transform ./.vrp/CMT4/qbsolv/CMT4_3.vrp end: 0.000084
+solve ./.vrp/CMT4/qbsolv/CMT4_3.vrp end: 13.610187
+solve ./.vrp/CMT4/qbsolv/CMT4_4.vrp start
+hybrid qubo transform ./.vrp/CMT4/qbsolv/CMT4_4.vrp start
+hybrid qubo transform ./.vrp/CMT4/qbsolv/CMT4_4.vrp end: 0.075282
+QUBO Solver: started
+QUBO Solver: connected after 0.015916824340820312. starting solver
+QUBO Solver: workflow created took 2.275681972503662
+QUBO Solver: defaultdict(<class 'list'>, {'dispatch.resolve': [2.9580000000528628e-06], 'dispatch.init': [1.4579999998431958e-06], 'dispatch': [0.0006928749999999262], 'dispatch.next': [10.711924208000001]})
+QUBO Solver: {}
+QUBO Solver: ended 13.012719869613647
+QUBO Solver: connection closed after 13.013739824295044
+hybrid post transform ./.vrp/CMT4/qbsolv/CMT4_4.vrp start
+hybrid post transform ./.vrp/CMT4/qbsolv/CMT4_4.vrp end: 0.000084
+solve ./.vrp/CMT4/qbsolv/CMT4_4.vrp end: 14.130321
+solve ./.vrp/CMT4/qbsolv/CMT4_5.vrp start
+hybrid qubo transform ./.vrp/CMT4/qbsolv/CMT4_5.vrp start
+hybrid qubo transform ./.vrp/CMT4/qbsolv/CMT4_5.vrp end: 0.11516
+QUBO Solver: started
+QUBO Solver: connected after 0.020164012908935547. starting solver
+QUBO Solver: workflow created took 2.116734027862549
+QUBO Solver: defaultdict(<class 'list'>, {'dispatch.resolve': [2.750000000162345e-06], 'dispatch.init': [1.208000000030296e-06], 'dispatch': [0.0008100419999998998], 'dispatch.next': [12.006432125]})
+QUBO Solver: {}
+QUBO Solver: ended 14.144877910614014
+QUBO Solver: connection closed after 14.145757913589478
+hybrid post transform ./.vrp/CMT4/qbsolv/CMT4_5.vrp start
+hybrid post transform ./.vrp/CMT4/qbsolv/CMT4_5.vrp end: 0.000091
+solve ./.vrp/CMT4/qbsolv/CMT4_5.vrp end: 15.245966
+solve ./.vrp/CMT4/qbsolv/CMT4_6.vrp start
+hybrid qubo transform ./.vrp/CMT4/qbsolv/CMT4_6.vrp start
+hybrid qubo transform ./.vrp/CMT4/qbsolv/CMT4_6.vrp end: 0.073945
+QUBO Solver: started
+QUBO Solver: connected after 0.017649173736572266. starting solver
+QUBO Solver: workflow created took 2.626291036605835
+QUBO Solver: defaultdict(<class 'list'>, {'dispatch.resolve': [2.0208999999660193e-05], 'dispatch.init': [1.2090000001130363e-06], 'dispatch': [0.0007353750000000936], 'dispatch.next': [10.771944208999999]})
+QUBO Solver: {}
+QUBO Solver: ended 13.418135166168213
+QUBO Solver: connection closed after 13.419025182723999
+hybrid post transform ./.vrp/CMT4/qbsolv/CMT4_6.vrp start
+hybrid post transform ./.vrp/CMT4/qbsolv/CMT4_6.vrp end: 0.000099
+solve ./.vrp/CMT4/qbsolv/CMT4_6.vrp end: 14.468094
+solve ./.vrp/CMT4/qbsolv/CMT4_7.vrp start
+hybrid qubo transform ./.vrp/CMT4/qbsolv/CMT4_7.vrp start
+hybrid qubo transform ./.vrp/CMT4/qbsolv/CMT4_7.vrp end: 0.113763
+QUBO Solver: started
+QUBO Solver: connected after 0.018251895904541016. starting solver
+QUBO Solver: workflow created took 2.162036895751953
+QUBO Solver: defaultdict(<class 'list'>, {'dispatch.resolve': [2.9580000000528628e-06], 'dispatch.init': [1.2910000002364086e-06], 'dispatch': [0.0008068329999999513], 'dispatch.next': [11.184974416000001]})
+QUBO Solver: {}
+QUBO Solver: ended 13.367238998413086
+QUBO Solver: connection closed after 13.368050813674927
+hybrid post transform ./.vrp/CMT4/qbsolv/CMT4_7.vrp start
+hybrid post transform ./.vrp/CMT4/qbsolv/CMT4_7.vrp end: 0.000136
+solve ./.vrp/CMT4/qbsolv/CMT4_7.vrp end: 14.486947
+solve ./.vrp/CMT4/qbsolv/CMT4_8.vrp start
+hybrid qubo transform ./.vrp/CMT4/qbsolv/CMT4_8.vrp start
+hybrid qubo transform ./.vrp/CMT4/qbsolv/CMT4_8.vrp end: 0.071936
+QUBO Solver: started
+QUBO Solver: connected after 0.016278982162475586. starting solver
+QUBO Solver: workflow created took 2.190995931625366
+QUBO Solver: defaultdict(<class 'list'>, {'dispatch.resolve': [3.5000000000451337e-06], 'dispatch.init': [1.3750000000811724e-06], 'dispatch': [0.0006814159999999347], 'dispatch.next': [12.040260042]})
+QUBO Solver: {}
+QUBO Solver: ended 14.2501699924469
+QUBO Solver: connection closed after 14.251199007034302
+hybrid post transform ./.vrp/CMT4/qbsolv/CMT4_8.vrp start
+hybrid post transform ./.vrp/CMT4/qbsolv/CMT4_8.vrp end: 0.000092
+solve ./.vrp/CMT4/qbsolv/CMT4_8.vrp end: 15.282777
+solve ./.vrp/CMT4/qbsolv/CMT4_9.vrp start
+hybrid qubo transform ./.vrp/CMT4/qbsolv/CMT4_9.vrp start
+hybrid qubo transform ./.vrp/CMT4/qbsolv/CMT4_9.vrp end: 0.113463
+QUBO Solver: started
+QUBO Solver: connected after 0.022362947463989258. starting solver
+QUBO Solver: workflow created took 2.1705400943756104
+QUBO Solver: defaultdict(<class 'list'>, {'dispatch.resolve': [2.9999999999752447e-06], 'dispatch.init': [1.2910000002364086e-06], 'dispatch': [0.0008370410000000383], 'dispatch.next': [11.129927042]})
+QUBO Solver: {}
+QUBO Solver: ended 13.32494306564331
+QUBO Solver: connection closed after 13.325856924057007
+hybrid post transform ./.vrp/CMT4/qbsolv/CMT4_9.vrp start
+hybrid post transform ./.vrp/CMT4/qbsolv/CMT4_9.vrp end: 0.000099
+solve ./.vrp/CMT4/qbsolv/CMT4_9.vrp end: 14.467926
+solve ./.vrp/CMT4/qbsolv/CMT4_10.vrp start
+hybrid qubo transform ./.vrp/CMT4/qbsolv/CMT4_10.vrp start
+hybrid qubo transform ./.vrp/CMT4/qbsolv/CMT4_10.vrp end: 0.075906
+QUBO Solver: started
+QUBO Solver: connected after 0.016052961349487305. starting solver
+QUBO Solver: workflow created took 2.3779799938201904
+QUBO Solver: defaultdict(<class 'list'>, {'dispatch.resolve': [2.9580000000528628e-06], 'dispatch.init': [1.1249999998241833e-06], 'dispatch': [0.0007301669999999483], 'dispatch.next': [11.370641833]})
+QUBO Solver: {}
+QUBO Solver: ended 13.766316890716553
+QUBO Solver: connection closed after 13.76721477508545
+hybrid post transform ./.vrp/CMT4/qbsolv/CMT4_10.vrp start
+hybrid post transform ./.vrp/CMT4/qbsolv/CMT4_10.vrp end: 0.000078
+solve ./.vrp/CMT4/qbsolv/CMT4_10.vrp end: 14.894391
+solve ./.vrp/CMT4/qbsolv/CMT4_11.vrp start
+hybrid qubo transform ./.vrp/CMT4/qbsolv/CMT4_11.vrp start
+hybrid qubo transform ./.vrp/CMT4/qbsolv/CMT4_11.vrp end: 0.05705
+QUBO Solver: started
+QUBO Solver: connected after 0.01802206039428711. starting solver
+QUBO Solver: workflow created took 2.294981002807617
+QUBO Solver: defaultdict(<class 'list'>, {'dispatch.resolve': [3.834000000146887e-06], 'dispatch.init': [1.4170000000035543e-06], 'dispatch': [0.000637624999999975], 'dispatch.next': [10.771252292]})
+QUBO Solver: {}
+QUBO Solver: ended 13.087378978729248
+QUBO Solver: connection closed after 13.089154958724976
+hybrid post transform ./.vrp/CMT4/qbsolv/CMT4_11.vrp start
+hybrid post transform ./.vrp/CMT4/qbsolv/CMT4_11.vrp end: 0.000088
+solve ./.vrp/CMT4/qbsolv/CMT4_11.vrp end: 14.124896
+finished: 175.05664
+length: 1237.160369520036
+result [[89, 41, 65, 20, 95, 42, 137, 67, 142, 151, 1], [93, 43, 94, 66, 53, 16, 108, 45, 138, 148, 143, 88, 149, 146, 18, 64, 38, 1], [111, 19, 56, 135, 68, 14, 112, 136, 144, 5, 150, 1], [109, 6, 104, 1, 47, 13, 140, 48, 57, 145, 147, 110], [97, 25, 99, 58, 7, 133, 15, 59, 26, 96, 134, 69, 1], [1, 72, 124, 123, 125, 11, 55, 40, 74, 107, 126, 34, 73, 92, 46], [1, 79, 12, 127, 17, 51, 131, 10, 63, 39, 77, 50, 91], [52, 33, 120, 2, 23, 121, 9, 61, 113, 49, 139, 82, 28, 103, 1], [22, 119, 128, 54, 130, 30, 129, 132, 84, 3, 101, 78, 1], [115, 100, 87, 44, 98, 24, 70, 8, 62, 114, 27, 141, 83, 32, 1], [1, 60, 21, 85, 80, 75, 35, 105, 31, 106, 76, 90, 118], [1, 81, 71, 29, 117, 116, 37, 86, 36, 122, 4, 102]]

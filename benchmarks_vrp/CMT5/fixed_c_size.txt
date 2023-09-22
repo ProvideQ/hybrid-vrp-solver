@@ -1,0 +1,53 @@
+working dir: /Users/lucas/workspace/uni/bachelor/pipeline
+path: src/res/CMT/CMT5.vrp
+solve
+name: CMT5
+type: Cvrp
+start
+clustered after: 0.001531
+start solving clustered vrps: 0.002583
+solve ./.vrp/CMT5/fixed_c_size/CMT5_0.vrp start
+LKH Solver: solving /Users/lucas/workspace/uni/bachelor/pipeline/.vrp/CMT5/fixed_c_size/CMT5_0.vrp
+solve ./.vrp/CMT5/fixed_c_size/CMT5_0.vrp end: 0.38866
+solve ./.vrp/CMT5/fixed_c_size/CMT5_1.vrp start
+LKH Solver: solving /Users/lucas/workspace/uni/bachelor/pipeline/.vrp/CMT5/fixed_c_size/CMT5_1.vrp
+solve ./.vrp/CMT5/fixed_c_size/CMT5_1.vrp end: 0.539102
+solve ./.vrp/CMT5/fixed_c_size/CMT5_2.vrp start
+LKH Solver: solving /Users/lucas/workspace/uni/bachelor/pipeline/.vrp/CMT5/fixed_c_size/CMT5_2.vrp
+solve ./.vrp/CMT5/fixed_c_size/CMT5_2.vrp end: 0.384983
+solve ./.vrp/CMT5/fixed_c_size/CMT5_3.vrp start
+LKH Solver: solving /Users/lucas/workspace/uni/bachelor/pipeline/.vrp/CMT5/fixed_c_size/CMT5_3.vrp
+solve ./.vrp/CMT5/fixed_c_size/CMT5_3.vrp end: 0.382693
+solve ./.vrp/CMT5/fixed_c_size/CMT5_4.vrp start
+LKH Solver: solving /Users/lucas/workspace/uni/bachelor/pipeline/.vrp/CMT5/fixed_c_size/CMT5_4.vrp
+solve ./.vrp/CMT5/fixed_c_size/CMT5_4.vrp end: 0.804822
+solve ./.vrp/CMT5/fixed_c_size/CMT5_5.vrp start
+LKH Solver: solving /Users/lucas/workspace/uni/bachelor/pipeline/.vrp/CMT5/fixed_c_size/CMT5_5.vrp
+solve ./.vrp/CMT5/fixed_c_size/CMT5_5.vrp end: 0.537992
+solve ./.vrp/CMT5/fixed_c_size/CMT5_6.vrp start
+LKH Solver: solving /Users/lucas/workspace/uni/bachelor/pipeline/.vrp/CMT5/fixed_c_size/CMT5_6.vrp
+solve ./.vrp/CMT5/fixed_c_size/CMT5_6.vrp end: 1.065077
+solve ./.vrp/CMT5/fixed_c_size/CMT5_7.vrp start
+LKH Solver: solving /Users/lucas/workspace/uni/bachelor/pipeline/.vrp/CMT5/fixed_c_size/CMT5_7.vrp
+solve ./.vrp/CMT5/fixed_c_size/CMT5_7.vrp end: 3.224464
+solve ./.vrp/CMT5/fixed_c_size/CMT5_8.vrp start
+LKH Solver: solving /Users/lucas/workspace/uni/bachelor/pipeline/.vrp/CMT5/fixed_c_size/CMT5_8.vrp
+solve ./.vrp/CMT5/fixed_c_size/CMT5_8.vrp end: 1.533371
+solve ./.vrp/CMT5/fixed_c_size/CMT5_9.vrp start
+LKH Solver: solving /Users/lucas/workspace/uni/bachelor/pipeline/.vrp/CMT5/fixed_c_size/CMT5_9.vrp
+solve ./.vrp/CMT5/fixed_c_size/CMT5_9.vrp end: 0.346131
+solve ./.vrp/CMT5/fixed_c_size/CMT5_10.vrp start
+LKH Solver: solving /Users/lucas/workspace/uni/bachelor/pipeline/.vrp/CMT5/fixed_c_size/CMT5_10.vrp
+solve ./.vrp/CMT5/fixed_c_size/CMT5_10.vrp end: 0.878356
+solve ./.vrp/CMT5/fixed_c_size/CMT5_11.vrp start
+LKH Solver: solving /Users/lucas/workspace/uni/bachelor/pipeline/.vrp/CMT5/fixed_c_size/CMT5_11.vrp
+solve ./.vrp/CMT5/fixed_c_size/CMT5_11.vrp end: 0.69023305
+solve ./.vrp/CMT5/fixed_c_size/CMT5_12.vrp start
+LKH Solver: solving /Users/lucas/workspace/uni/bachelor/pipeline/.vrp/CMT5/fixed_c_size/CMT5_12.vrp
+solve ./.vrp/CMT5/fixed_c_size/CMT5_12.vrp end: 0.42913902
+solve ./.vrp/CMT5/fixed_c_size/CMT5_13.vrp start
+LKH Solver: solving /Users/lucas/workspace/uni/bachelor/pipeline/.vrp/CMT5/fixed_c_size/CMT5_13.vrp
+solve ./.vrp/CMT5/fixed_c_size/CMT5_13.vrp end: 0.76714
+finished: 11.975083
+length: 1623.8536625753013
+result [[1, 152, 188, 98, 33, 107, 182, 45, 56, 4, 118], [1, 66, 177, 103, 9, 79, 179, 36, 181, 133, 8, 52, 150], [1, 176, 47], [1, 102, 65, 29, 95, 157, 115, 143, 142, 23, 94, 187], [1, 16, 155, 125, 21, 167, 139, 38, 89, 104, 6], [1, 70, 15, 85, 135, 86, 165, 171, 166, 39, 120, 78], [1, 151, 53, 12, 109], [1, 110, 40, 58, 190, 163, 76, 111, 164, 32, 132, 81, 11], [1, 10, 162], [1, 189, 97, 106, 34, 194, 196, 195, 197, 67, 87, 113, 7], [1, 153, 55, 140, 158, 3, 62], [1, 192, 2, 137, 198, 200, 43, 69, 144, 91, 42, 191, 44, 193, 199, 54], [1, 159, 185, 161, 116, 186, 90, 138, 114, 92], [1, 126, 30, 80, 154, 84, 28, 180, 100, 168, 35, 128], [1, 5, 88, 112, 59, 46, 99, 31], [1, 178, 134, 20, 71, 129, 124, 14], [1, 172, 48, 156, 37, 123, 175, 83, 122, 141, 22, 174, 173], [1, 121, 49, 60], [1, 183, 50, 64, 108, 25, 145, 75, 117, 63, 24, 184, 105], [1, 68, 160, 17], [1, 73, 119, 26, 57, 149, 93, 136, 146, 74, 147, 19, 148], [1, 96, 18, 127], [1, 61, 27, 82, 169, 101, 72, 130, 170, 51, 13, 131, 41, 77]]

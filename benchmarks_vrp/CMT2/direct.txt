@@ -1,0 +1,11 @@
+working dir: /Users/lucas/workspace/uni/bachelor/pipeline
+path: src/res/CMT/CMT2.vrp
+solve
+name: CMT2
+type: Cvrp
+start
+clustered after: 0.000542
+start solving clustered vrps: 0.001255
+solve ./.vrp/CMT2/direct/CMT2_0.vrp start
+hybrid qubo transform ./.vrp/CMT2/direct/CMT2_0.vrp start
+CVRP subproblem can't be solved with this

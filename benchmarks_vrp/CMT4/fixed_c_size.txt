@@ -1,0 +1,44 @@
+working dir: /Users/lucas/workspace/uni/bachelor/pipeline
+path: src/res/CMT/CMT4.vrp
+solve
+name: CMT4
+type: Cvrp
+start
+clustered after: 0.001084
+start solving clustered vrps: 0.001914
+solve ./.vrp/CMT4/fixed_c_size/CMT4_0.vrp start
+LKH Solver: solving /Users/lucas/workspace/uni/bachelor/pipeline/.vrp/CMT4/fixed_c_size/CMT4_0.vrp
+solve ./.vrp/CMT4/fixed_c_size/CMT4_0.vrp end: 1.365221
+solve ./.vrp/CMT4/fixed_c_size/CMT4_1.vrp start
+LKH Solver: solving /Users/lucas/workspace/uni/bachelor/pipeline/.vrp/CMT4/fixed_c_size/CMT4_1.vrp
+solve ./.vrp/CMT4/fixed_c_size/CMT4_1.vrp end: 0.31132498
+solve ./.vrp/CMT4/fixed_c_size/CMT4_2.vrp start
+LKH Solver: solving /Users/lucas/workspace/uni/bachelor/pipeline/.vrp/CMT4/fixed_c_size/CMT4_2.vrp
+solve ./.vrp/CMT4/fixed_c_size/CMT4_2.vrp end: 0.963987
+solve ./.vrp/CMT4/fixed_c_size/CMT4_3.vrp start
+LKH Solver: solving /Users/lucas/workspace/uni/bachelor/pipeline/.vrp/CMT4/fixed_c_size/CMT4_3.vrp
+solve ./.vrp/CMT4/fixed_c_size/CMT4_3.vrp end: 0.375969
+solve ./.vrp/CMT4/fixed_c_size/CMT4_4.vrp start
+LKH Solver: solving /Users/lucas/workspace/uni/bachelor/pipeline/.vrp/CMT4/fixed_c_size/CMT4_4.vrp
+solve ./.vrp/CMT4/fixed_c_size/CMT4_4.vrp end: 0.513911
+solve ./.vrp/CMT4/fixed_c_size/CMT4_5.vrp start
+LKH Solver: solving /Users/lucas/workspace/uni/bachelor/pipeline/.vrp/CMT4/fixed_c_size/CMT4_5.vrp
+solve ./.vrp/CMT4/fixed_c_size/CMT4_5.vrp end: 0.36182597
+solve ./.vrp/CMT4/fixed_c_size/CMT4_6.vrp start
+LKH Solver: solving /Users/lucas/workspace/uni/bachelor/pipeline/.vrp/CMT4/fixed_c_size/CMT4_6.vrp
+solve ./.vrp/CMT4/fixed_c_size/CMT4_6.vrp end: 0.386865
+solve ./.vrp/CMT4/fixed_c_size/CMT4_7.vrp start
+LKH Solver: solving /Users/lucas/workspace/uni/bachelor/pipeline/.vrp/CMT4/fixed_c_size/CMT4_7.vrp
+solve ./.vrp/CMT4/fixed_c_size/CMT4_7.vrp end: 0.377783
+solve ./.vrp/CMT4/fixed_c_size/CMT4_8.vrp start
+LKH Solver: solving /Users/lucas/workspace/uni/bachelor/pipeline/.vrp/CMT4/fixed_c_size/CMT4_8.vrp
+solve ./.vrp/CMT4/fixed_c_size/CMT4_8.vrp end: 0.314072
+solve ./.vrp/CMT4/fixed_c_size/CMT4_9.vrp start
+LKH Solver: solving /Users/lucas/workspace/uni/bachelor/pipeline/.vrp/CMT4/fixed_c_size/CMT4_9.vrp
+solve ./.vrp/CMT4/fixed_c_size/CMT4_9.vrp end: 0.333359
+solve ./.vrp/CMT4/fixed_c_size/CMT4_10.vrp start
+LKH Solver: solving /Users/lucas/workspace/uni/bachelor/pipeline/.vrp/CMT4/fixed_c_size/CMT4_10.vrp
+solve ./.vrp/CMT4/fixed_c_size/CMT4_10.vrp end: 0.92992
+finished: 6.236404
+length: 1223.5048746613477
+result [[1, 104, 6, 109, 38, 138, 148, 18, 64], [1, 13, 145, 146, 143, 110, 144, 5, 150, 147, 57, 48, 140], [1, 54, 130, 30, 129, 85, 21, 60, 102, 132, 84, 3, 101], [1, 39, 63, 50, 77], [1, 127, 17, 128, 119, 51, 131, 22, 80, 75, 35, 31, 105, 10], [1, 107, 74, 118, 90, 40, 76, 106, 55, 11], [1, 58, 99, 25, 97, 98, 87, 44, 100, 115, 62, 8, 70, 24], [1, 133], [1, 117, 116, 37, 86, 36, 122, 4], [1, 53, 16, 45, 108, 66, 46, 92, 73, 34, 126, 125, 123, 124, 72, 91], [1, 19, 111, 56, 135, 14, 68, 26, 96, 59, 15, 134, 69], [1, 78, 47, 103, 7, 139, 28, 82, 2, 52, 120, 33, 12, 79], [1, 49, 113, 61, 9, 27, 114, 141, 83, 32, 29, 71, 81, 23, 121], [1, 149, 136, 142, 151, 88], [1, 93, 43, 94, 65, 20, 95, 89, 41, 137, 42, 67, 112]]

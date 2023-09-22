@@ -1,0 +1,107 @@
+working dir: /Users/lucas/workspace/uni/bachelor/pipeline
+path: src/res/CMT/CMT3.vrp
+solve
+name: CMT3
+type: Cvrp
+start
+clustered after: 0.00093
+start solving clustered vrps: 0.001583
+solve ./.vrp/CMT3/leaphybrid/CMT3_0.vrp start
+hybrid qubo transform ./.vrp/CMT3/leaphybrid/CMT3_0.vrp start
+hybrid qubo transform ./.vrp/CMT3/leaphybrid/CMT3_0.vrp end: 0.07314
+QUBO Solver: started
+QUBO Solver: connected after 0.016541004180908203. starting solver
+QUBO Solver: sampler created took 2.0658180713653564
+QUBO Solver: {'qpu_access_time': 153754, 'charge_time': 4990595, 'run_time': 4990595, 'problem_id': '4c1fdfc8-558d-4cbe-a077-729d7fc8ae98', 'problem_label': 'LeapHybridSampler num_reads=250: CMT3_0.coo'}
+QUBO Solver: ended 16.915839910507202
+QUBO Solver: connection closed after 16.91702890396118
+hybrid post transform ./.vrp/CMT3/leaphybrid/CMT3_0.vrp start
+hybrid post transform ./.vrp/CMT3/leaphybrid/CMT3_0.vrp end: 0.000073
+solve ./.vrp/CMT3/leaphybrid/CMT3_0.vrp end: 17.912523
+solve ./.vrp/CMT3/leaphybrid/CMT3_1.vrp start
+hybrid qubo transform ./.vrp/CMT3/leaphybrid/CMT3_1.vrp start
+hybrid qubo transform ./.vrp/CMT3/leaphybrid/CMT3_1.vrp end: 0.091798
+QUBO Solver: started
+QUBO Solver: connected after 0.01714491844177246. starting solver
+QUBO Solver: sampler created took 2.1629109382629395
+QUBO Solver: {'qpu_access_time': 152827, 'charge_time': 4995548, 'run_time': 4995548, 'problem_id': '6f98df19-7188-441a-9ca9-df1034a7fa9c', 'problem_label': 'LeapHybridSampler num_reads=250: CMT3_1.coo'}
+QUBO Solver: ended 17.160518884658813
+QUBO Solver: connection closed after 17.162627935409546
+hybrid post transform ./.vrp/CMT3/leaphybrid/CMT3_1.vrp start
+hybrid post transform ./.vrp/CMT3/leaphybrid/CMT3_1.vrp end: 0.00007
+solve ./.vrp/CMT3/leaphybrid/CMT3_1.vrp end: 18.195387
+solve ./.vrp/CMT3/leaphybrid/CMT3_2.vrp start
+hybrid qubo transform ./.vrp/CMT3/leaphybrid/CMT3_2.vrp start
+hybrid qubo transform ./.vrp/CMT3/leaphybrid/CMT3_2.vrp end: 0.168316
+QUBO Solver: started
+QUBO Solver: connected after 0.01836991310119629. starting solver
+QUBO Solver: sampler created took 2.200666904449463
+QUBO Solver: {'qpu_access_time': 116912, 'charge_time': 4997337, 'run_time': 4997337, 'problem_id': '37841d2f-856e-4d00-9ca3-5d5a10078e4f', 'problem_label': 'LeapHybridSampler num_reads=250: CMT3_2.coo'}
+QUBO Solver: ended 17.955651998519897
+QUBO Solver: connection closed after 17.958050966262817
+hybrid post transform ./.vrp/CMT3/leaphybrid/CMT3_2.vrp start
+hybrid post transform ./.vrp/CMT3/leaphybrid/CMT3_2.vrp end: 0.00007
+solve ./.vrp/CMT3/leaphybrid/CMT3_2.vrp end: 19.062527
+solve ./.vrp/CMT3/leaphybrid/CMT3_3.vrp start
+hybrid qubo transform ./.vrp/CMT3/leaphybrid/CMT3_3.vrp start
+hybrid qubo transform ./.vrp/CMT3/leaphybrid/CMT3_3.vrp end: 0.093442
+QUBO Solver: started
+QUBO Solver: connected after 0.018096923828125. starting solver
+QUBO Solver: sampler created took 2.1512370109558105
+QUBO Solver: {'qpu_access_time': 155668, 'charge_time': 4996383, 'run_time': 4996383, 'problem_id': '6b424526-1df1-4203-be49-67bfc533a68c', 'problem_label': 'LeapHybridSampler num_reads=250: CMT3_3.coo'}
+QUBO Solver: ended 16.994696855545044
+QUBO Solver: connection closed after 16.997330904006958
+hybrid post transform ./.vrp/CMT3/leaphybrid/CMT3_3.vrp start
+hybrid post transform ./.vrp/CMT3/leaphybrid/CMT3_3.vrp end: 0.000071
+solve ./.vrp/CMT3/leaphybrid/CMT3_3.vrp end: 18.096243
+solve ./.vrp/CMT3/leaphybrid/CMT3_4.vrp start
+hybrid qubo transform ./.vrp/CMT3/leaphybrid/CMT3_4.vrp start
+hybrid qubo transform ./.vrp/CMT3/leaphybrid/CMT3_4.vrp end: 0.072406
+QUBO Solver: started
+QUBO Solver: connected after 0.016386985778808594. starting solver
+QUBO Solver: sampler created took 2.057070016860962
+QUBO Solver: {'qpu_access_time': 223769, 'charge_time': 4999950, 'run_time': 4999950, 'problem_id': '025c9292-441a-43b9-930f-15e440610e30', 'problem_label': 'LeapHybridSampler num_reads=250: CMT3_4.coo'}
+QUBO Solver: ended 17.120984077453613
+QUBO Solver: connection closed after 17.123358964920044
+hybrid post transform ./.vrp/CMT3/leaphybrid/CMT3_4.vrp start
+hybrid post transform ./.vrp/CMT3/leaphybrid/CMT3_4.vrp end: 0.000078
+solve ./.vrp/CMT3/leaphybrid/CMT3_4.vrp end: 18.103159
+solve ./.vrp/CMT3/leaphybrid/CMT3_5.vrp start
+hybrid qubo transform ./.vrp/CMT3/leaphybrid/CMT3_5.vrp start
+hybrid qubo transform ./.vrp/CMT3/leaphybrid/CMT3_5.vrp end: 0.056997
+QUBO Solver: started
+QUBO Solver: connected after 0.01885509490966797. starting solver
+QUBO Solver: sampler created took 2.255218029022217
+QUBO Solver: {'qpu_access_time': 259570, 'charge_time': 4985394, 'run_time': 4985394, 'problem_id': '46de945e-e459-40f7-bb62-848265605d7e', 'problem_label': 'LeapHybridSampler num_reads=250: CMT3_5.coo'}
+QUBO Solver: ended 18.235721111297607
+QUBO Solver: connection closed after 18.237879991531372
+hybrid post transform ./.vrp/CMT3/leaphybrid/CMT3_5.vrp start
+hybrid post transform ./.vrp/CMT3/leaphybrid/CMT3_5.vrp end: 0.000067
+solve ./.vrp/CMT3/leaphybrid/CMT3_5.vrp end: 19.171503
+solve ./.vrp/CMT3/leaphybrid/CMT3_6.vrp start
+hybrid qubo transform ./.vrp/CMT3/leaphybrid/CMT3_6.vrp start
+hybrid qubo transform ./.vrp/CMT3/leaphybrid/CMT3_6.vrp end: 0.090712
+QUBO Solver: started
+QUBO Solver: connected after 0.017861127853393555. starting solver
+QUBO Solver: sampler created took 2.389838218688965
+QUBO Solver: {'qpu_access_time': 153851, 'charge_time': 5000000, 'run_time': 5001071, 'problem_id': '03b7313e-5926-4af3-b17f-7c14df234e04', 'problem_label': 'LeapHybridSampler num_reads=250: CMT3_6.coo'}
+QUBO Solver: ended 18.23267698287964
+QUBO Solver: connection closed after 18.23500108718872
+hybrid post transform ./.vrp/CMT3/leaphybrid/CMT3_6.vrp start
+hybrid post transform ./.vrp/CMT3/leaphybrid/CMT3_6.vrp end: 0.000083
+solve ./.vrp/CMT3/leaphybrid/CMT3_6.vrp end: 19.204874
+solve ./.vrp/CMT3/leaphybrid/CMT3_7.vrp start
+hybrid qubo transform ./.vrp/CMT3/leaphybrid/CMT3_7.vrp start
+hybrid qubo transform ./.vrp/CMT3/leaphybrid/CMT3_7.vrp end: 0.043148
+QUBO Solver: started
+QUBO Solver: connected after 0.017602205276489258. starting solver
+QUBO Solver: sampler created took 2.1478748321533203
+QUBO Solver: {'qpu_access_time': 239660, 'charge_time': 4992947, 'run_time': 4992947, 'problem_id': 'a54c5a6e-9062-49cb-b6fd-b56771bc6757', 'problem_label': 'LeapHybridSampler num_reads=250: CMT3_7.coo'}
+QUBO Solver: ended 16.969967126846313
+QUBO Solver: connection closed after 16.972002029418945
+hybrid post transform ./.vrp/CMT3/leaphybrid/CMT3_7.vrp start
+hybrid post transform ./.vrp/CMT3/leaphybrid/CMT3_7.vrp end: 0.000069
+solve ./.vrp/CMT3/leaphybrid/CMT3_7.vrp end: 17.95548
+finished: 147.70334
+length: 1226.857780803819
+result [[39, 45, 62, 94, 99, 15, 92, 17, 86, 101, 38, 93, 1], [87, 85, 84, 61, 6, 18, 46, 96, 60, 100, 97, 95, 7, 1], [1, 14, 3, 43, 16, 88, 98, 44, 23, 42, 75, 58, 41, 59, 22, 74, 73], [90, 28, 1, 32, 63, 11, 71, 70, 2, 89, 8, 53, 83, 19], [12, 20, 50, 65, 64, 33, 91, 49, 48, 47, 37, 9, 1], [78, 69, 81, 4, 80, 77, 51, 13, 27, 1, 29, 54], [1, 40, 57, 76, 24, 68, 5, 26, 25, 79, 34, 30, 55, 56], [67, 66, 72, 35, 36, 10, 82, 52, 21, 31, 1]]

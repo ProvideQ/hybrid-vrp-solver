@@ -1,0 +1,14 @@
+working dir: /Users/lucas/workspace/uni/bachelor/pipeline
+path: ./src/res/CMT/CMT1.vrp
+solve
+name: CMT1
+type: Cvrp
+start
+clustered after: 0.001182
+start solving clustered vrps: 0.001587
+solve ./.vrp/CMT1/no_cluster/CMT1_0.vrp start
+LKH Solver: solving /Users/lucas/workspace/uni/bachelor/pipeline/.vrp/CMT1/no_cluster/CMT1_0.vrp
+solve ./.vrp/CMT1/no_cluster/CMT1_0.vrp end: 9.402655
+finished: 9.404275
+length: 524.926859211748
+result [[1, 9, 27, 32, 29, 4, 37, 36, 21, 23, 2, 33, 47], [1, 12, 3, 30, 22, 17, 51, 35, 31, 10, 39], [1, 13, 18, 38, 45, 16, 46, 34, 40, 11, 50, 6], [1, 48, 5, 43, 20, 41, 42, 14, 19], [1, 7, 15, 26, 25, 44, 8, 24, 49, 28]]

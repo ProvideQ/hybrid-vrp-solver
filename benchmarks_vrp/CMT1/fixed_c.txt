@@ -1,0 +1,41 @@
+working dir: /Users/lucas/workspace/uni/bachelor/pipeline
+path: src/res/CMT/CMT1.vrp
+solve
+name: CMT1
+type: Cvrp
+start
+clustered after: 0.000533
+start solving clustered vrps: 0.001188
+solve ./.vrp/CMT1/fixed_c/CMT1_0.vrp start
+LKH Solver: solving /Users/lucas/workspace/uni/bachelor/pipeline/.vrp/CMT1/fixed_c/CMT1_0.vrp
+solve ./.vrp/CMT1/fixed_c/CMT1_0.vrp end: 0.315316
+solve ./.vrp/CMT1/fixed_c/CMT1_1.vrp start
+LKH Solver: solving /Users/lucas/workspace/uni/bachelor/pipeline/.vrp/CMT1/fixed_c/CMT1_1.vrp
+solve ./.vrp/CMT1/fixed_c/CMT1_1.vrp end: 0.318095
+solve ./.vrp/CMT1/fixed_c/CMT1_2.vrp start
+LKH Solver: solving /Users/lucas/workspace/uni/bachelor/pipeline/.vrp/CMT1/fixed_c/CMT1_2.vrp
+solve ./.vrp/CMT1/fixed_c/CMT1_2.vrp end: 0.31059298
+solve ./.vrp/CMT1/fixed_c/CMT1_3.vrp start
+LKH Solver: solving /Users/lucas/workspace/uni/bachelor/pipeline/.vrp/CMT1/fixed_c/CMT1_3.vrp
+solve ./.vrp/CMT1/fixed_c/CMT1_3.vrp end: 0.323786
+solve ./.vrp/CMT1/fixed_c/CMT1_4.vrp start
+LKH Solver: solving /Users/lucas/workspace/uni/bachelor/pipeline/.vrp/CMT1/fixed_c/CMT1_4.vrp
+solve ./.vrp/CMT1/fixed_c/CMT1_4.vrp end: 0.316858
+solve ./.vrp/CMT1/fixed_c/CMT1_5.vrp start
+LKH Solver: solving /Users/lucas/workspace/uni/bachelor/pipeline/.vrp/CMT1/fixed_c/CMT1_5.vrp
+solve ./.vrp/CMT1/fixed_c/CMT1_5.vrp end: 0.310911
+solve ./.vrp/CMT1/fixed_c/CMT1_6.vrp start
+LKH Solver: solving /Users/lucas/workspace/uni/bachelor/pipeline/.vrp/CMT1/fixed_c/CMT1_6.vrp
+solve ./.vrp/CMT1/fixed_c/CMT1_6.vrp end: 0.336377
+solve ./.vrp/CMT1/fixed_c/CMT1_7.vrp start
+LKH Solver: solving /Users/lucas/workspace/uni/bachelor/pipeline/.vrp/CMT1/fixed_c/CMT1_7.vrp
+solve ./.vrp/CMT1/fixed_c/CMT1_7.vrp end: 0.30885798
+solve ./.vrp/CMT1/fixed_c/CMT1_8.vrp start
+LKH Solver: solving /Users/lucas/workspace/uni/bachelor/pipeline/.vrp/CMT1/fixed_c/CMT1_8.vrp
+solve ./.vrp/CMT1/fixed_c/CMT1_8.vrp end: 0.32955298
+solve ./.vrp/CMT1/fixed_c/CMT1_9.vrp start
+LKH Solver: solving /Users/lucas/workspace/uni/bachelor/pipeline/.vrp/CMT1/fixed_c/CMT1_9.vrp
+solve ./.vrp/CMT1/fixed_c/CMT1_9.vrp end: 0.341196
+finished: 3.212948
+length: 782.6468110664337
+result [[1, 14, 42, 41, 20], [1, 9, 32, 29, 23, 2], [1, 19, 26, 15, 25, 7], [1, 35, 31, 40, 11], [1, 3, 30, 22, 51, 17], [1, 21, 36, 37, 4], [1, 49, 27, 8, 44, 24], [1, 48, 5, 13, 47, 33, 28], [1, 18, 43, 45, 46, 34, 16, 38], [1, 12, 39, 10, 50, 6]]

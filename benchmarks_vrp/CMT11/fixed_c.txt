@@ -1,0 +1,41 @@
+working dir: /Users/lucas/workspace/uni/bachelor/pipeline
+path: src/res/CMT/CMT11.vrp
+solve
+name: CMT11
+type: Cvrp
+start
+clustered after: 0.000875
+start solving clustered vrps: 0.001802
+solve ./.vrp/CMT11/fixed_c/CMT11_0.vrp start
+LKH Solver: solving /Users/lucas/workspace/uni/bachelor/pipeline/.vrp/CMT11/fixed_c/CMT11_0.vrp
+solve ./.vrp/CMT11/fixed_c/CMT11_0.vrp end: 0.345214
+solve ./.vrp/CMT11/fixed_c/CMT11_1.vrp start
+LKH Solver: solving /Users/lucas/workspace/uni/bachelor/pipeline/.vrp/CMT11/fixed_c/CMT11_1.vrp
+solve ./.vrp/CMT11/fixed_c/CMT11_1.vrp end: 0.420583
+solve ./.vrp/CMT11/fixed_c/CMT11_2.vrp start
+LKH Solver: solving /Users/lucas/workspace/uni/bachelor/pipeline/.vrp/CMT11/fixed_c/CMT11_2.vrp
+solve ./.vrp/CMT11/fixed_c/CMT11_2.vrp end: 0.41812
+solve ./.vrp/CMT11/fixed_c/CMT11_3.vrp start
+LKH Solver: solving /Users/lucas/workspace/uni/bachelor/pipeline/.vrp/CMT11/fixed_c/CMT11_3.vrp
+solve ./.vrp/CMT11/fixed_c/CMT11_3.vrp end: 0.420216
+solve ./.vrp/CMT11/fixed_c/CMT11_4.vrp start
+LKH Solver: solving /Users/lucas/workspace/uni/bachelor/pipeline/.vrp/CMT11/fixed_c/CMT11_4.vrp
+solve ./.vrp/CMT11/fixed_c/CMT11_4.vrp end: 0.452531
+solve ./.vrp/CMT11/fixed_c/CMT11_5.vrp start
+LKH Solver: solving /Users/lucas/workspace/uni/bachelor/pipeline/.vrp/CMT11/fixed_c/CMT11_5.vrp
+solve ./.vrp/CMT11/fixed_c/CMT11_5.vrp end: 0.33219698
+solve ./.vrp/CMT11/fixed_c/CMT11_6.vrp start
+LKH Solver: solving /Users/lucas/workspace/uni/bachelor/pipeline/.vrp/CMT11/fixed_c/CMT11_6.vrp
+solve ./.vrp/CMT11/fixed_c/CMT11_6.vrp end: 0.31271002
+solve ./.vrp/CMT11/fixed_c/CMT11_7.vrp start
+LKH Solver: solving /Users/lucas/workspace/uni/bachelor/pipeline/.vrp/CMT11/fixed_c/CMT11_7.vrp
+solve ./.vrp/CMT11/fixed_c/CMT11_7.vrp end: 0.314267
+solve ./.vrp/CMT11/fixed_c/CMT11_8.vrp start
+LKH Solver: solving /Users/lucas/workspace/uni/bachelor/pipeline/.vrp/CMT11/fixed_c/CMT11_8.vrp
+solve ./.vrp/CMT11/fixed_c/CMT11_8.vrp end: 0.357979
+solve ./.vrp/CMT11/fixed_c/CMT11_9.vrp start
+LKH Solver: solving /Users/lucas/workspace/uni/bachelor/pipeline/.vrp/CMT11/fixed_c/CMT11_9.vrp
+solve ./.vrp/CMT11/fixed_c/CMT11_9.vrp end: 0.41328302
+finished: 3.789197
+length: 1174.2050765556944
+result [[1, 8, 10, 11, 12, 16, 15, 14, 13, 9], [1, 68, 70, 71, 72, 75, 76, 73, 79, 81, 80, 78, 69, 77, 74], [1, 41, 44, 46, 49, 52, 51, 50, 48, 47, 45, 42, 43, 40, 39, 38], [1, 103, 102, 97, 94, 95, 98, 116, 111, 99, 117, 101, 100, 104, 105, 108, 107, 106], [1, 18, 17, 20, 26, 23, 25, 28, 31, 34, 32, 35, 37, 30, 33, 36, 29, 27, 24, 21, 22], [1, 53, 55, 58, 60, 66, 62, 63, 65, 67, 64, 61, 57, 59, 56, 54], [121, 1], [1, 89, 83, 112, 87, 88, 96, 93, 90, 86, 113, 82, 120], [1, 2, 3, 4, 5, 6, 7], [1, 92, 91, 115, 19, 119, 110, 109, 84, 114, 118, 85]]

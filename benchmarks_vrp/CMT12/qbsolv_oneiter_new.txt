@@ -1,0 +1,151 @@
+working dir: /Users/lucas/workspace/uni/bachelor/pipeline
+path: ./src/res/CMT/CMT12.vrp
+solve
+name: CMT12
+type: Cvrp
+start
+clustered after: 0.000936
+start solving clustered vrps: 0.001676
+solve ./.vrp/CMT12/qbsolv_oneiter_new/CMT12_0.vrp start
+hybrid qubo transform ./.vrp/CMT12/qbsolv_oneiter_new/CMT12_0.vrp start
+hybrid qubo transform ./.vrp/CMT12/qbsolv_oneiter_new/CMT12_0.vrp end: 0.022296
+QUBO Solver: started
+QUBO Solver: connected after 0.015459060668945312. starting solver
+QUBO Solver: workflow created took 2.395725965499878
+QUBO Solver: {'qpu_sampling_time': 11498.0, 'qpu_anneal_time_per_sample': 20.0, 'qpu_readout_time_per_sample': 74.44, 'qpu_access_time': 27259.57, 'qpu_access_overhead_time': 1145.43, 'qpu_programming_time': 15761.57, 'qpu_delay_time_per_sample': 20.54, 'total_post_processing_time': 1914.0, 'post_processing_overhead_time': 1914.0}
+QUBO Solver: {"dispatch.resolve": [3.874999999986528e-06], "dispatch.init": [1.7500000000225668e-06], "dispatch": [0.000632082999999728], "dispatch.next": [4.137301541]}
+QUBO Solver: {}
+QUBO Solver: ended 6.550446033477783
+QUBO Solver: connection closed after 6.551342010498047
+hybrid post transform ./.vrp/CMT12/qbsolv_oneiter_new/CMT12_0.vrp start
+hybrid post transform ./.vrp/CMT12/qbsolv_oneiter_new/CMT12_0.vrp end: 0.000072
+solve ./.vrp/CMT12/qbsolv_oneiter_new/CMT12_0.vrp end: 7.440333
+solve ./.vrp/CMT12/qbsolv_oneiter_new/CMT12_1.vrp start
+hybrid qubo transform ./.vrp/CMT12/qbsolv_oneiter_new/CMT12_1.vrp start
+hybrid qubo transform ./.vrp/CMT12/qbsolv_oneiter_new/CMT12_1.vrp end: 0.031729
+QUBO Solver: started
+QUBO Solver: connected after 0.016206026077270508. starting solver
+QUBO Solver: workflow created took 2.2175841331481934
+QUBO Solver: {'qpu_sampling_time': 19764.0, 'qpu_anneal_time_per_sample': 20.0, 'qpu_readout_time_per_sample': 157.1, 'qpu_access_time': 35525.57, 'qpu_access_overhead_time': 2961.43, 'qpu_programming_time': 15761.57, 'qpu_delay_time_per_sample': 20.54, 'total_post_processing_time': 264.0, 'post_processing_overhead_time': 264.0}
+QUBO Solver: {"dispatch.resolve": [2.6250000000338503e-06], "dispatch.init": [1.415999999920814e-06], "dispatch": [0.0005294590000000099], "dispatch.next": [3.690520625]}
+QUBO Solver: {}
+QUBO Solver: ended 5.926531076431274
+QUBO Solver: connection closed after 5.927464962005615
+hybrid post transform ./.vrp/CMT12/qbsolv_oneiter_new/CMT12_1.vrp start
+hybrid post transform ./.vrp/CMT12/qbsolv_oneiter_new/CMT12_1.vrp end: 0.000068
+solve ./.vrp/CMT12/qbsolv_oneiter_new/CMT12_1.vrp end: 6.860794
+solve ./.vrp/CMT12/qbsolv_oneiter_new/CMT12_2.vrp start
+hybrid qubo transform ./.vrp/CMT12/qbsolv_oneiter_new/CMT12_2.vrp start
+hybrid qubo transform ./.vrp/CMT12/qbsolv_oneiter_new/CMT12_2.vrp end: 0.17604499
+QUBO Solver: started
+QUBO Solver: connected after 0.014492988586425781. starting solver
+QUBO Solver: workflow created took 2.15225887298584
+QUBO Solver: {'qpu_sampling_time': 9776.0, 'qpu_anneal_time_per_sample': 20.0, 'qpu_readout_time_per_sample': 57.22, 'qpu_access_time': 25537.97, 'qpu_access_overhead_time': 2942.03, 'qpu_programming_time': 15761.97, 'qpu_delay_time_per_sample': 20.54, 'total_post_processing_time': 815.0, 'post_processing_overhead_time': 815.0}
+QUBO Solver: {"dispatch.resolve": [3.7910000001417643e-06], "dispatch.init": [7.83400000026191e-06], "dispatch": [0.0012549580000000837], "dispatch.next": [4.546934584000001]}
+QUBO Solver: {}
+QUBO Solver: ended 6.7158849239349365
+QUBO Solver: connection closed after 6.716903924942017
+hybrid post transform ./.vrp/CMT12/qbsolv_oneiter_new/CMT12_2.vrp start
+hybrid post transform ./.vrp/CMT12/qbsolv_oneiter_new/CMT12_2.vrp end: 0.00007
+solve ./.vrp/CMT12/qbsolv_oneiter_new/CMT12_2.vrp end: 7.729289
+solve ./.vrp/CMT12/qbsolv_oneiter_new/CMT12_3.vrp start
+hybrid qubo transform ./.vrp/CMT12/qbsolv_oneiter_new/CMT12_3.vrp start
+hybrid qubo transform ./.vrp/CMT12/qbsolv_oneiter_new/CMT12_3.vrp end: 0.084829
+QUBO Solver: started
+QUBO Solver: connected after 0.01570916175842285. starting solver
+QUBO Solver: workflow created took 2.1445930004119873
+QUBO Solver: {'qpu_sampling_time': 10626.0, 'qpu_anneal_time_per_sample': 20.0, 'qpu_readout_time_per_sample': 65.72, 'qpu_access_time': 26387.17, 'qpu_access_overhead_time': 952.83, 'qpu_programming_time': 15761.17, 'qpu_delay_time_per_sample': 20.54, 'total_post_processing_time': 181.0, 'post_processing_overhead_time': 181.0}
+QUBO Solver: {"dispatch.resolve": [3.374999999916639e-06], "dispatch.init": [1.3330000001587905e-06], "dispatch": [0.000789041999999629], "dispatch.next": [4.675263208]}
+QUBO Solver: {}
+QUBO Solver: ended 6.837356090545654
+QUBO Solver: connection closed after 6.838244199752808
+hybrid post transform ./.vrp/CMT12/qbsolv_oneiter_new/CMT12_3.vrp start
+hybrid post transform ./.vrp/CMT12/qbsolv_oneiter_new/CMT12_3.vrp end: 0.000067
+solve ./.vrp/CMT12/qbsolv_oneiter_new/CMT12_3.vrp end: 7.746039
+solve ./.vrp/CMT12/qbsolv_oneiter_new/CMT12_4.vrp start
+hybrid qubo transform ./.vrp/CMT12/qbsolv_oneiter_new/CMT12_4.vrp start
+hybrid qubo transform ./.vrp/CMT12/qbsolv_oneiter_new/CMT12_4.vrp end: 0.042384
+QUBO Solver: started
+QUBO Solver: connected after 0.01514291763305664. starting solver
+QUBO Solver: workflow created took 2.4278640747070312
+QUBO Solver: {'qpu_sampling_time': 15898.0, 'qpu_anneal_time_per_sample': 20.0, 'qpu_readout_time_per_sample': 118.44, 'qpu_access_time': 31660.77, 'qpu_access_overhead_time': 2527.23, 'qpu_programming_time': 15762.77, 'qpu_delay_time_per_sample': 20.54, 'total_post_processing_time': 188.0, 'post_processing_overhead_time': 188.0}
+QUBO Solver: {"dispatch.resolve": [3.0840000002640977e-06], "dispatch.init": [1.3329999997147013e-06], "dispatch": [0.0005748749999998637], "dispatch.next": [3.967236583]}
+QUBO Solver: {}
+QUBO Solver: ended 6.412142992019653
+QUBO Solver: connection closed after 6.4129838943481445
+hybrid post transform ./.vrp/CMT12/qbsolv_oneiter_new/CMT12_4.vrp start
+hybrid post transform ./.vrp/CMT12/qbsolv_oneiter_new/CMT12_4.vrp end: 0.000079
+solve ./.vrp/CMT12/qbsolv_oneiter_new/CMT12_4.vrp end: 7.266877
+solve ./.vrp/CMT12/qbsolv_oneiter_new/CMT12_5.vrp start
+hybrid qubo transform ./.vrp/CMT12/qbsolv_oneiter_new/CMT12_5.vrp start
+hybrid qubo transform ./.vrp/CMT12/qbsolv_oneiter_new/CMT12_5.vrp end: 0.031207
+QUBO Solver: started
+QUBO Solver: connected after 0.015080928802490234. starting solver
+QUBO Solver: workflow created took 2.3156321048736572
+QUBO Solver: {'qpu_sampling_time': 15968.0, 'qpu_anneal_time_per_sample': 20.0, 'qpu_readout_time_per_sample': 119.14, 'qpu_access_time': 31729.97, 'qpu_access_overhead_time': 1709.03, 'qpu_programming_time': 15761.97, 'qpu_delay_time_per_sample': 20.54, 'total_post_processing_time': 405.0, 'post_processing_overhead_time': 405.0}
+QUBO Solver: {"dispatch.resolve": [3.4159999997562807e-06], "dispatch.init": [1.5829999999716904e-06], "dispatch": [0.0005273750000003297], "dispatch.next": [4.470793625000001]}
+QUBO Solver: {}
+QUBO Solver: ended 6.803173065185547
+QUBO Solver: connection closed after 6.804105997085571
+hybrid post transform ./.vrp/CMT12/qbsolv_oneiter_new/CMT12_5.vrp start
+hybrid post transform ./.vrp/CMT12/qbsolv_oneiter_new/CMT12_5.vrp end: 0.000068
+solve ./.vrp/CMT12/qbsolv_oneiter_new/CMT12_5.vrp end: 7.643435
+solve ./.vrp/CMT12/qbsolv_oneiter_new/CMT12_6.vrp start
+hybrid qubo transform ./.vrp/CMT12/qbsolv_oneiter_new/CMT12_6.vrp start
+hybrid qubo transform ./.vrp/CMT12/qbsolv_oneiter_new/CMT12_6.vrp end: 0.089358
+QUBO Solver: started
+QUBO Solver: connected after 0.015230178833007812. starting solver
+QUBO Solver: workflow created took 2.209821939468384
+QUBO Solver: {'qpu_sampling_time': 13626.0, 'qpu_anneal_time_per_sample': 20.0, 'qpu_readout_time_per_sample': 95.72, 'qpu_access_time': 29386.37, 'qpu_access_overhead_time': 794.63, 'qpu_programming_time': 15760.37, 'qpu_delay_time_per_sample': 20.54, 'total_post_processing_time': 189.0, 'post_processing_overhead_time': 189.0}
+QUBO Solver: {"dispatch.resolve": [3.2499999997881446e-06], "dispatch.init": [1.3750000000811724e-06], "dispatch": [0.0007607499999999767], "dispatch.next": [3.8593318329999997]}
+QUBO Solver: {}
+QUBO Solver: ended 6.0862510204315186
+QUBO Solver: connection closed after 6.087057113647461
+hybrid post transform ./.vrp/CMT12/qbsolv_oneiter_new/CMT12_6.vrp start
+hybrid post transform ./.vrp/CMT12/qbsolv_oneiter_new/CMT12_6.vrp end: 0.00007
+solve ./.vrp/CMT12/qbsolv_oneiter_new/CMT12_6.vrp end: 6.9810963
+solve ./.vrp/CMT12/qbsolv_oneiter_new/CMT12_7.vrp start
+hybrid qubo transform ./.vrp/CMT12/qbsolv_oneiter_new/CMT12_7.vrp start
+hybrid qubo transform ./.vrp/CMT12/qbsolv_oneiter_new/CMT12_7.vrp end: 0.032668
+QUBO Solver: started
+QUBO Solver: connected after 0.015125036239624023. starting solver
+QUBO Solver: workflow created took 2.5902211666107178
+QUBO Solver: {'qpu_sampling_time': 18154.0, 'qpu_anneal_time_per_sample': 20.0, 'qpu_readout_time_per_sample': 141.0, 'qpu_access_time': 33915.97, 'qpu_access_overhead_time': 1179.03, 'qpu_programming_time': 15761.97, 'qpu_delay_time_per_sample': 20.54, 'total_post_processing_time': 242.0, 'post_processing_overhead_time': 242.0}
+QUBO Solver: {"dispatch.resolve": [3.6250000001736282e-06], "dispatch.init": [1.4160000003649031e-06], "dispatch": [0.0005536659999996196], "dispatch.next": [3.3606454579999996]}
+QUBO Solver: {}
+QUBO Solver: ended 5.9677839279174805
+QUBO Solver: connection closed after 5.968688011169434
+hybrid post transform ./.vrp/CMT12/qbsolv_oneiter_new/CMT12_7.vrp start
+hybrid post transform ./.vrp/CMT12/qbsolv_oneiter_new/CMT12_7.vrp end: 0.00007
+solve ./.vrp/CMT12/qbsolv_oneiter_new/CMT12_7.vrp end: 6.810954
+solve ./.vrp/CMT12/qbsolv_oneiter_new/CMT12_8.vrp start
+hybrid qubo transform ./.vrp/CMT12/qbsolv_oneiter_new/CMT12_8.vrp start
+hybrid qubo transform ./.vrp/CMT12/qbsolv_oneiter_new/CMT12_8.vrp end: 0.040941
+QUBO Solver: started
+QUBO Solver: connected after 0.015805959701538086. starting solver
+QUBO Solver: workflow created took 2.455132007598877
+QUBO Solver: {'qpu_sampling_time': 11952.0, 'qpu_anneal_time_per_sample': 20.0, 'qpu_readout_time_per_sample': 78.98, 'qpu_access_time': 27713.97, 'qpu_access_overhead_time': 663.03, 'qpu_programming_time': 15761.97, 'qpu_delay_time_per_sample': 20.54, 'total_post_processing_time': 179.0, 'post_processing_overhead_time': 179.0}
+QUBO Solver: {"dispatch.resolve": [3.4580000001227518e-06], "dispatch.init": [1.3750000000811724e-06], "dispatch": [0.0005878329999999821], "dispatch.next": [4.394186042]}
+QUBO Solver: {}
+QUBO Solver: ended 6.867118835449219
+QUBO Solver: connection closed after 6.867991924285889
+hybrid post transform ./.vrp/CMT12/qbsolv_oneiter_new/CMT12_8.vrp start
+hybrid post transform ./.vrp/CMT12/qbsolv_oneiter_new/CMT12_8.vrp end: 0.00007
+solve ./.vrp/CMT12/qbsolv_oneiter_new/CMT12_8.vrp end: 7.761233
+solve ./.vrp/CMT12/qbsolv_oneiter_new/CMT12_9.vrp start
+hybrid qubo transform ./.vrp/CMT12/qbsolv_oneiter_new/CMT12_9.vrp start
+hybrid qubo transform ./.vrp/CMT12/qbsolv_oneiter_new/CMT12_9.vrp end: 0.000853
+QUBO Solver: started
+QUBO Solver: connected after 0.015585899353027344. starting solver
+QUBO Solver: workflow created took 2.1978180408477783
+QUBO Solver: {'qpu_sampling_time': 12044.0, 'qpu_anneal_time_per_sample': 20.0, 'qpu_readout_time_per_sample': 79.9, 'qpu_access_time': 27805.57, 'qpu_access_overhead_time': 2313.43, 'qpu_programming_time': 15761.57, 'qpu_delay_time_per_sample': 20.54, 'total_post_processing_time': 184.0, 'post_processing_overhead_time': 184.0}
+QUBO Solver: {"dispatch.resolve": [3.41600000020037e-06], "dispatch.init": [1.3750000000811724e-06], "dispatch": [0.0003526670000000287], "dispatch.next": [2.9307822079999997]}
+QUBO Solver: {}
+QUBO Solver: ended 5.146446943283081
+QUBO Solver: connection closed after 5.147295951843262
+hybrid post transform ./.vrp/CMT12/qbsolv_oneiter_new/CMT12_9.vrp start
+hybrid post transform ./.vrp/CMT12/qbsolv_oneiter_new/CMT12_9.vrp end: 0.00007
+solve ./.vrp/CMT12/qbsolv_oneiter_new/CMT12_9.vrp end: 5.936625
+finished: 72.17843
+length: 1035.661281720508
+result [[61, 59, 57, 54, 55, 56, 58, 60, 1], [1, 33, 34, 35, 37, 40, 39, 38, 36, 32], [1, 70, 67, 69, 65, 42, 41, 43, 45, 47, 46, 49, 52, 51, 53, 50, 48, 44], [1, 21, 22, 23, 26, 25, 28, 30, 31, 29, 27, 24, 11, 12], [87, 88, 91, 1, 68, 66, 64, 63, 75, 73, 62], [1, 10, 14, 18, 19, 20, 16, 17, 15, 13], [1, 6, 4, 8, 7, 9, 5, 76, 2, 3, 100, 97, 99, 92], [1, 90, 89, 83, 84, 85, 86, 96, 95, 93], [81, 80, 78, 74, 71, 72, 77, 79, 82, 1, 94], [98, 101, 1]]

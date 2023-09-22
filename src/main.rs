@@ -7,7 +7,7 @@ use std::env;
 use args::{ClusterOption, SolverOption, VRPCommand, VRPSolverArgs};
 use clap::Parser;
 
-use logic::clustering::{ClusterTspClustering, KNNClustering};
+use logic::clustering::{ClusterTspClustering, KMeansClustering};
 use logic::solver::VrpSolver;
 use logic::solvers::{HybridTspSolver, LKHSolver, SolvingTrait};
 
@@ -49,7 +49,7 @@ fn main() {
             let solver = if let SolverOption::Direct = subcommandargs.solver {
                 VrpSolver {
                     cluster_strat: match subcommandargs.cluster {
-                        ClusterOption::Knn => Box::new(KNNClustering {
+                        ClusterOption::Kmeans => Box::new(KMeansClustering {
                             count: subcommandargs.cluster_number,
                         }),
                         ClusterOption::Tsp => Box::new(ClusterTspClustering {}),
@@ -64,7 +64,7 @@ fn main() {
             } else {
                 VrpSolver {
                     cluster_strat: match subcommandargs.cluster {
-                        ClusterOption::Knn => Box::new(KNNClustering {
+                        ClusterOption::Kmeans => Box::new(KMeansClustering {
                             count: subcommandargs.cluster_number,
                         }),
                         ClusterOption::Tsp => Box::new(ClusterTspClustering {}),

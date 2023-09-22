@@ -1,0 +1,32 @@
+working dir: /Users/lucas/workspace/uni/bachelor/pipeline
+path: src/res/CMT/CMT12.vrp
+solve
+name: CMT12
+type: Cvrp
+start
+clustered after: 0.000787
+start solving clustered vrps: 0.001468
+solve ./.vrp/CMT12/fixed_c_size/CMT12_0.vrp start
+LKH Solver: solving /Users/lucas/workspace/uni/bachelor/pipeline/.vrp/CMT12/fixed_c_size/CMT12_0.vrp
+solve ./.vrp/CMT12/fixed_c_size/CMT12_0.vrp end: 0.460182
+solve ./.vrp/CMT12/fixed_c_size/CMT12_1.vrp start
+LKH Solver: solving /Users/lucas/workspace/uni/bachelor/pipeline/.vrp/CMT12/fixed_c_size/CMT12_1.vrp
+solve ./.vrp/CMT12/fixed_c_size/CMT12_1.vrp end: 0.39691502
+solve ./.vrp/CMT12/fixed_c_size/CMT12_2.vrp start
+LKH Solver: solving /Users/lucas/workspace/uni/bachelor/pipeline/.vrp/CMT12/fixed_c_size/CMT12_2.vrp
+solve ./.vrp/CMT12/fixed_c_size/CMT12_2.vrp end: 0.380638
+solve ./.vrp/CMT12/fixed_c_size/CMT12_3.vrp start
+LKH Solver: solving /Users/lucas/workspace/uni/bachelor/pipeline/.vrp/CMT12/fixed_c_size/CMT12_3.vrp
+solve ./.vrp/CMT12/fixed_c_size/CMT12_3.vrp end: 3.071555
+solve ./.vrp/CMT12/fixed_c_size/CMT12_4.vrp start
+LKH Solver: solving /Users/lucas/workspace/uni/bachelor/pipeline/.vrp/CMT12/fixed_c_size/CMT12_4.vrp
+solve ./.vrp/CMT12/fixed_c_size/CMT12_4.vrp end: 0.52991
+solve ./.vrp/CMT12/fixed_c_size/CMT12_5.vrp start
+LKH Solver: solving /Users/lucas/workspace/uni/bachelor/pipeline/.vrp/CMT12/fixed_c_size/CMT12_5.vrp
+solve ./.vrp/CMT12/fixed_c_size/CMT12_5.vrp end: 1.066348
+solve ./.vrp/CMT12/fixed_c_size/CMT12_6.vrp start
+LKH Solver: solving /Users/lucas/workspace/uni/bachelor/pipeline/.vrp/CMT12/fixed_c_size/CMT12_6.vrp
+solve ./.vrp/CMT12/fixed_c_size/CMT12_6.vrp end: 0.32567698
+finished: 6.232864
+length: 938.5306737466855
+result [[1, 76, 2, 3, 5, 7, 8, 4, 6], [1, 91, 88, 87, 90, 89, 92], [1, 30], [1, 33, 34, 32, 36, 38, 39, 40, 37, 35], [1, 60, 61, 59, 57, 54, 55, 58, 56], [1, 10, 13, 15, 17, 16, 20, 19, 18, 14], [1, 9, 12, 11, 24, 27, 29, 31, 28, 26, 25, 23, 22, 21], [1, 86, 85, 83, 84], [1, 100, 101, 98, 94, 93, 95, 96, 97, 99], [1, 70, 67, 69, 65, 62, 73, 75, 63, 64, 66, 68], [1, 44, 43, 42, 41, 45, 47, 46, 49, 52, 51, 53, 50, 48], [1, 82, 79, 77, 72, 71, 74, 78, 80, 81]]

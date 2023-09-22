@@ -1,0 +1,47 @@
+working dir: /Users/lucas/workspace/uni/bachelor/pipeline
+path: ./src/res/CMT/CMT4.vrp
+solve
+name: CMT4
+type: Cvrp
+start
+clustered after: 0.002186
+start solving clustered vrps: 0.003059
+solve ./.vrp/CMT4/tsp_classic/CMT4_0.vrp start
+LKH Solver: solving /Users/lucas/workspace/uni/bachelor/pipeline/.vrp/CMT4/tsp_classic/CMT4_0.vrp
+solve ./.vrp/CMT4/tsp_classic/CMT4_0.vrp end: 0.33004898
+solve ./.vrp/CMT4/tsp_classic/CMT4_1.vrp start
+LKH Solver: solving /Users/lucas/workspace/uni/bachelor/pipeline/.vrp/CMT4/tsp_classic/CMT4_1.vrp
+solve ./.vrp/CMT4/tsp_classic/CMT4_1.vrp end: 0.440008
+solve ./.vrp/CMT4/tsp_classic/CMT4_2.vrp start
+LKH Solver: solving /Users/lucas/workspace/uni/bachelor/pipeline/.vrp/CMT4/tsp_classic/CMT4_2.vrp
+solve ./.vrp/CMT4/tsp_classic/CMT4_2.vrp end: 0.38580197
+solve ./.vrp/CMT4/tsp_classic/CMT4_3.vrp start
+LKH Solver: solving /Users/lucas/workspace/uni/bachelor/pipeline/.vrp/CMT4/tsp_classic/CMT4_3.vrp
+solve ./.vrp/CMT4/tsp_classic/CMT4_3.vrp end: 0.316175
+solve ./.vrp/CMT4/tsp_classic/CMT4_4.vrp start
+LKH Solver: solving /Users/lucas/workspace/uni/bachelor/pipeline/.vrp/CMT4/tsp_classic/CMT4_4.vrp
+solve ./.vrp/CMT4/tsp_classic/CMT4_4.vrp end: 0.393255
+solve ./.vrp/CMT4/tsp_classic/CMT4_5.vrp start
+LKH Solver: solving /Users/lucas/workspace/uni/bachelor/pipeline/.vrp/CMT4/tsp_classic/CMT4_5.vrp
+solve ./.vrp/CMT4/tsp_classic/CMT4_5.vrp end: 0.38951698
+solve ./.vrp/CMT4/tsp_classic/CMT4_6.vrp start
+LKH Solver: solving /Users/lucas/workspace/uni/bachelor/pipeline/.vrp/CMT4/tsp_classic/CMT4_6.vrp
+solve ./.vrp/CMT4/tsp_classic/CMT4_6.vrp end: 0.383975
+solve ./.vrp/CMT4/tsp_classic/CMT4_7.vrp start
+LKH Solver: solving /Users/lucas/workspace/uni/bachelor/pipeline/.vrp/CMT4/tsp_classic/CMT4_7.vrp
+solve ./.vrp/CMT4/tsp_classic/CMT4_7.vrp end: 0.325019
+solve ./.vrp/CMT4/tsp_classic/CMT4_8.vrp start
+LKH Solver: solving /Users/lucas/workspace/uni/bachelor/pipeline/.vrp/CMT4/tsp_classic/CMT4_8.vrp
+solve ./.vrp/CMT4/tsp_classic/CMT4_8.vrp end: 0.449437
+solve ./.vrp/CMT4/tsp_classic/CMT4_9.vrp start
+LKH Solver: solving /Users/lucas/workspace/uni/bachelor/pipeline/.vrp/CMT4/tsp_classic/CMT4_9.vrp
+solve ./.vrp/CMT4/tsp_classic/CMT4_9.vrp end: 0.330138
+solve ./.vrp/CMT4/tsp_classic/CMT4_10.vrp start
+LKH Solver: solving /Users/lucas/workspace/uni/bachelor/pipeline/.vrp/CMT4/tsp_classic/CMT4_10.vrp
+solve ./.vrp/CMT4/tsp_classic/CMT4_10.vrp end: 0.38176098
+solve ./.vrp/CMT4/tsp_classic/CMT4_11.vrp start
+LKH Solver: solving /Users/lucas/workspace/uni/bachelor/pipeline/.vrp/CMT4/tsp_classic/CMT4_11.vrp
+solve ./.vrp/CMT4/tsp_classic/CMT4_11.vrp end: 0.313776
+finished: 4.442246
+length: 1210.6327616880899
+result [[1, 151, 142, 42, 95, 20, 65, 89, 41, 137, 67], [1, 38, 16, 53, 45, 108, 66, 94, 43, 93, 138, 148, 143, 149, 88, 146, 18, 64], [1, 111, 19, 56, 135, 68, 14, 112, 136, 144, 150, 5], [1, 78, 47, 140, 48, 57, 147, 110, 145, 13, 109, 104], [1, 69, 134, 15, 59, 96, 26, 97, 25, 99, 133, 58, 7], [1, 72, 124, 123, 125, 46, 92, 73, 34, 126, 107, 74, 40, 55, 11], [1, 6, 91, 50, 77, 39, 63, 10, 131, 51, 17, 127, 12, 79], [1, 33, 120, 52, 2, 23, 121, 9, 61, 113, 49, 139, 82, 28, 103], [1, 32, 83, 141, 27, 114, 62, 8, 115, 100, 44, 87, 98, 70, 24], [1, 119, 128, 54, 30, 22, 80, 75, 35, 105, 31, 106, 76, 90], [1, 102, 4, 60, 21, 85, 129, 130, 132, 84, 3, 101], [1, 118, 36, 86, 37, 116, 122, 117, 29, 71, 81]]
