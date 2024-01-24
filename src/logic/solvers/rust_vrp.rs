@@ -16,7 +16,7 @@ use vrp_scientific::{
 pub struct RustVrpSolver;
 
 impl SolvingTrait for RustVrpSolver {
-    fn solve(&self, path: &str) -> SolvingOutput {
+    fn solve(&self, path: &str, _transform_only: Option<bool>) -> SolvingOutput {
         let vrp_file = match File::open(path) {
             Ok(file) => file,
             Err(e) => {

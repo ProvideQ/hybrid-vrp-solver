@@ -70,6 +70,45 @@ pub struct VrpSolver {
     pub build_dir: Option<String>,
 }
 impl VrpSolver {
+    pub fn partial_cluster(&self, problem: &Tsp) -> Vec<(File, String, BiMap<usize, usize>)> {
+        let start_time = SystemTime::now();
+        let clusters = self.cluster_strat.cluster(problem);
+        let vrps_raw = self.cluster_tsps(problem, clusters);
+
+        let after_cluster_time = SystemTime::now()
+            .duration_since(start_time)
+            .unwrap()
+            .as_secs_f32();
+        println!("clustered after: {after_cluster_time}");
+
+        let vrps: Vec<(Tsp, BiMap<usize, usize>)> = vrps_raw.iter().map(reindex_vrp).collect();
+
+        let build_dir = self.build_dir();
+
+        match fs::create_dir_all(&build_dir) {
+            Ok(_) => {}
+            Err(e) => {
+                println!("Something went wrong creating dirs: \n{e}");
+                exit(1)
+            }
+        };
+
+        vrps.iter()
+            .map(|(vrp, map)| {
+                let (file, path) = match TspSerializer::serialize_file(
+                    vrp,
+                    format!("{}/{}.vrp", build_dir, vrp.name()),
+                ) {
+                    Err(err) => {
+                        println!("{}", err);
+                        exit(1)
+                    }
+                    Ok(file) => file,
+                };
+                (file, path, map.clone())
+            })
+            .collect()
+    }
     fn cluster_tsps(&self, problem: &Tsp, clusters: ClusterOutput) -> Vec<Tsp> {
         let mut tsps: Vec<Tsp> = Vec::new();
         for (i, cluster) in clusters.iter().enumerate() {
@@ -167,7 +206,7 @@ impl VrpSolver {
 }
 
 impl SolvingTrait for VrpSolver {
-    fn solve(&self, path: &str) -> SolvingOutput {
+    fn solve(&self, path: &str, transform_only: Option<bool>) -> SolvingOutput {
         let problem = match TspBuilder::parse_path(path) {
             Ok(instance) => instance,
             Err(e) => {
@@ -188,44 +227,7 @@ impl SolvingTrait for VrpSolver {
 
         let start_time = SystemTime::now();
         println!("start");
-
-        let clusters = self.cluster_strat.cluster(&problem);
-        let vrps_raw = self.cluster_tsps(&problem, clusters);
-
-        let after_cluster_time = SystemTime::now()
-            .duration_since(start_time)
-            .unwrap()
-            .as_secs_f32();
-        println!("clustered after: {after_cluster_time}");
-
-        let vrps: Vec<(Tsp, BiMap<usize, usize>)> = vrps_raw.iter().map(reindex_vrp).collect();
-
-        let build_dir = self.build_dir();
-
-        match fs::create_dir_all(&build_dir) {
-            Ok(_) => {}
-            Err(e) => {
-                println!("Something went wrong creating dirs: \n{e}");
-                exit(1)
-            }
-        };
-
-        let vrps: Vec<(File, String, BiMap<usize, usize>)> = vrps
-            .iter()
-            .map(|(vrp, map)| {
-                let (file, path) = match TspSerializer::serialize_file(
-                    vrp,
-                    format!("{}/{}.vrp", build_dir, vrp.name()),
-                ) {
-                    Err(err) => {
-                        println!("{}", err);
-                        exit(1)
-                    }
-                    Ok(file) => file,
-                };
-                (file, path, map.clone())
-            })
-            .collect();
+        let vrps = self.partial_cluster(&problem);
 
         let solver_start = SystemTime::now()
             .duration_since(start_time)
@@ -239,7 +241,7 @@ impl SolvingTrait for VrpSolver {
                 let before_solve_time = SystemTime::now();
                 println!("solve {path} start");
 
-                let paths = self.solving_strat.solve(&path[..]);
+                let paths = self.solving_strat.solve(&path[..], transform_only);
 
                 let after_solve_time = SystemTime::now()
                     .duration_since(before_solve_time)

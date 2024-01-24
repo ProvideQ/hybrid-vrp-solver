@@ -7,11 +7,11 @@ use super::SolvingTrait;
 pub struct DummySolver;
 
 impl SolvingTrait for DummySolver {
-    fn solve(&self, path: &str) -> super::SolvingOutput {
+    fn solve(&self, path: &str, _transform_only: Option<bool>) -> super::SolvingOutput {
         let vrp = match TspBuilder::parse_path(path) {
             Ok(tsp) => tsp,
             Err(_) => {
-                println!("something went wrong in the DummySolver");
+                println!("Something went wrong in the DummySolver");
                 exit(1)
             }
         };

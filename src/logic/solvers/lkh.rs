@@ -15,7 +15,7 @@ pub struct LKHSolver {
 }
 
 impl SolvingTrait for LKHSolver {
-    fn solve(&self, path: &str) -> super::SolvingOutput {
+    fn solve(&self, path: &str, _transform_only: Option<bool>) -> super::SolvingOutput {
         let srcdir = PathBuf::from(path);
         let abs_path = fs::canonicalize(srcdir).unwrap();
         let abs_path = abs_path.to_str().unwrap();

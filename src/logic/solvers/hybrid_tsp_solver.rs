@@ -140,7 +140,7 @@ pub struct HybridTspSolver {
 }
 
 impl SolvingTrait for HybridTspSolver {
-    fn solve(&self, path: &str) -> super::SolvingOutput {
+    fn solve(&self, path: &str, transform_only: Option<bool>) -> super::SolvingOutput {
         let tsp = match TspBuilder::parse_path(path) {
             Ok(tsp) => tsp,
             Err(e) => {
@@ -187,6 +187,10 @@ impl SolvingTrait for HybridTspSolver {
             .unwrap()
             .as_secs_f32();
         println!("hybrid qubo transform {path} end: {after_transform_time}");
+
+        if let Some(true) = transform_only {
+            return vec![vec![]];
+        }
 
         let output_file_name = format!("{}{}", file_name, "bin");
 
