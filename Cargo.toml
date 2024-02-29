@@ -10,6 +10,7 @@ bimap = "0.6.3"
 clap = { version = "4.3.2", features = ["derive"] }
 indicatif = "0.17.5"
 kmeans = "0.2.0"
+lp-solvers = "1.0.0"
 tspf = { path = "../tspf-rs" }
 vrp-cli = "1.21.1"
 vrp-scientific = "1.21.1"

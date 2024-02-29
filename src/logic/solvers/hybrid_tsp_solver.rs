@@ -1,6 +1,6 @@
 use std::{
     fmt, fs,
-    io::{BufRead, BufReader, Error},
+    io::{BufRead, BufReader, Error, Write},
     path::PathBuf,
     process::{exit, Command, Stdio},
     time::SystemTime,
@@ -9,7 +9,10 @@ use std::{
 use crate::logic::util::tsp::Distancing;
 
 use super::SolvingTrait;
-use std::io::Write;
+use lp_solvers::{
+    lp_format::{LpObjective, LpProblem},
+    problem::{Problem, StrExpression, Variable},
+};
 use tspf::{Tsp, TspBuilder};
 
 struct COOrdinate(Vec<Vec<f64>>);
@@ -22,20 +25,6 @@ pub trait COOrdinateWriter {
 impl COOrdinateWriter for COOrdinate {
     fn write_coordinate<W: Write>(&self, writer: &mut W) -> Result<(), Error> {
         writeln!(writer, "%%MatrixMarket matrix coordinate real general")?;
-
-        let rows = self.0.len();
-
-        let cols = if rows > 0 { self.0[0].len() } else { 0 };
-
-        let values = self
-            .0
-            .iter()
-            .flatten()
-            .filter(|x| **x != 0f64)
-            .collect::<Vec<&f64>>()
-            .len();
-
-        writeln!(writer, "{rows} {cols} {values}")?;
 
         for (i, row) in self.0.iter().enumerate() {
             for (j, value) in row.iter().enumerate() {
@@ -117,6 +106,47 @@ impl From<&Tsp> for COOrdinate {
     }
 }
 
+fn convert_tsp_to_lp(tsp: &Tsp) -> Problem<StrExpression, Variable> {
+    let coo = COOrdinate::from(tsp);
+
+    // hacky way to make format work with dwave is to multiply by 2 and divide by 2 and also add 0 in front
+    let objective_str = coo
+        .0
+        .iter()
+        .enumerate()
+        .map(|(i, row)| {
+            row.iter()
+                .enumerate()
+                .filter(|(_, value)| **value != 0f64)
+                .map(|(j, value)| format!("{} x{} * x{}", value * 2f64, i + 1, j + 1))
+                .collect::<Vec<String>>()
+                .join(" + ")
+        })
+        .collect::<Vec<String>>()
+        .join(" + ");
+
+    let objective_str = objective_str.replace("+ -", "- ");
+
+    Problem {
+        // Alternatively, you can implement the LpProblem trait on your own structure
+        name: "QUBO from TSP".to_string(),
+        sense: LpObjective::Minimize,
+        objective: StrExpression(format!("0 + [ {objective_str} ] / 2")), // You can use other expression representations
+        variables: coo
+            .0
+            .iter()
+            .enumerate()
+            .map(|(i, _)| Variable {
+                name: format!("x{}", i + 1),
+                is_integer: true,
+                lower_bound: 0.,
+                upper_bound: 2.,
+            })
+            .collect(),
+        constraints: vec![],
+    }
+}
+
 pub enum HybridTspSolverType {
     Simulated,
     LeapHybrid,
@@ -177,6 +207,29 @@ impl SolvingTrait for HybridTspSolver {
             }
         };
 
+        let abs_lp_file_name = format!("{}{}", file_name, "lp");
+
+        let mut lp_file = match std::fs::File::create(&abs_lp_file_name) {
+            Ok(file) => file,
+            Err(e) => {
+                println!("Problem opening lp file {e}");
+                exit(1)
+            }
+        };
+
+        let lp = convert_tsp_to_lp(&tsp);
+        let lp_disp = lp.display_lp();
+        let lp_disp = lp_disp.to_string();
+        let lp_disp = &lp_disp[0..lp_disp.find("Bounds").unwrap()];
+        let lp_vars = lp
+            .variables
+            .iter()
+            .map(|x| x.name.clone())
+            .collect::<Vec<String>>()
+            .join(" ");
+
+        write!(lp_file, "{lp_disp} \n\nBinary\n{lp_vars}\nEnd").unwrap();
+
         if let Err(e) = coo.write_coordinate(&mut file) {
             println!("Problem writing coordinate file {e}");
             exit(1)
@@ -199,7 +252,7 @@ impl SolvingTrait for HybridTspSolver {
             .arg("run")
             .arg("python")
             .arg("/Users/lucas/workspace/uni/bachelor/pipeline/python/qubo_solver/src/main.py")
-            .arg(abs_coo_file_name)
+            .arg(abs_lp_file_name)
             .arg(self.quantum_type.to_string())
             .arg("--output-file")
             .arg(&output_file_name)

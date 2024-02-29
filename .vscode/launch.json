@@ -9,7 +9,7 @@
             "type":"python",
             "request":"launch",
             "program":"python/qubo_solver/src/main.py",
-            "args": [".vrp/att48_0.coo", "sim"],
+            "args": [".vrp/CMT1_2.lp", "sim"],
             "console":"integratedTerminal"
         },
         {
