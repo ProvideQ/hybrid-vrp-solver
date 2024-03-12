@@ -59,10 +59,12 @@ impl SolvingTrait for RustVrpSolver {
             }
         };
 
-        solution
-            .routes
-            .iter()
-            .map(|r| r.tour.all_activities().map(|a| a.place.location).collect())
-            .collect()
+        SolvingOutput::new(
+            solution
+                .routes
+                .iter()
+                .map(|r| r.tour.all_activities().map(|a| a.place.location).collect())
+                .collect(),
+        )
     }
 }

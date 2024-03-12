@@ -6,7 +6,7 @@ use std::{
     time::SystemTime,
 };
 
-use crate::logic::util::tsp::Distancing;
+use crate::logic::{solvers::SolvingOutput, util::tsp::Distancing};
 
 use super::SolvingTrait;
 use lp_solvers::{
@@ -242,7 +242,7 @@ impl SolvingTrait for HybridTspSolver {
         println!("hybrid qubo transform {path} end: {after_transform_time}");
 
         if let Some(true) = transform_only {
-            return vec![vec![]];
+            return SolvingOutput::new(vec![vec![]]);
         }
 
         let output_file_name = format!("{}{}", file_name, "bin");
@@ -297,6 +297,6 @@ impl SolvingTrait for HybridTspSolver {
             .as_secs_f32();
         println!("hybrid post transform {path} end: {after_post_transform_time}");
 
-        vec![places.iter().map(|(_, point)| *point).collect()]
+        SolvingOutput::new(vec![places.iter().map(|(_, point)| *point).collect()])
     }
 }

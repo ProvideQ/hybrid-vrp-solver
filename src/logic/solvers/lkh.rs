@@ -8,7 +8,7 @@ use std::{
 
 use tspf::TspBuilder;
 
-use super::SolvingTrait;
+use super::{SolvingOutput, SolvingTrait};
 
 pub struct LKHSolver {
     pub binary: String,
@@ -57,7 +57,7 @@ impl SolvingTrait for LKHSolver {
         cmd.wait().unwrap();
 
         if let Ok(tour) = TspBuilder::parse_path(&output_file_path[..]) {
-            tour.tours().clone()
+            SolvingOutput::new(tour.tours().clone())
         } else {
             println!("Failed to open tour file");
             exit(1)

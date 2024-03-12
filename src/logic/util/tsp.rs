@@ -31,3 +31,22 @@ impl Distancing<f64> for Tsp {
         )
     }
 }
+
+pub fn calculate_solution_score(problem: &Tsp, paths: &Vec<Vec<usize>>) -> f64 {
+    paths
+        .iter()
+        .map(|path| {
+            let mut length: f64 = 0f64;
+            let mut iter = path.iter();
+            let first = iter.next().unwrap();
+
+            let mut last = first;
+            for next in iter {
+                length += problem.distance(*last, *next).unwrap();
+                last = next;
+            }
+            length += problem.distance(*last, *first).unwrap();
+            length
+        })
+        .sum()
+}

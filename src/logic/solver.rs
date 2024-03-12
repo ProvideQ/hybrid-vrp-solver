@@ -1,11 +1,13 @@
+use crate::logic::{solvers::VRPTourWriter, util};
+
 use super::{
     super::error_code::ExitCode,
     clustering::{ClusterOutput, ClusteringTrait},
     solvers::{SolvingOutput, SolvingTrait},
-    util::tsp::Distancing,
 };
 
 use bimap::BiMap;
+use std::path::Path;
 use std::{
     collections::HashMap,
     fs::{self, File},
@@ -178,24 +180,6 @@ impl VrpSolver {
         }
         tsps
     }
-    fn calculate_solution_score(&self, problem: &Tsp, paths: &SolvingOutput) -> f64 {
-        paths
-            .iter()
-            .map(|path| {
-                let mut length: f64 = 0f64;
-                let mut iter = path.iter();
-                let first = iter.next().unwrap();
-
-                let mut last = first;
-                for next in iter {
-                    length += problem.distance(*last, *next).unwrap();
-                    last = next;
-                }
-                length += problem.distance(*last, *first).unwrap();
-                length
-            })
-            .sum()
-    }
     fn build_dir(&self) -> String {
         if let Some(dir) = &self.build_dir {
             dir.clone()
@@ -235,7 +219,7 @@ impl SolvingTrait for VrpSolver {
             .as_secs_f32();
         println!("start solving clustered vrps: {solver_start}");
 
-        let paths = vrps
+        let all_paths = vrps
             .iter()
             .map(|(_file, path, map)| {
                 let before_solve_time = SystemTime::now();
@@ -249,19 +233,25 @@ impl SolvingTrait for VrpSolver {
                     .as_secs_f32();
                 println!("solve {path} end: {after_solve_time}");
 
-                paths
+                let paths = paths
+                    .output()
                     .iter()
                     .map(|path| {
                         path.iter()
                             .map(|id| *map.get_by_right(id).unwrap())
                             .collect()
                     })
-                    .collect()
+                    .collect();
+
+                SolvingOutput::new(paths)
             })
-            .reduce(|paths, new_paths| [paths, new_paths].concat())
+            .reduce(|paths, new_paths| {
+                let combined_paths: [Vec<Vec<usize>>; 2] = [paths.into(), new_paths.into()];
+                SolvingOutput::new(combined_paths.concat())
+            })
             .unwrap_or_else(|| {
                 println!("Something went wrong reducing paths");
-                vec![]
+                SolvingOutput::new(vec![])
             });
 
         let finished = SystemTime::now()
@@ -270,10 +260,23 @@ impl SolvingTrait for VrpSolver {
             .as_secs_f32();
         println!("finished: {finished}");
 
-        let sol_length = self.calculate_solution_score(&problem, &paths);
+        let sol_length = util::tsp::calculate_solution_score(&problem, &all_paths.output());
 
         println!("length: {sol_length}");
 
-        paths
+        // Remove file extension from path
+        let path_without_extension = Path::new(path).file_stem().unwrap().to_str().unwrap();
+
+        let mut file = match std::fs::File::create(format!("{}.sol", path_without_extension)) {
+            Ok(file) => file,
+            Err(e) => {
+                println!("Problem opening coordinate file {e}");
+                exit(1)
+            }
+        };
+
+        (&problem, &all_paths).write_tours(&mut file).unwrap();
+
+        all_paths
     }
 }

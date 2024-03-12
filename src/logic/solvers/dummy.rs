@@ -2,7 +2,7 @@ use std::process::exit;
 
 use tspf::TspBuilder;
 
-use super::SolvingTrait;
+use super::{SolvingOutput, SolvingTrait};
 
 pub struct DummySolver;
 
@@ -25,6 +25,6 @@ impl SolvingTrait for DummySolver {
             exit(1)
         }
 
-        vec![(1..vrp.dim()).collect()]
+        SolvingOutput::new(vec![(1..vrp.dim()).collect()])
     }
 }
