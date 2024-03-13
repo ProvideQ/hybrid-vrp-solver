@@ -4,17 +4,19 @@ mod logic;
 
 use std::env;
 
-use args::{ClusterOption, SolverOption, VRPCommand, VRPSolverArgs};
+use args::{
+    ClusterOption, OnlySolveCommand, SolveCommand, SolverOption, VRPCommand, VRPSolverArgs,
+};
 use clap::Parser;
 
 use logic::clustering::{ClusterTspClustering, KMeansClustering};
 use logic::solver::VrpSolver;
-use logic::solvers::{DummySolver, HybridTspSolver, LKHSolver, SolvingTrait};
+use logic::solvers::{DummySolver, FileSolver, HybridTspSolver, LKHSolver, SolvingTrait};
 use tspf::{TspBuilder, TspKind};
 
-impl From<SolverOption> for Box<dyn SolvingTrait> {
-    fn from(val: SolverOption) -> Self {
-        match val {
+impl From<&SolveCommand> for Box<dyn SolvingTrait> {
+    fn from(options: &SolveCommand) -> Self {
+        match options.solver {
             SolverOption::Lkh => Box::new(LKHSolver {
                 binary: String::from("./bin/LKH"),
             }),
@@ -30,6 +32,34 @@ impl From<SolverOption> for Box<dyn SolvingTrait> {
             SolverOption::Direct => Box::new(HybridTspSolver {
                 quantum_type: logic::solvers::HybridTspSolverType::Direct,
             }),
+            SolverOption::SolutionFromFile => Box::new(FileSolver {
+                solution_file_dir: options.solution_dir.clone(),
+            }),
+        }
+    }
+}
+
+impl From<&OnlySolveCommand> for Box<dyn SolvingTrait> {
+    fn from(options: &OnlySolveCommand) -> Self {
+        match options.solver {
+            SolverOption::Lkh => Box::new(LKHSolver {
+                binary: String::from("./bin/LKH"),
+            }),
+            SolverOption::Simulated => Box::new(HybridTspSolver {
+                quantum_type: logic::solvers::HybridTspSolverType::Simulated,
+            }),
+            SolverOption::LeapHybrid => Box::new(HybridTspSolver {
+                quantum_type: logic::solvers::HybridTspSolverType::LeapHybrid,
+            }),
+            SolverOption::QbSolv => Box::new(HybridTspSolver {
+                quantum_type: logic::solvers::HybridTspSolverType::QbSolv,
+            }),
+            SolverOption::Direct => Box::new(HybridTspSolver {
+                quantum_type: logic::solvers::HybridTspSolverType::Direct,
+            }),
+            SolverOption::SolutionFromFile => Box::new(FileSolver {
+                solution_file_dir: options.solution_dir.clone(),
+            }),
         }
     }
 }
@@ -39,7 +69,7 @@ fn main() {
 
     match args.command {
         VRPCommand::Solve(subcommandargs) => {
-            let path = subcommandargs.path;
+            let path = subcommandargs.path.clone();
             match env::current_dir() {
                 Ok(path) => println!("working dir: {}", path.display()),
                 Err(_) => println!("errors finding the working dir"),
@@ -56,13 +86,13 @@ fn main() {
                         ClusterOption::Tsp => Box::new(ClusterTspClustering {}),
                         ClusterOption::ClusterFromFile => {
                             Box::new(logic::clustering::FileClustering {
-                                map_file_path: subcommandargs.cluster_file,
+                                map_file_path: subcommandargs.cluster_file.clone(),
                             })
                         }
                     },
                     solving_strat: Box::new(VrpSolver {
                         cluster_strat: Box::new(ClusterTspClustering {}),
-                        solving_strat: Box::<dyn SolvingTrait>::from(subcommandargs.solver),
+                        solving_strat: Box::<dyn SolvingTrait>::from(&subcommandargs),
                         build_dir: Some(subcommandargs.build_dir.clone()),
                     }),
                     build_dir: Some(subcommandargs.build_dir),
@@ -76,11 +106,11 @@ fn main() {
                         ClusterOption::Tsp => Box::new(ClusterTspClustering {}),
                         ClusterOption::ClusterFromFile => {
                             Box::new(logic::clustering::FileClustering {
-                                map_file_path: subcommandargs.cluster_file,
+                                map_file_path: subcommandargs.cluster_file.clone(),
                             })
                         }
                     },
-                    solving_strat: Box::<dyn SolvingTrait>::from(subcommandargs.solver),
+                    solving_strat: Box::<dyn SolvingTrait>::from(&subcommandargs),
                     build_dir: Some(subcommandargs.build_dir),
                 }
             };
@@ -117,7 +147,7 @@ fn main() {
                 solver.partial_cluster(&vrp);
             }
             args::PartialSolveSubCommand::Solve(solve_opt) => {
-                let solver = Box::<dyn SolvingTrait>::from(solve_opt.solver);
+                let solver = Box::<dyn SolvingTrait>::from(&solve_opt);
 
                 solver.solve(&solve_opt.path[..], Option::Some(solve_opt.transform_only));
             }

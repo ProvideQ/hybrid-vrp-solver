@@ -26,6 +26,8 @@ pub struct SolveCommand {
     pub cluster_number: usize,
     #[arg(short = 'c', long, default_value_t = String::from("./.vrp"))]
     pub cluster_file: String,
+    #[arg(short = 's', long, default_value_t = String::from("./.vrp"))]
+    pub solution_dir: String,
     #[arg(value_enum)]
     pub solver: SolverOption,
     #[arg(short = 'd', long, default_value_t = String::from("./.vrp"))]
@@ -67,6 +69,8 @@ pub struct OnlySolveCommand {
     pub solver: SolverOption,
     #[arg(long, default_value_t = false)]
     pub transform_only: bool,
+    #[arg(short = 's', long, default_value_t = String::from("./.vrp"))]
+    pub solution_dir: String,
     #[arg(short = 'd', long, default_value_t = String::from("./.vrp"))]
     pub build_dir: String,
 }
@@ -85,4 +89,5 @@ pub enum SolverOption {
     LeapHybrid,
     QbSolv,
     Direct,
+    SolutionFromFile,
 }

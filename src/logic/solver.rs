@@ -288,10 +288,10 @@ impl SolvingTrait for VrpSolver {
 
         println!("length: {sol_length}");
 
-        // Remove file extension from path
-        let path_without_extension = Path::new(path).file_stem().unwrap().to_str().unwrap();
+        let file_dir = Path::new(path).parent().unwrap().to_str().unwrap();
+        let file_name = Path::new(path).file_stem().unwrap().to_str().unwrap();
 
-        let mut file = match std::fs::File::create(format!("{}.sol", path_without_extension)) {
+        let mut file = match std::fs::File::create(format!("{}/{}.sol", file_dir, file_name)) {
             Ok(file) => file,
             Err(e) => {
                 println!("Problem opening solution file {e}");
@@ -299,6 +299,7 @@ impl SolvingTrait for VrpSolver {
             }
         };
 
+        println!("writing tours to file {file_dir}/{file_name}.sol");
         (&problem, &all_paths).write_tours(&mut file).unwrap();
 
         all_paths
