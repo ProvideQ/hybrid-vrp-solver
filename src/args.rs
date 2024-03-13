@@ -24,6 +24,8 @@ pub struct SolveCommand {
     pub cluster: ClusterOption,
     #[arg(short = 'n', long, default_value_t = 3)]
     pub cluster_number: usize,
+    #[arg(short = 'c', long, default_value_t = String::from("./.vrp"))]
+    pub cluster_file: String,
     #[arg(value_enum)]
     pub solver: SolverOption,
     #[arg(short = 'd', long, default_value_t = String::from("./.vrp"))]
@@ -51,6 +53,8 @@ pub struct OnlyClusterCommand {
     pub cluster: ClusterOption,
     #[arg(short = 'n', long, default_value_t = 3)]
     pub cluster_number: usize,
+    #[arg(short = 'c', long, default_value_t = String::from("./.vrp"))]
+    pub cluster_file: String,
     #[arg(short = 'd', long, default_value_t = String::from("./.vrp"))]
     pub build_dir: String,
 }
@@ -71,6 +75,7 @@ pub struct OnlySolveCommand {
 pub enum ClusterOption {
     Kmeans,
     Tsp,
+    ClusterFromFile,
 }
 
 #[derive(Debug, Clone, ValueEnum)]

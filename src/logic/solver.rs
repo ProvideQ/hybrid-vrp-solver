@@ -7,21 +7,25 @@ use super::{
 };
 
 use bimap::BiMap;
-use std::path::Path;
 use std::{
     collections::HashMap,
     fs::{self, File},
+    io::Write,
+    path::Path,
     process::exit,
     time::SystemTime,
 };
 use tspf::{Point, Tsp, TspBuilder, TspKind, TspSerializer};
 
 fn reindex_vrp(vrp: &Tsp) -> (Tsp, BiMap<usize, usize>) {
-    let map: BiMap<usize, usize> = vrp
-        .node_coords()
+    let mut pts = vrp.node_coords().values().collect::<Vec<&Point>>();
+
+    pts.sort_by_key(|point| point.id());
+
+    let map: BiMap<usize, usize> = pts
         .iter()
         .enumerate()
-        .map(|(new_id, (id, _))| (*id, new_id + 1))
+        .map(|(new_id, pt)| (pt.id(), new_id + 1))
         .collect();
 
     (
@@ -75,6 +79,7 @@ impl VrpSolver {
     pub fn partial_cluster(&self, problem: &Tsp) -> Vec<(File, String, BiMap<usize, usize>)> {
         let start_time = SystemTime::now();
         let clusters = self.cluster_strat.cluster(problem);
+        println!("{:?}", clusters);
         let vrps_raw = self.cluster_tsps(problem, clusters);
 
         let after_cluster_time = SystemTime::now()
@@ -94,6 +99,25 @@ impl VrpSolver {
                 exit(1)
             }
         };
+
+        // serialize reindex map
+        let map_file_path = format!("{}/{}.map", build_dir, problem.name());
+        let mut map_file = match std::fs::File::create(&map_file_path) {
+            Ok(file) => file,
+            Err(e) => {
+                println!("Problem opening map file {e}");
+                exit(1)
+            }
+        };
+        for (_, map) in &vrps {
+            let map = map
+                .iter()
+                .filter(|(i, _)| **i != 1usize)
+                .map(|(k, v)| format!("{k} {v}"))
+                .collect::<Vec<String>>()
+                .join("\n");
+            write!(map_file, "{map}\n-1\n").unwrap();
+        }
 
         vrps.iter()
             .map(|(vrp, map)| {
@@ -270,7 +294,7 @@ impl SolvingTrait for VrpSolver {
         let mut file = match std::fs::File::create(format!("{}.sol", path_without_extension)) {
             Ok(file) => file,
             Err(e) => {
-                println!("Problem opening coordinate file {e}");
+                println!("Problem opening solution file {e}");
                 exit(1)
             }
         };

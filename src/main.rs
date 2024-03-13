@@ -54,6 +54,11 @@ fn main() {
                             count: subcommandargs.cluster_number,
                         }),
                         ClusterOption::Tsp => Box::new(ClusterTspClustering {}),
+                        ClusterOption::ClusterFromFile => {
+                            Box::new(logic::clustering::FileClustering {
+                                map_file_path: subcommandargs.cluster_file,
+                            })
+                        }
                     },
                     solving_strat: Box::new(VrpSolver {
                         cluster_strat: Box::new(ClusterTspClustering {}),
@@ -69,6 +74,11 @@ fn main() {
                             count: subcommandargs.cluster_number,
                         }),
                         ClusterOption::Tsp => Box::new(ClusterTspClustering {}),
+                        ClusterOption::ClusterFromFile => {
+                            Box::new(logic::clustering::FileClustering {
+                                map_file_path: subcommandargs.cluster_file,
+                            })
+                        }
                     },
                     solving_strat: Box::<dyn SolvingTrait>::from(subcommandargs.solver),
                     build_dir: Some(subcommandargs.build_dir),
@@ -85,6 +95,11 @@ fn main() {
                             count: cluster_opt.cluster_number,
                         }),
                         ClusterOption::Tsp => Box::new(ClusterTspClustering {}),
+                        ClusterOption::ClusterFromFile => {
+                            Box::new(logic::clustering::FileClustering {
+                                map_file_path: cluster_opt.cluster_file,
+                            })
+                        }
                     },
                     solving_strat: Box::new(DummySolver {}),
                     build_dir: Some(cluster_opt.build_dir),
