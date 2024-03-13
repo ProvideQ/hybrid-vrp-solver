@@ -19,18 +19,23 @@ impl From<&SolveCommand> for Box<dyn SolvingTrait> {
         match options.solver {
             SolverOption::Lkh => Box::new(LKHSolver {
                 binary: String::from("./bin/LKH"),
+                lkh_solution: options.lkh_solution.clone(),
             }),
             SolverOption::Simulated => Box::new(HybridTspSolver {
                 quantum_type: logic::solvers::HybridTspSolverType::Simulated,
+                qubo_solution: options.qubo_solution.clone(),
             }),
             SolverOption::LeapHybrid => Box::new(HybridTspSolver {
                 quantum_type: logic::solvers::HybridTspSolverType::LeapHybrid,
+                qubo_solution: options.qubo_solution.clone(),
             }),
             SolverOption::QbSolv => Box::new(HybridTspSolver {
                 quantum_type: logic::solvers::HybridTspSolverType::QbSolv,
+                qubo_solution: options.qubo_solution.clone(),
             }),
             SolverOption::Direct => Box::new(HybridTspSolver {
                 quantum_type: logic::solvers::HybridTspSolverType::Direct,
+                qubo_solution: options.qubo_solution.clone(),
             }),
             SolverOption::SolutionFromFile => Box::new(FileSolver {
                 solution_file_dir: options.solution_dir.clone(),
@@ -44,18 +49,23 @@ impl From<&OnlySolveCommand> for Box<dyn SolvingTrait> {
         match options.solver {
             SolverOption::Lkh => Box::new(LKHSolver {
                 binary: String::from("./bin/LKH"),
+                lkh_solution: options.lkh_solution.clone(),
             }),
             SolverOption::Simulated => Box::new(HybridTspSolver {
                 quantum_type: logic::solvers::HybridTspSolverType::Simulated,
+                qubo_solution: options.qubo_solution.clone(),
             }),
             SolverOption::LeapHybrid => Box::new(HybridTspSolver {
                 quantum_type: logic::solvers::HybridTspSolverType::LeapHybrid,
+                qubo_solution: options.qubo_solution.clone(),
             }),
             SolverOption::QbSolv => Box::new(HybridTspSolver {
                 quantum_type: logic::solvers::HybridTspSolverType::QbSolv,
+                qubo_solution: options.qubo_solution.clone(),
             }),
             SolverOption::Direct => Box::new(HybridTspSolver {
                 quantum_type: logic::solvers::HybridTspSolverType::Direct,
+                qubo_solution: options.qubo_solution.clone(),
             }),
             SolverOption::SolutionFromFile => Box::new(FileSolver {
                 solution_file_dir: options.solution_dir.clone(),

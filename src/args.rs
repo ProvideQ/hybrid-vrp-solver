@@ -30,6 +30,10 @@ pub struct SolveCommand {
     pub solution_dir: String,
     #[arg(value_enum)]
     pub solver: SolverOption,
+    #[arg(long)]
+    pub qubo_solution: Option<String>,
+    #[arg(long)]
+    pub lkh_solution: Option<String>,
     #[arg(short = 'd', long, default_value_t = String::from("./.vrp"))]
     pub build_dir: String,
 }
@@ -71,6 +75,10 @@ pub struct OnlySolveCommand {
     pub transform_only: bool,
     #[arg(short = 's', long, default_value_t = String::from("./.vrp"))]
     pub solution_dir: String,
+    #[arg(long)]
+    pub qubo_solution: Option<String>,
+    #[arg(long)]
+    pub lkh_solution: Option<String>,
     #[arg(short = 'd', long, default_value_t = String::from("./.vrp"))]
     pub build_dir: String,
 }

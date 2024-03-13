@@ -167,6 +167,7 @@ impl fmt::Display for HybridTspSolverType {
 
 pub struct HybridTspSolver {
     pub quantum_type: HybridTspSolverType,
+    pub qubo_solution: Option<String>,
 }
 
 impl SolvingTrait for HybridTspSolver {
@@ -245,28 +246,34 @@ impl SolvingTrait for HybridTspSolver {
             return SolvingOutput::new(vec![vec![]]);
         }
 
-        let output_file_name = format!("{}{}", file_name, "bin");
+        let output_file_name = if let Some(output_file) = &self.qubo_solution {
+            output_file.clone()
+        } else {
+            format!("{}{}", file_name, "bin")
+        };
 
-        let mut cmd = Command::new("poetry")
-            .current_dir("./python/qubo_solver")
-            .arg("run")
-            .arg("python")
-            .arg("/Users/lucas/workspace/uni/bachelor/pipeline/python/qubo_solver/src/main.py")
-            .arg(abs_lp_file_name)
-            .arg(self.quantum_type.to_string())
-            .arg("--output-file")
-            .arg(&output_file_name)
-            .stdout(Stdio::piped())
-            .spawn()
-            .unwrap();
+        if self.qubo_solution.is_none() {
+            let mut cmd = Command::new("poetry")
+                .current_dir("./python/qubo_solver")
+                .arg("run")
+                .arg("python")
+                .arg("/Users/lucas/workspace/uni/bachelor/pipeline/python/qubo_solver/src/main.py")
+                .arg(abs_lp_file_name)
+                .arg(self.quantum_type.to_string())
+                .arg("--output-file")
+                .arg(&output_file_name)
+                .stdout(Stdio::piped())
+                .spawn()
+                .unwrap();
 
-        {
-            let stdout = cmd.stdout.as_mut().unwrap();
-            let stdout_reader = BufReader::new(stdout);
-            let stdout_lines = stdout_reader.lines();
+            {
+                let stdout = cmd.stdout.as_mut().unwrap();
+                let stdout_reader = BufReader::new(stdout);
+                let stdout_lines = stdout_reader.lines();
 
-            for line in stdout_lines {
-                println!("QUBO Solver: {}", line.unwrap());
+                for line in stdout_lines {
+                    println!("QUBO Solver: {}", line.unwrap());
+                }
             }
         }
 
