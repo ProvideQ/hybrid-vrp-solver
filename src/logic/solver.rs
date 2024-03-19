@@ -76,7 +76,13 @@ pub struct VrpSolver {
     pub build_dir: Option<String>,
 }
 impl VrpSolver {
-    pub fn partial_cluster(&self, problem: &Tsp) -> Vec<(File, String, BiMap<usize, usize>)> {
+    pub fn partial_cluster(
+        &self,
+        path: &str,
+        problem: &Tsp,
+    ) -> Vec<(File, String, BiMap<usize, usize>)> {
+        let file_name = Path::new(path).file_stem().unwrap().to_str().unwrap();
+
         let start_time = SystemTime::now();
         let clusters = self.cluster_strat.cluster(problem);
         println!("{:?}", clusters);
@@ -88,7 +94,13 @@ impl VrpSolver {
             .as_secs_f32();
         println!("clustered after: {after_cluster_time}");
 
-        let vrps: Vec<(Tsp, BiMap<usize, usize>)> = vrps_raw.iter().map(reindex_vrp).collect();
+        let vrps: Vec<(usize, Tsp, BiMap<usize, usize>)> = vrps_raw
+            .iter()
+            .map(|(i, tsp)| {
+                let mapped = reindex_vrp(tsp);
+                (*i, mapped.0, mapped.1)
+            })
+            .collect();
 
         let build_dir = self.build_dir();
 
@@ -101,7 +113,7 @@ impl VrpSolver {
         };
 
         // serialize reindex map
-        let map_file_path = format!("{}/{}.map", build_dir, problem.name());
+        let map_file_path = format!("{}/{}.map", build_dir, file_name);
         let mut map_file = match std::fs::File::create(&map_file_path) {
             Ok(file) => file,
             Err(e) => {
@@ -109,7 +121,7 @@ impl VrpSolver {
                 exit(1)
             }
         };
-        for (_, map) in &vrps {
+        for (_, _, map) in &vrps {
             let map = map
                 .iter()
                 .filter(|(i, _)| **i != 1usize)
@@ -120,10 +132,10 @@ impl VrpSolver {
         }
 
         vrps.iter()
-            .map(|(vrp, map)| {
+            .map(|(i, vrp, map)| {
                 let (file, path) = match TspSerializer::serialize_file(
                     vrp,
-                    format!("{}/{}.vrp", build_dir, vrp.name()),
+                    format!("{}/{}_{}.vrp", build_dir, &file_name, i),
                 ) {
                     Err(err) => {
                         println!("{}", err);
@@ -135,8 +147,8 @@ impl VrpSolver {
             })
             .collect()
     }
-    fn cluster_tsps(&self, problem: &Tsp, clusters: ClusterOutput) -> Vec<Tsp> {
-        let mut tsps: Vec<Tsp> = Vec::new();
+    fn cluster_tsps(&self, problem: &Tsp, clusters: ClusterOutput) -> Vec<(usize, Tsp)> {
+        let mut tsps: Vec<(usize, Tsp)> = Vec::new();
         for (i, cluster) in clusters.iter().enumerate() {
             let node_coords = problem
                 .node_coords()
@@ -200,7 +212,7 @@ impl VrpSolver {
                     .collect(),
                 vec![],
             );
-            tsps.push(tsp);
+            tsps.push((i, tsp));
         }
         tsps
     }
@@ -235,7 +247,7 @@ impl SolvingTrait for VrpSolver {
 
         let start_time = SystemTime::now();
         println!("start");
-        let vrps = self.partial_cluster(&problem);
+        let vrps = self.partial_cluster(path, &problem);
 
         let solver_start = SystemTime::now()
             .duration_since(start_time)

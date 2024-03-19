@@ -3,6 +3,8 @@ mod error_code;
 mod logic;
 
 use std::env;
+use std::path::Path;
+use std::process::exit;
 
 use args::{
     ClusterOption, OnlySolveCommand, SolveCommand, SolverOption, VRPCommand, VRPSolverArgs,
@@ -13,6 +15,8 @@ use logic::clustering::{ClusterTspClustering, KMeansClustering};
 use logic::solver::VrpSolver;
 use logic::solvers::{DummySolver, FileSolver, HybridTspSolver, LKHSolver, SolvingTrait};
 use tspf::{TspBuilder, TspKind};
+
+use crate::logic::solvers::VRPTourWriter;
 
 impl From<&SolveCommand> for Box<dyn SolvingTrait> {
     fn from(options: &SolveCommand) -> Self {
@@ -154,12 +158,42 @@ fn main() {
                     );
                 }
 
-                solver.partial_cluster(&vrp);
+                solver.partial_cluster(&cluster_opt.path[..], &vrp);
             }
             args::PartialSolveSubCommand::Solve(solve_opt) => {
                 let solver = Box::<dyn SolvingTrait>::from(&solve_opt);
 
-                solver.solve(&solve_opt.path[..], Option::Some(solve_opt.transform_only));
+                let path = &solve_opt.path[..];
+
+                let solution = solver.solve(path, Option::Some(solve_opt.transform_only));
+
+                if solve_opt.transform_only {
+                    return;
+                }
+
+                let vrp = TspBuilder::parse_path(path).unwrap();
+
+                if vrp.kind() != TspKind::Cvrp {
+                    panic!(
+                        "Invalid TSPLIB instance type {}. (supported is CVRP)",
+                        vrp.kind().to_string().to_uppercase()
+                    );
+                }
+
+                let file_dir = Path::new(path).parent().unwrap().to_str().unwrap();
+                let file_name = Path::new(path).file_stem().unwrap().to_str().unwrap();
+
+                let mut file =
+                    match std::fs::File::create(format!("{}/{}.sol", file_dir, file_name)) {
+                        Ok(file) => file,
+                        Err(e) => {
+                            println!("Problem opening solution file {e}");
+                            exit(1)
+                        }
+                    };
+
+                println!("writing tours to file {file_dir}/{file_name}.sol");
+                (&vrp, &solution).write_tours(&mut file).unwrap();
             }
         },
     }

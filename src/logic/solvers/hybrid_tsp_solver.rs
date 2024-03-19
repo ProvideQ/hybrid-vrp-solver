@@ -175,7 +175,7 @@ impl SolvingTrait for HybridTspSolver {
         let tsp = match TspBuilder::parse_path(path) {
             Ok(tsp) => tsp,
             Err(e) => {
-                println!("problems with parsing subproblem {e}");
+                println!("problems with parsing subproblem at {path}: {e}");
                 exit(1)
             }
         };
