@@ -3,7 +3,7 @@ from math import factorial
 import numpy as np
 from qrisp import *
 from qrisp.grover import grovers_alg
-from qrisp_solver.distance import qdict_calc_perm_travel_distance
+from qrisp_solver.distance import qdict_calc_perm_travel_distance_backward, qdict_calc_perm_travel_distance_forward
 from qrisp_solver.oracle import eval_distance_threshold
 from qrisp_solver.permutation import create_perm_specifiers, eval_perm
 
@@ -21,6 +21,8 @@ distance_matrix = np.array(
     ]
 )
 
+print(distance_matrix)
+
 city_demand = np.array([0, 1, 1, 1])
 
 perm_specifiers = create_perm_specifiers(city_amount)
@@ -29,14 +31,18 @@ for qv in perm_specifiers:
 # perm = eval_perm(perm_specifiers, city_amount=city_amount)
 # print(perm)
 
-
+# dist = QuantumFloat(4, -2)
+# dist[:] = 0
 # test_itinerary = QuantumArray(qtype=QuantumFloat(3))
 # test_itinerary[:] = [1, 2, 3]
-# qdict_res = qdict_calc_perm_travel_distance(
-#     test_itinerary, 5, city_amount, distance_matrix, city_demand, max_cap
+# result = qdict_calc_perm_travel_distance_forward(
+#     perm, 2, city_amount, distance_matrix, city_demand, max_cap
 # )
-# print(qdict_res)
+# print(result[0])
 
+# qdict_calc_perm_travel_distance_backward(
+#     perm, 2, city_amount, distance_matrix, city_demand, max_cap, forward_result=result
+# )
 winner_state_amount = 2 ** sum([qv.size for qv in perm_specifiers]) / factorial(
     city_amount - 2
 )

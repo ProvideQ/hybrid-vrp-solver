@@ -10,6 +10,10 @@ packages = [{ include = "qrisp_solver" }]
 python = "^3.11"
 qrisp = "^0.4.4"
 numpy = "^1.26.4"
+gurobipy = "^11.0.1"
+qiskit = "^1.0.2"
+qiskit-aer = "^0.13.3"
+qiskit-ibm-runtime = "^0.21.2"
 
 
 [build-system]

@@ -11,7 +11,7 @@ def swap_to_front(qa, index):
         # using Margolus gates. These gates perform the same operation as a regular Toffoli
         # but add a different phase for each input. This phase will not matter though,
         # since it will be reverted once the ancilla values of the oracle are uncomputed.
-        demux(qa[0], index, qa, permit_mismatching_size=True, ctrl_method="gray_pt")
+        demux(qa[0], index, qa, permit_mismatching_size=True)
 
 
 def eval_perm(perm_specifiers, city_amount):
@@ -24,6 +24,27 @@ def eval_perm(perm_specifiers, city_amount):
     qa = QuantumArray(QuantumFloat(int(np.ceil(np.log2(city_amount)))), city_amount - 1)
 
     qa[:] = np.arange(1, city_amount)
+
+    for i in range(N):
+        swap_to_front(qa[i:], perm_specifiers[i])
+
+    return qa
+
+
+def eval_perm_old(perm_specifiers, city_amount, qa=None):
+    N = len(perm_specifiers)
+
+    # To filter out the cyclic permutations, we impose that the first city is always city 0
+    # We will have to consider this assumption later when calculating the route distance
+    # by manually adding the trip distance of the first trip (from city 0) and the
+    # last trip (to city 0)
+    if qa is None:
+        qa = QuantumArray(QuantumFloat(int(np.ceil(np.log2(city_amount)))), city_amount)
+
+    add = np.arange(0, city_amount)
+
+    for i in range(city_amount):
+        qa[i] += int(add[i])
 
     for i in range(N):
         swap_to_front(qa[i:], perm_specifiers[i])
