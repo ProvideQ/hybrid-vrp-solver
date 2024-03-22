@@ -152,8 +152,13 @@ def eval_distance_threshold(perm_specifiers, precision, threshold, method="qpe")
 # Create permutation specifiers
 perm_specifiers = create_perm_specifiers(city_amount)
 
+for qv in perm_specifiers:
+    h(qv)
 
-# eval_distance_threshold(perm_specifiers, 5, 0.53125)
+
+eval_distance_threshold(perm_specifiers, 5, 0.4, "qdict")
+
+print(multi_measurement(perm_specifiers))
 
 
 from math import factorial

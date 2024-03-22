@@ -1,8 +1,58 @@
-from math import ceil, log
+from math import ceil, factorial, log
 from typing import Any, Tuple
 
 import numpy as np
-from qrisp import QuantumArray, QuantumBool, QuantumDictionary, QuantumFloat, cx
+from qrisp import *
+from qrisp.core import demux
+from qrisp.environments import invert
+from qrisp.grover import grovers_alg
+
+
+# Create a function that generates a state of superposition of all permutations
+def swap_to_front(qa, index):
+    with invert():
+        # The keyword ctrl_method = "gray_pt" allows the controlled swaps to be synthesized
+        # using Margolus gates. These gates perform the same operation as a regular Toffoli
+        # but add a different phase for each input. This phase will not matter though,
+        # since it will be reverted once the ancilla values of the oracle are uncomputed.
+        demux(qa[0], index, qa, permit_mismatching_size=True, ctrl_method="gray_pt")
+
+
+def eval_perm(perm_specifiers, city_amount):
+    N = len(perm_specifiers)
+
+    # To filter out the cyclic permutations, we impose that the first city is always city 0
+    # We will have to consider this assumption later when calculating the route distance
+    # by manually adding the trip distance of the first trip (from city 0) and the
+    # last trip (to city 0)
+    qa = QuantumArray(QuantumFloat(int(np.ceil(np.log2(city_amount)))), city_amount - 1)
+
+    qa[:] = np.arange(1, city_amount)
+
+    for i in range(N):
+        swap_to_front(qa[i:], perm_specifiers[i])
+
+    return qa
+
+
+# Create function that returns QuantumFloats specifying the permutations (these will be in uniform superposition)
+def create_perm_specifiers(city_amount, init_seq=None):
+    perm_specifiers = []
+
+    for i in range(city_amount - 1):
+        qf_size = int(np.ceil(np.log2(city_amount - i)))
+
+        if i == 0:
+            continue
+
+        temp_qf = QuantumFloat(qf_size)
+
+        if not init_seq is None:
+            temp_qf[:] = init_seq[i - 1]
+
+        perm_specifiers.append(temp_qf)
+
+    return perm_specifiers
 
 
 def qdict_calc_perm_travel_distance_forward(
@@ -15,7 +65,7 @@ def qdict_calc_perm_travel_distance_forward(
 ) -> Tuple[QuantumFloat, QuantumArray, QuantumFloat]:
     # A QuantumFloat with n qubits and exponent -n
     # can represent values between 0 and 1
-    res = QuantumFloat(precision, -precision)
+    res = QuantumFloat(precision * 2, -precision)
 
     # Fill QuantumDictionary with values
     qd = QuantumDictionary(return_type=res)
@@ -28,17 +78,14 @@ def qdict_calc_perm_travel_distance_forward(
     for i in range(city_amount):
         qd_to_zero[i] = res.truncate(distance_matrix[0, i])
 
-    first_trip_distance = qd_to_zero[itinerary[0]]
-    res += first_trip_distance
-    first_trip_distance.uncompute(recompute=True)
+    res += qd_to_zero[itinerary[0]]
 
     # Add the distance of the final trip
     final_trip_distance = qd_to_zero[itinerary[-1]]
     res += final_trip_distance
     final_trip_distance.uncompute(recompute=True)
 
-    max_demand = max(demand)
-    bit_number_cap = ceil(np.log2(capacity + max_demand))
+    bit_number_cap = ceil(log(capacity)) + 1
 
     demand_count_type = QuantumFloat(bit_number_cap)
 
@@ -46,21 +93,14 @@ def qdict_calc_perm_travel_distance_forward(
     for i in range(city_amount):
         qa[i] = demand[i]
 
-    est_worst_clusters = (sum(demand) / capacity) * 2
-    index_bit_number = ceil(np.log2(est_worst_clusters))
-
-    demand_indexer = QuantumFloat(index_bit_number)
+    demand_indexer = QuantumFloat(1)
     demand_counter = QuantumArray(qtype=demand_count_type)
-    demand_counter[:] = np.zeros(2**index_bit_number)
+    demand_counter[:] = [0, 0]
     # print(demand_counter)
 
     demand_indexer[:] = 0
     with demand_counter[demand_indexer] as demand:
-        first_demand = qa[itinerary[0]]
-        demand += first_demand
-        first_demand.uncompute()
-
-    # print(demand_counter)
+        demand += qa[itinerary[0]]
 
     # Evaluate result
     for i in range(city_amount - 2):
@@ -99,13 +139,11 @@ def qdict_calc_perm_travel_distance_forward(
             long_second_trip_distance.uncompute(recompute=True)
         # print(demand_counter)
         with demand_counter[demand_indexer] as demand:
-            should_reverse_capped = demand == city_demand
-            cx(should_reverse_capped, capped)
-            should_reverse_capped.uncompute()
+            with demand == city_demand:
+                capped.flip()
 
         capped.delete()  # already verfied once
         city_demand.uncompute()
-        # print(demand_counter)
 
     return res, demand_counter, demand_indexer
 
@@ -168,15 +206,17 @@ def qdict_calc_perm_travel_distance_backward(
 
         with demand_counter[demand_indexer] as demand:
             added = demand + city_demand
-            should_reverse_capped = added <= capacity
 
-            cx(should_reverse_capped, was_capped)
-
-            should_reverse_capped.uncompute()
+            reverse_capped = added <= capacity
 
             added.uncompute(recompute=True)
 
-        was_capped.delete()  # verified
+        with reverse_capped:
+            was_capped.flip()
+
+        reverse_capped.uncompute()
+
+        was_capped.delete(verify=True)  # verified
 
         city_demand.uncompute()
 
@@ -199,3 +239,99 @@ def qdict_calc_perm_travel_distance_backward(
     final_trip_distance.uncompute(recompute=True)
 
     res.delete()  # verified
+
+
+def eval_distance_threshold(
+    perm_specifiers,
+    precision,
+    threshold,
+    city_amount,
+    distance_matrix,
+    city_demand,
+    max_cap,
+):
+    itinerary = eval_perm(perm_specifiers, city_amount=city_amount)
+
+    distance, demand_array, demand_indexer = qdict_calc_perm_travel_distance_forward(
+        itinerary, precision, city_amount, distance_matrix, city_demand, max_cap
+    )
+
+    is_below_treshold = distance <= threshold
+
+    z(is_below_treshold)
+
+    with distance <= threshold:
+        is_below_treshold.flip()
+
+    qdict_calc_perm_travel_distance_backward(
+        itinerary,
+        precision,
+        city_amount,
+        distance_matrix,
+        city_demand,
+        max_cap,
+        forward_result=(distance, demand_array, demand_indexer),
+    )
+
+    itinerary.uncompute()
+
+
+max_cap = 2
+
+city_amount = 4
+
+city_coords = np.array([[0, 0], [1, 0.5], [0.5, -1], [-2, 0.5]])
+
+
+distance_matrix = np.array(
+    [
+        [np.linalg.norm(city_coords[i] - city_coords[j]) for i in range(city_amount)]
+        for j in range(city_amount)
+    ]
+)
+
+print(distance_matrix)
+
+city_demand = np.array([0, 1, 1, 1])
+
+perm_specifiers = create_perm_specifiers(city_amount)
+for qv in perm_specifiers:
+    h(qv)
+
+
+winner_state_amount = 2 ** sum([qv.size for qv in perm_specifiers]) / factorial(
+    city_amount - 2
+)
+
+
+grovers_alg(
+    perm_specifiers,  # Permutation specifiers
+    eval_distance_threshold,  # Oracle function
+    kwargs={
+        "threshold": 11,
+        "precision": 5,
+        "city_amount": city_amount,
+        "distance_matrix": distance_matrix,
+        "city_demand": city_demand,
+        "max_cap": max_cap,
+    },  # Specify the keyword arguments for the Oracle
+    winner_state_amount=winner_state_amount,
+)  # Specify the estimated amount of winners
+
+res = multi_measurement(perm_specifiers)
+
+print(res)
+
+
+# for testing purposes WHEN adding verify=True to all delete calls and running this code it works
+# perm = eval_perm(perm_specifiers, city_amount=city_amount)
+# print(perm)
+
+# result = qdict_calc_perm_travel_distance_forward(
+#     perm, 2, city_amount, distance_matrix, city_demand, max_cap
+# )
+# print(result[0])
+
+# qdict_calc_perm_travel_distance_backward(
+#     perm, 2, city_amount, distance_matrix, city_demand, max_cap, forward_result=result
+# )

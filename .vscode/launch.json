@@ -5,12 +5,13 @@
     "version": "0.2.0",
     "configurations": [
         { 
-            "name":"QUBO Solver",
+            "name":"Qrisp Solver",
             "type":"python",
             "request":"launch",
-            "program":"python/qubo_solver/src/main.py",
-            "args": [".vrp/CMT1_2.lp", "sim"],
-            "console":"integratedTerminal"
+            "program":"python/qrisp_solver/main.py",
+            "args": ["src/res/test_small.vrp", "--output-file", "src/res/test_small.sol"],
+            "console":"integratedTerminal",
+            "justMyCode": false
         },
         {
             "type": "lldb",
