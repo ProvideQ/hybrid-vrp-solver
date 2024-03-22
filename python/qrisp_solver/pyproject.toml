@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "qrisp-solver"
+version = "0.1.0"
+description = ""
+authors = ["Lucas Berger <lucask.berger@gmail.com>"]
+readme = "README.md"
+packages = [{ include = "qrisp_solver" }]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+qrisp = "^0.4.4"
+numpy = "^1.26.4"
+gurobipy = "^11.0.1"
+qiskit = "^1.0.2"
+qiskit-aer = "^0.13.3"
+qiskit-ibm-runtime = "^0.21.2"
+tsplib95 = "^0.7.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

@@ -1,0 +1,7 @@
+NAME: test solution
+TYPE: TOUR
+TOUR_SECTION:
+0 1 -1
+0 2 -1
+-1
+EOF
